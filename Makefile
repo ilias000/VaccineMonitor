@@ -14,6 +14,10 @@ VaccineMonitor.o:
 clean:
 	rm -f $(PROGRAM) $(OBJS)
 
+
+FILE = -c citizenRecordsFile.txt 
+BLOOMSIZE = –b 100000
+
 run: $(PROGRAM)
-	./$(PROGRAM)
+	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 
