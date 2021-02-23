@@ -6,8 +6,11 @@ PROGRAM = vaccineMonitor
 OBJS = VaccineMonitor.o
 
 $(PROGRAM): clean $(OBJS)
-	$(CC) $(OBJS) -o $(PROGRAM)
+	$(CC) $(CFLAGS) -o $(PROGRAM) $(OBJS)
  
+VaccineMonitor.o: 
+	$(CC) $(CFLAGS) -c VaccineMonitor.cpp
+
 clean:
 	rm -f $(PROGRAM) $(OBJS)
 
