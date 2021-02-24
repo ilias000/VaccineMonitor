@@ -15,7 +15,7 @@ clean:
 	rm -f $(PROGRAM) $(OBJS)
 
 
-FILE = -c citizenRecordsFile.txt 
+FILE = -c citizenRecordsFile 
 BLOOMSIZE = –b 100000
 
 run: $(PROGRAM)
