@@ -24,18 +24,15 @@ int main(int argc, char *argv[])
     {
         fileName = argv[2]; // storing the file name in filename variable
         bloomSize = atoi(argv[4]);
-        cout << "test1" << endl;
     }
     else if (!(string(argv[3]).compare("-c")) && !(string(argv[1]).compare("-b"))) // The form is : ./vaccineMonitor  –b bloomSize -c citizenRecordsFile
     {
         fileName = argv[4]; // storing the file name in filename variable
         bloomSize = atoi(argv[2]);
-        cout << "test2" << endl;
     }
     else // The form is not correct
     {
         cout << "Please use the right form for the execution command ! " << endl;
-        cout << "test3" << endl;
         return 0;
     }
 

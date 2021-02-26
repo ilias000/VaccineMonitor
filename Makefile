@@ -19,5 +19,5 @@ FILE = -c citizenRecordsFile
 BLOOMSIZE = -b 100000
 
 run: $(PROGRAM)
-	./$(PROGRAM) $(FILE)
+	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 
