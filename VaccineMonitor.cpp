@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         fileName = argv[4]; // storing the file name in filename variable
         bloomSize = atoi(argv[2]);
     }
-    else
+    else // The form is not correct
     {
         cout << "Please use the right form for the execution command ! " << endl;
         return 0;
