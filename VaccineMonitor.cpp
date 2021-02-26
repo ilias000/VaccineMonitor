@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    if (!(string(argv[1]).compare("-c")) && !(string(argv[3]).compare("-b"))) // The form is : ./vaccineMonitor -c citizenRecordsFile –b bloomSize
+    if (((string(argv[1]).compare("-c")) == 0) && ((string(argv[3]).compare("-b")) == 0)) // The form is : ./vaccineMonitor -c citizenRecordsFile –b bloomSize
     {
         fileName = argv[2]; // storing the file name in filename variable
         bloomSize = atoi(argv[4]);
     }
-    else if (!(string(argv[3]).compare("-c")) && !(string(argv[1]).compare("-b"))) // The form is : ./vaccineMonitor  –b bloomSize -c citizenRecordsFile
+    else if (((string(argv[3]).compare("-c")) == 0) && ((string(argv[1]).compare("-b")) == 0)) // The form is : ./vaccineMonitor –b bloomSize -c citizenRecordsFile
     {
         fileName = argv[4]; // storing the file name in filename variable
         bloomSize = atoi(argv[2]);
