@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
 
     ifstream name;
 
-    if (argc < 5)
+    if (argc < 5) // checking the general form
     {
-        cout << "Gamiese" << endl;
+        cout << "The general form of the command is not acceptable ! " << endl;
         return 0;
     }
 
