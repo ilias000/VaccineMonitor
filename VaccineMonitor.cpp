@@ -17,11 +17,22 @@ int main(int argc, char *argv[])
     // }
     string extensionOfFileName = (".txt");
     string fileName;
+    int bloomSize;
     string line; // will store one line of the file each time
 
     ifstream name;
-    fileName = argv[2];                   // storing the file name in filename variable
-    fileName.append(extensionOfFileName); // adding extension to the filename
+    if (argv[1] == "-c")
+    {
+        fileName = argv[2]; // storing the file name in filename variable
+        bloomSize = atoi(argv[4]);
+    }
+    else if (argv[3] == "-c")
+    {
+        fileName = argv[4]; // storing the file name in filename variable
+        bloomSize = atoi(argv[2]);
+    }
+
+        fileName.append(extensionOfFileName); // adding extension to the filename
     name.open(fileName);
 
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
