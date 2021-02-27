@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-string splitString(string *line)
+string *splitString(string *line)
 {
     if (line == NULL)
     {
@@ -22,7 +22,10 @@ string splitString(string *line)
 
     string *wordsOfLine = new string[numWords];
 
-    for (int i = 0; i < numWords; i++)
+    for (int currentWord = 0; currentWord < numWords; currentWord++)
     {
-        }
+        I_line >> wordsOfLine[currentWord];
+    }
+
+    return wordsOfLine;
 }
