@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+#include "Functions.h"
+
 int main(int argc, char *argv[])
 {
     cout << "                             --- THE VACCINE MONITOR PROGRAM STARTED ---                                 " << endl;
@@ -42,7 +44,12 @@ int main(int argc, char *argv[])
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {
         // process string ...
-        cout << line << endl;
+        // cout << line << endl;
+        int numWords;
+        string *wordsOfLine = splitString(&line, &numWords);
+
+        for (int i = 0; i < numWords; i++)
+            cout << wordsOfLine[i] << endl;
     }
 
     cout << "                             --- THE VACCINE MONITOR PROGRAM ENDED ---                                 " << endl;

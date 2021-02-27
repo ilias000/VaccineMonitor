@@ -4,6 +4,6 @@
 #include <iostream>
 using namespace std;
 
-string *splitString(string *);
+string *splitString(string *, int *);
 
 #endif
