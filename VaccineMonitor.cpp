@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     cout << "                             --- THE VACCINE MONITOR PROGRAM STARTED ---                                 " << endl;
     string extensionOfFileName = (".txt");
     string fileName;
-    int bloomSize;
-    string line; // will store one line of the file each time
+    int bloomSize; // size of bloom filter (bytes)
+    string line;   // will store one line of the file each time
 
     ifstream name;
 
