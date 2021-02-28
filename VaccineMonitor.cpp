@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     int bloomSize; // size of bloom filter (bytes)
     string line;   // will store one line of the file each time
 
-    if (argc < 5) // checking the general form
+    if (argc < 5) // checking the general form of the execution command
     {
         cout << "The general form of the command is not acceptable ! " << endl;
         return 0;
@@ -44,9 +44,12 @@ int main(int argc, char *argv[])
     {
         int numWords;                                            // will store the size of the array that I keep every word of the line
         string *wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
+        if (wordsOfLine == NULL)
+            return 0;
 
         for (int i = 0; i < numWords; i++) // printing the array of strings
             cout << wordsOfLine[i] << endl;
+        cout << endl;
     }
 
     cout << "                             --- THE VACCINE MONITOR PROGRAM ENDED ---                                 " << endl;

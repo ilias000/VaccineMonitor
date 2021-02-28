@@ -12,11 +12,11 @@ string *stringSeperator(string *line, int *numWords)
         return 0;
     }
 
-    *numWords = 1;
+    *numWords = 0;
     string word; //will store every word of the string
 
-    istringstream countLine(*line); // counting how many words the string has
-    while (countLine >> word)
+    istringstream countWords(*line); // counting how many words the string has
+    while (countWords >> word)
         (*numWords)++;
 
     string *wordsOfLine = new string[*numWords]; // allocating memory for an array of strings that will store every word
