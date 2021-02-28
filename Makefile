@@ -12,10 +12,10 @@ $(PROGRAM): clean $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(PROGRAM) 
 
 VaccineMonitor.o: VaccineMonitor.cpp Functions.h
-	$(CC) $(CFLAGS) -c VaccineMonitor.cpp -o VaccineMonitor.o
+	$(CC) $(CFLAGS) -c VaccineMonitor.cpp 
 
 Functions.o: Functions.cpp Functions.h
-	$(CC) $(CFLAGS) -c Functions.cpp -o Functions.o
+	$(CC) $(CFLAGS) -c Functions.cpp 
  
 clean:
 	rm -f $(PROGRAM) $(OBJS)
