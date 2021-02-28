@@ -34,7 +34,7 @@ BLOOMSIZE = -b *καινούριο_μέγεθος_bloom_filter_σε_bytes*
  ```./vaccineMonitor -c citizenRecordsFile –b bloomSize```  
  σε  
  ```./vaccineMonitor –b bloomSize -c citizenRecordsFile```  
- πρέπει πρέπει να αλλαχτεί στο Makefile το :  
+ πρέπει να αλλαχτεί στο Makefile το :  
  ```Makefile
  run: $(PROGRAM)
 	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
