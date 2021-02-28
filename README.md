@@ -14,8 +14,36 @@
     - ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
 
 - το citizenRecordsFile θα δωθεί χωρίς .txt extension  
-- για να αλαχτεί το όνομα του citizenRecordsFile σε κάποιο άλλο αρχείο, πρέπει να αλλαχτεί στο Makefile η τμή του FILE = -c citizenRecordsFile σε FILE = -c *καινούριο_όνομα_αρχείου*
-- για να αλαχτεί το μέγεθος του bloom filter σε *bytes*, πρέπει να αλλαχτεί στο Makefile η τμή του BLOOMSIZE = -b 100000 σε BLOOMSIZE = -b *καινούριο_μέγεθος_bloom_filter_σε_bytes*
+- για να αλαχτεί το όνομα του citizenRecordsFile σε κάποιο άλλο αρχείο, πρέπει να αλλαχτεί στο Makefile η τμή του :   
+```Makefile
+FILE = -c citizenRecordsFile
+```   
+σε  
+```Makefile
+FILE = -c *καινούριο_όνομα_αρχείου*
+```  
+- για να αλαχτεί το μέγεθος του bloom filter σε *bytes*, πρέπει να αλλαχτεί στο Makefile η τμή του :      
+```Makefile
+BLOOMSIZE = -b 100000
+```  
+ σε   
+```Makefile
+BLOOMSIZE = -b *καινούριο_μέγεθος_bloom_filter_σε_bytes*
+```
+ - για να αλαχτεί η εντολή εκτέλεσης απο :  
+ ```./vaccineMonitor -c citizenRecordsFile –b bloomSize```  
+ σε  
+ ```./vaccineMonitor –b bloomSize -c citizenRecordsFile```  
+ πρέπει πρέπει να αλλαχτεί στο Makefile το :  
+ ```Makefile
+ run: $(PROGRAM)
+	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
+```
+σε
+```Makefile
+run: $(PROGRAM)
+	./$(PROGRAM) $(BLOOMSIZE) $(FILE)
+```
 
 
 ---
