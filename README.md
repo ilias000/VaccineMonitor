@@ -36,14 +36,34 @@ BLOOMSIZE = -b *καινούριο_μέγεθος_bloom_filter_σε_bytes*
  ```./vaccineMonitor –b bloomSize -c citizenRecordsFile```  
  πρέπει να αλλαχτεί στο Makefile το :  
  ```Makefile
- run: $(PROGRAM)
+ run: 
 	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 ```
 σε
 ```Makefile
-run: $(PROGRAM)
+run: 
 	./$(PROGRAM) $(BLOOMSIZE) $(FILE)
 ```
+
+#### **Μεταγλώττιση & Εκτέλεση**
+- Eντολή Μεταγλώττισης :
+```terminal
+make
+```
+- Εντολή Εκτέλεσης :
+```terminal
+make run
+```
+- Εντολή Καθαρισμού :
+```terminal
+make clean
+```
+
+#### **Δομή Heap File Block**
+
+-   Bytes 0-480 : Χώρος Εγγραφών (Records)
+-   Bytes 504-508 : BlockId του επόμενου Block
+-   Bytes 508-512 : Τρέχων πλήθος εγγραφών στο Block
 
 
 ---
@@ -55,14 +75,3 @@ if (argc < 5)
 }
 ```
 ---
-
-#### **Μεταγλώττιση & Εκτέλεση**
-
-
-#### **Δομή Heap File Block**
-
--   Bytes 0-480 : Χώρος Εγγραφών (Records)
--   Bytes 504-508 : BlockId του επόμενου Block
--   Bytes 508-512 : Τρέχων πλήθος εγγραφών στο Block
-
-

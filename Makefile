@@ -20,6 +20,6 @@ Functions.o: Functions.cpp Functions.h
 clean:
 	rm -f $(PROGRAM) $(OBJS)
 
-run: $(PROGRAM)
+run: 
 	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 
