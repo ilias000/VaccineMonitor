@@ -4,7 +4,7 @@ BLOOMSIZE = -b 100000
 CC = g++
 CFLAGS = -Wall -g
  
-PROGRAM = vaccineMonitorExe
+PROGRAM = vaccineMonitor
  
 OBJS = VaccineMonitor.o Functions.o
 
