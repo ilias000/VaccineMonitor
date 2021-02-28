@@ -14,8 +14,6 @@ int main(int argc, char *argv[])
     int bloomSize; // size of bloom filter (bytes)
     string line;   // will store one line of the file each time
 
-    ifstream name;
-
     if (argc < 5) // checking the general form
     {
         cout << "The general form of the command is not acceptable ! " << endl;
@@ -24,13 +22,13 @@ int main(int argc, char *argv[])
 
     if (((string(argv[1]).compare("-c")) == 0) && ((string(argv[3]).compare("-b")) == 0)) // The form is : ./vaccineMonitor -c citizenRecordsFile –b bloomSize
     {
-        fileName = argv[2]; // storing the file name in filename variable
-        bloomSize = atoi(argv[4]);
+        fileName = argv[2];        // storing the file name in the filename variable
+        bloomSize = atoi(argv[4]); // converting to int and storing the bloomSize in the bloomSize variable
     }
     else if (((string(argv[3]).compare("-c")) == 0) && ((string(argv[1]).compare("-b")) == 0)) // The form is : ./vaccineMonitor –b bloomSize -c citizenRecordsFile
     {
-        fileName = argv[4]; // storing the file name in filename variable
-        bloomSize = atoi(argv[2]);
+        fileName = argv[4];        // storing the file name in the filename variable
+        bloomSize = atoi(argv[2]); // converting to int and storing the bloomSize in the bloomSize variable
     }
     else // The form is not correct
     {
@@ -39,16 +37,15 @@ int main(int argc, char *argv[])
     }
 
     fileName.append(extensionOfFileName); // adding extension to the filename
+    ifstream name;                        // opening the file that contains the citizen Records
     name.open(fileName);
 
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {
-        // process string ...
-        // cout << line << endl;
-        int numWords;
-        string *wordsOfLine = splitString(&line, &numWords);
+        int numWords;                                            // will store the size of the array that I keep every word of the line
+        string *wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
 
-        for (int i = 0; i < numWords; i++)
+        for (int i = 0; i < numWords; i++) // printing the array of strings
             cout << wordsOfLine[i] << endl;
     }
 

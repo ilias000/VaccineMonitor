@@ -4,27 +4,27 @@
 #include <iostream>
 using namespace std;
 
-string *splitString(string *line, int *numWords)
+string *stringSeperator(string *line, int *numWords)
 {
-    if (line == NULL)
+    if (line == NULL) // cheking if the string is NULL
     {
         cout << "The string is NULL !" << endl;
         return 0;
     }
 
     *numWords = 1;
-    string word;
+    string word; //will store every word of the string
 
-    istringstream str(*line);
-    while (str >> word)
+    istringstream countLine(*line); // counting how many words the string has
+    while (countLine >> word)
         (*numWords)++;
 
-    string *wordsOfLine = new string[*numWords];
+    string *wordsOfLine = new string[*numWords]; // allocating memory for an array of strings that will store every word
     istringstream I_line(*line);
-    for (int currentWord = 0; currentWord < *numWords; currentWord++)
+    for (int currentWord = 0; currentWord < *numWords; currentWord++) // inserting every word of the string to the array
     {
         I_line >> wordsOfLine[currentWord];
     }
 
-    return wordsOfLine;
+    return wordsOfLine; // returning the array that contains the strings
 }
