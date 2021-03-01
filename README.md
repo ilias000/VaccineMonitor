@@ -70,7 +70,7 @@ make clean
 ```c++
 if (argc < 5)
 {
-    cout << "Gamiese" << endl;
+    cout << "Hello world !" << endl;
     return 0;
 }
 ```
