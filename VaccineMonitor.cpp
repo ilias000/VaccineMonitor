@@ -47,8 +47,8 @@ int main(int argc, char *argv[])
         if (wordsOfLine == NULL)
             return 0;
 
-        // for (int i = 0; i < numWords; i++) // printing the array of strings
-        //     cout << wordsOfLine[i] << endl;
+        for (int i = 0; i < numWords; i++) // printing the array of strings
+            cout << wordsOfLine[i] << endl;
 
         /* TODO για καθε γραμμη να αρχικοποιεις και να αποθηκευεις στη μνημη τις δομες δεδομενων 
             που θα χρησιμοποιεισεις κατα την εκτελεση των ερωτηματων*/
