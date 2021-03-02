@@ -52,7 +52,9 @@ int main(int argc, char *argv[])
 
         /* TODO για καθε γραμμη να αρχικοποιεις και να αποθηκευεις στη μνημη τις δομες δεδομενων 
             που θα χρησιμοποιεισεις κατα την εκτελεση των ερωτηματων*/
-        cout << endl;
+        todo
+                cout
+            << endl;
     }
 
     cout << "                             --- THE VACCINE MONITOR PROGRAM ENDED ---                                 " << endl;
