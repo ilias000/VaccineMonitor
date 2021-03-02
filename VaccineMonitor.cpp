@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     else // The form is not correct
     {
         cout << "Please use the right form for the execution command ! " << endl;
-        return 0;
+        return 0
     }
 
     fileName.append(extensionOfFileName); // adding extension to the filename
