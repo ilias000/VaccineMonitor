@@ -1,6 +1,6 @@
 #include "Functions.h"
 
-#include <bits/stdc++.h>
+#include <sstream>
 #include <iostream>
 using namespace std;
 
