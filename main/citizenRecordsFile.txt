@@ -1,300 +1,100 @@
-0 7350 lWwUjgmxsBz iuicDKmpkEDYKM Algeria 11 NO HIV
-0 5928 mTqKV pWNJiQie Liberia 88 YES HIV 4-3-2011
-1 5687 TKPGRYmiH bdnkXCxE Norway 34 YES HIV 1-1-2017
-1 955 EgwotMx ZuOiEUIPd Samoa 106 NO H1N1
-4 5687 CPCew ornjIISLvG Luxembourg 56 YES HIV 7-11-2019
-3 646 XQGr dFH Kiribati 65 NO HIV
-0 3998 LycjMMzkIHr JDDGY Micronesia 14 YES HIV 26-11-2011
-2 7750 CHEjJGgW lIpIC BosniaandHerzegovina 118 NO Ebola
-0 1355 LsxEWbHgWt MhnVGReqSzKAwM Algeria 90 NO HIV
-0 9165 kEOJKWAQFlF OtIM SaoTomeandPrincipe 94 NO HIV
-0 9668 uJvgSMQiZskc TqQQMbu Luxembourg 30 NO Ebola
-4 7750 ZVDqDn yuOQHLzU GrandDuchyofTuscany 80 NO Covid
-3 7172 UftTQS QoGKqlgU RepublicofKorea(SouthKorea) 39 YES H1N1 30-1-2015
-2 8417 PbwmklckYSM SvcQ Luxembourg 98 NO Ebola
-3 8228 gbEglvfjGaIu RFQkbJYFPasIJv Barbados 31 YES Covid 5-4-2019
-3 18 fxvg CGklIgzTy Denmark 99 YES Covid 9-7-2017
-2 7567 QLhfmpdYuNxsi kuGCV Netherlands 77 NO HIV
-3 7449 ckIBKiIhYQRVA IooTBRF Micronesia 78 YES HIV 1-1-2016
-1 2397 DrxsoqqQLH YYCRWSqoXNqSc Bavaria 6 YES Ebola 3-2-2011
-1 8425 JFEqTRiSqOXP qMIUJ UnionofSovietSocialistRepublics 73 YES HIV 4-7-2014
-1 5331 fJqWSNwAssnRmo YMg Benin(Dahomey) 74 YES Covid 19-4-2015
-3 4441 axAzzHflDhafER CWTKTFtrm Malaysia 38 NO Covid
-4 5687 DMg tpDMUXredlsqMw Armenia 84 NO Ebola
-4 4441 SQEfGsd kQkNbagoWFlG SaintKittsandNevis 93 NO HIV
-2 9151 sZCvPITKJrICea BbAZmrVnBtr Niger 34 YES H1N1 5-4-2010
-2 7300 VbpokxFx hHr Australia 77 YES HIV 21-8-2014
-0 9864 CDuIgqMvuR LEBTk Monaco 7 NO Ebola
-4 7172 NEWmJMLVhEB UGGmHOm Malawi 89 NO Covid
-4 7172 OKlMjLVsy uTt SaudiArabia 97 NO Covid
-3 1088 IJptBWRHzY BKUaStmlbjc CotedIvoire(IvoryCoast) 64 YES Covid 16-11-2013
-0 6218 TWnSNfahTMHNvO aQhqt Algeria 18 NO H1N1
-1 8215 qaYnfYkoTc BEaKs SaudiArabia 108 YES H1N1 14-5-2018
-3 1758 UNbHqUoNOxQw IUscdFeoMr Serbia 113 YES HIV 15-9-2018
-1 3698 TsQHYzchSNfcL iDZCuXReSrNRg Poland 34 NO H1N1
-4 7172 pwQQGifcyO dFwZ Ethiopia 2 YES HIV 7-9-2014
-2 8877 wzqHsw HcnwWaY Lithuania 54 YES HIV 30-1-2014
-3 166 taV fQYHsGpWdOd Algeria 42 NO H1N1
-0 5724 FOhmPgWj Cjbmfs NewZealand 19 YES HIV 27-9-2017
-3 5870 EWVjuIGPaRxsgU jWCcpiamXsbB Italy 20 NO H1N1
-0 8548 YUynYsPlCmzI zaeuwNhyL TwoSicilies 36 YES Covid 18-11-2013
-1 7455 VRHgGkSfYVo bEofPPcFurXQj AustrianEmpire 52 NO Covid
-1 1656 teV XCcQyjOo SriLanka 82 NO HIV
-4 7172 mDnveQFAyjh cmLsVyYjoKhPKn ElSalvador 20 NO Covid
-1 8664 kNWZor IphwD Maldives 104 YES Ebola 5-11-2017
-3 9967 FjQCfGFgEPe FptGAboOWIeW Spain 119 NO H1N1
-0 5682 RVoKqSuBaU JpAqaZoJffiMvZ Norway 110 NO HIV
-1 2207 UoIsMNnjyx PwXcOOFsR NorthGermanUnion 91 YES H1N1 14-6-2011
-4 8877 rIjuwXoC rKRfLb Bahrain 30 NO Ebola
-3 1152 jGgQJVeUTDdh dISW Mozambique 64 YES H1N1 9-10-2011
-4 9864 AmRRnyBflGdk QCyayd SchaumburgLippe 115 NO Covid
-0 8250 juBxBcl xGkSlzygLQvWbB Croatia 24 YES H1N1 3-12-2010
-1 8361 BsedpAcPuhKlE WAmzzoKNOKCuD Czechoslovakia 32 NO HIV
-3 1413 PcbyOwjjgaEd bxQdcP Kyrgyzstan 63 NO Ebola
-2 783 dFKVTleOuCFSv ynNtUwMqkxdc Liechtenstein 107 YES Covid 23-2-2012
-2 2401 gOgdAl cuApfMZPSneBQw Switzerland 7 NO H1N1
-2 731 NSdXO USknrKaRwuu Azerbaijan 35 NO Ebola
-4 731 JZHGURwAau YBuOntga Poland 34 NO Covid
-3 4978 gxfyE pczWzC Bahamas 96 YES Covid 1-6-2016
-4 8361 TAorzbahsURF uPcyCTGSxtJ Turkey 115 NO HIV
-3 220 YvsRf snvEyagUEnu Malaysia 104 YES Covid 7-2-2013
-2 7799 ijcLUJsJXOCPZ CTudfEYIdHzgQZ Sweden 91 NO Ebola
-1 6505 txyrCWN jGhuhAmdL Mongolia 107 YES Covid 29-7-2012
-0 1706 Jlecg bnFFaEOdhm Singapore 4 YES H1N1 23-6-2015
-2 5689 riSo jRSBmHbELX Sweden 109 NO Covid
-0 1610 rNOKqStGVa Vis CentralAfricanRepublic 27 YES HIV 2-3-2013
-2 2626 gHhAvYANYWMAU lslYCaPQwjeBXe Cuba 65 NO Ebola
-0 3753 TebR WkhoXnCyHLNDow MecklenburgSchwerin 21 YES Covid 2-2-2014
-3 2509 DxDMI KhM Latvia 96 YES H1N1 28-8-2017
-2 6396 VYppPm vbb LewChew(Loochoo) 30 NO H1N1
-4 1413 NmcqSll wTtEA Rwanda 33 YES H1N1 17-4-2013
-3 8737 RnI WPjQIPRKT BurkinaFaso(UpperVolta) 66 NO H1N1
-3 952 GFiI otEnZQmKxpqddV Hungary 58 YES Covid 2-11-2010
-1 222 hzpkt UlKkjGLqE ElSalvador 100 YES H1N1 23-6-2012
-2 5038 acDlx GEPJmueunico Azerbaijan 79 NO Covid
-4 783 bwDjV pitxDYoYRMVu SierraLeone 14 NO H1N1
-3 8129 QZXxu kmgInsjNkXwKF SouthSudan 106 YES H1N1 12-2-2015
-2 909 fLn AZGiH Ecuador 120 NO HIV
-1 5431 xIec AYuKsvRKCaMn BosniaandHerzegovina 87 YES HIV 21-1-2010
-2 8139 cfHSGkEcm kpiI Georgia 80 YES Covid 4-2-2012
-0 1573 pkRTJ ftdZEhtJc RepublicofGenoa 110 YES H1N1 23-2-2015
-4 8129 IGfgtZleNiDhA LaJaTmMAWjJXS Grenada 14 NO HIV
-1 9904 NrIJTzwr yRacDSj OrangeFreeState 11 NO Covid
-4 5689 OknvSTxrJyXrj FSAIjHtOh EastGermany(GermanDemocraticRepublic) 78 NO Covid
-2 6613 skizzfSlOSAXl MPgRVVxmm Cameroon 19 YES H1N1 29-2-2011
-1 8456 lwhKhbUkRYTTl ECQJxgcAO Montenegro 11 YES Covid 12-12-2015
-0 3090 lFN ALlSiQGqlzFA Tanzania 42 NO Covid
-1 9364 zZVUuaRq AlKkFJHvuj Andorra 13 YES Ebola 16-6-2016
-3 5807 UYgEbnPZOmxyHe dNylTEwcWliZEo Latvia 111 YES H1N1 19-12-2014
-3 4541 YwEzKh uNQfCvJdZ Nicaragua 28 YES H1N1 19-1-2016
-0 7034 SMk csqgTquRx HanseaticRepublics 43 NO Ebola
-2 4744 idJFDGXJQQAWUU tZhlBKbWQyS SouthSudan 16 YES Covid 16-9-2011
-0 9244 HmYeCPE eBMybinhC PapalStates 99 YES Ebola 10-8-2013
-2 916 mzBsapZSbQ wqcQ UnionofSovietSocialistRepublics 77 NO Covid
-0 8474 cBjvYbtrXa uWxRyldVzw Kosovo 63 YES HIV 19-10-2018
-4 5807 stOaCegBRSCC AuN Niger 87 NO Covid
-2 841 NYFngCVJ yHO Oman 33 NO Covid
-0 1643 MRCwlIVhnuwJx xOFpfuf AustrianEmpire 114 NO Covid
-3 6771 PqsRmW VoYbspKSqK Tonga 26 YES Covid 1-9-2016
-4 1413 MetwZHMpbD UGryulthGOL Kenya 87 YES H1N1 24-12-2017
-1 4469 GIhUSQjwQfg jFyUc SriLanka 91 NO H1N1
-0 3551 vrPyii octABn Latvia 88 YES H1N1 4-12-2015
-4 3551 XRc llOY CostaRica 35 YES H1N1 11-5-2019
-3 2010 LvKwDbtXZvZk BNR UnionofSovietSocialistRepublics 56 NO Covid
-3 9770 JZYOmPOiPnxRw DwvjzT Mauritania 9 NO Ebola
-3 1706 UrdVUkjkP IgCduzbC DominicanRepublic 64 NO HIV
-1 6884 qReFApZc XIMrOuakAXXmBT SaintLucia 103 NO Covid
-2 8532 MJrh AIIIzwYPQk CongoFreeState 106 YES HIV 6-7-2015
-0 2054 hMjsBANNtn AnJQxyr Kazakhstan 61 NO Covid
-4 8532 tyjJneKxqFGEJ IUmS Czechoslovakia 14 YES Covid 30-2-2010
-1 5686 kHHS jpodMYDBWCc India 70 YES Covid 26-11-2019
-4 2054 mUxUqkuSyE HOOzS LewChew(Loochoo) 2 NO Ebola
-4 3551 Irl DWJgvTY Madagascar 53 NO Ebola
-4 1706 rkkGTmjGYZnM kiIBgwqCbG Colombia 118 NO HIV
-2 895 NPCbxViJMkg IHQmhXAch TwoSicilies 54 YES Covid 10-9-2013
-1 9524 sTeFKeyN qfOCX Fiji 58 NO H1N1
-3 22 uKnV CKTLUlvULzx Kuwait 68 YES H1N1 10-2-2014
-2 4699 sKNXUaOJYIQHBd sytGSrzpcCF EastGermany(GermanDemocraticRepublic) 71 NO Ebola
-1 3926 TSfgPyTBT HuMHdPNMr SouthSudan 11 YES Ebola 3-8-2011
-0 6901 DYVptqiPgAghRf DHIORucNPozU Barbados 60 NO HIV
-0 8336 JDGzV Eswbhu Lebanon 29 NO Covid
-1 5455 GJi tOLvtBokee Gambia 108 NO H1N1
-4 2054 hHhcbKNj NUlpU Tunisia 104 YES Covid 5-8-2013
-3 4862 KYpKqv RKofO Iceland 33 NO H1N1
-3 6454 JmHC hDjoMvblnkfHU Cyprus 64 NO H1N1
-1 1934 HyqWEEkZxcIula oAReFM Micronesia 27 YES Ebola 17-11-2014
-2 6051 snLXmXJMs iZKZBQAtgihvi Serbia 11 YES Covid 25-7-2011
-4 895 MLBNIAqFYEsht VqMcIsWaeh Singapore 63 NO HIV
-2 5180 bdXEuD SIVutilOXYcGA Monaco 118 YES Ebola 2-8-2014
-0 2729 HJnYgAi DNqy Kosovo 52 YES Covid 4-12-2010
-4 8532 XUgPiZzs Odo SchaumburgLippe 47 NO HIV
-2 7306 jZfxE TQp Slovenia 111 NO Ebola
-3 8263 xjrIg luvu Montenegro 78 NO Ebola
-0 6236 hCuhPEd GjtvTnquRrP Eswatini 76 YES Ebola 12-5-2017
-0 6158 ovDEicFbBkm xeOmkMtxVbzce Kyrgyzstan 103 NO Ebola
-2 6708 HQLH ycctOIncCilBi Georgia 107 NO Covid
-3 5703 TGKyPfJ tDprPltDytc MarshallIslands 118 NO Covid
-4 5686 UNqBimfP EciNAr Morocco 60 YES Covid 2-11-2018
-4 6051 SUyKzKJkfQHnC lWjlXVMMbGRYPT Poland 79 NO Ebola
-4 9524 igTT eCpzDeaEd Portugal 79 NO Covid
-1 128 GfVtHWEgie xlHmWjNwVHnkrr Netherlands 79 YES H1N1 17-12-2010
-1 3761 gZxqfybjKlZ uimXRRPVTycxd CotedIvoire(IvoryCoast) 94 YES Ebola 8-12-2014
-2 1378 JzjRYlIU YfLb RepublicofKorea(SouthKorea) 56 NO Ebola
-3 1299 JwMwurqHI uBZKyz Liechtenstein 60 NO H1N1
-3 9834 yXa QOEwDblCrmgbBq Turkey 108 YES HIV 15-1-2012
-4 895 zWTfxubVXrFCh cejQYbT CotedIvoire(IvoryCoast) 96 NO H1N1
-4 1706 ouCJs mAaetestIln AntiguaandBarbuda 52 YES Ebola 2-7-2018
-1 4202 gnlSZIRovGnHl OYYZTRgnbISFyH AustrianEmpire 114 YES Ebola 4-9-2017
-2 9391 QDHWaHoOaS CxmFKfpOyfKL Mauritius 27 NO HIV
-2 2562 UleRUVMMgt NUxFqXx Denmark 51 YES HIV 6-3-2013
-4 6051 JHGmLfWZoQJMa UREOhbGBc SanMarino 50 NO HIV
-0 4819 KbqKKPOs rMuyQOPT Laos 11 YES HIV 17-4-2018
-2 6313 nEXNxYytT tsBa Dominica 64 YES HIV 21-1-2018
-0 8448 gEuZxYh NqNqlAQdC Norway 5 YES H1N1 7-10-2010
-4 6313 RvvHdzrkOFQAhe NsbURDnfCBx Mali 68 YES Ebola 24-8-2010
-2 8603 fMNsus SRuoMIriu Qatar 115 YES Covid 19-7-2010
-2 3212 stbY HsrUNVVyLgezjP Afghanistan 31 NO H1N1
-2 4294 kcLLjzHyC xIHKL Poland 70 YES Ebola 27-3-2012
-3 5515 zzeq ecPfjBXCVAURhP China 48 YES HIV 22-2-2014
-1 2773 KmWIYrAi dMpAKfCIPP Bulgaria 21 YES H1N1 12-5-2010
-0 5181 qynxfuePE zjBWHTiVxwlS RepublicofGenoa 54 YES Ebola 13-8-2019
-0 157 tBvsOrXJp hWAntHFflx NewZealand 31 YES Ebola 6-5-2018
-4 157 rxKfAIMdDgMOl dFmWTOnmiysW Cuba 48 NO Covid
-2 2947 PZt ZgVbPEVtmV India 46 YES HIV 23-3-2017
-0 1811 wMs uUZsw Ireland 109 YES H1N1 30-11-2010
-4 157 jLsiDsDmDpPpEB kdlFpRdDMmwGD Kuwait 110 YES Covid 14-1-2014
-0 6121 lQy nkwCfYxFCkHC CaymanIslands 118 NO H1N1
-4 2947 KduDulVTHEWQ cbeSCljynFUBAZ Thailand 106 YES HIV 7-6-2010
-4 157 RYHACrudW lToavZMk SchaumburgLippe 113 NO Covid
-1 8423 TSqDsQryosWgmt LixJnz FederalGovernmentofGermany(184849) 27 YES Ebola 29-1-2012
-1 5716 sVxQa WheEmXxNF Paraguay 30 NO HIV
-0 6404 VZJgQn TDRLsJhTob Laos 56 YES Ebola 23-12-2017
-1 3988 tbAJafAv hsMXdvaYYACsD Comoros 87 YES Covid 15-11-2013
-0 1500 zSVYvEaGQShpWE yrcaomPy Israel 81 NO HIV
-3 3360 ejtWOeT LpgOr Uruguay 71 NO H1N1
-4 3360 hfR qStGqNJzEPxwP Grenada 97 NO HIV
-1 6218 cCrGuuKB HbiKZZeDaPo Uganda 64 YES Covid 8-2-2017
-2 5447 EVoUpHBDsKsDg WQagreMBNJ Vanuatu 105 NO Covid
-1 1934 mGmIRw ZhPdSWUkoeFl Korea 44 YES H1N1 16-5-2015
-3 9505 qzmJMNOZVbVyD bJArwpN Angola 48 NO H1N1
-2 1095 tCHBjNgkPXD GntAfAqdxrzH Burundi 99 YES Ebola 6-4-2015
-0 9032 TFWSihTJVJb VADrNsZF Bahamas 24 NO Ebola
-4 9032 GwVgjkwkrvLTk RVRPFlYTrimlnN EquatorialGuinea 104 YES Ebola 11-5-2013
-4 9032 DsBM GFXrYtWQAwG Brunei 7 NO HIV
-4 9032 jJbAYMvRrJI fHBbVlok Bavaria 26 YES HIV 28-7-2019
-3 1101 FowTXvfjyxtZCA mCihThy Argentina 119 YES H1N1 21-1-2015
-0 2363 FFpK nUl SaintLucia 9 YES Ebola 25-4-2012
-4 9032 fXTHMjHvOTO EhN Vanuatu 20 YES Covid 5-5-2012
-2 3055 VUbzlZKDDuFi HgkP CongoFreeState 27 NO H1N1
-1 297 LVkbXAw KlYZcQ OrangeFreeState 96 YES H1N1 20-7-2012
-1 1097 fPyWcQScLFOclK YHMaCcqKYoCrNd Togo 81 NO H1N1
-0 2071 alLb vRHgIClkK Latvia 72 NO Covid
-0 7161 ljJHdswkNeUYpK JBlYaj Hanover 64 YES Ebola 22-9-2014
-4 2071 JIECwdUtBiLFS AmkcVXHbNhGr PapalStates 109 YES H1N1 11-8-2011
-1 5511 BJbLCt uNAYO Venezuela 117 NO Covid
-2 4029 FmvDnpjoR wRtfTTolSOiZqO Algeria 31 NO Ebola
-3 253 nDzGUsgF rJnpURn Namibia 82 YES Ebola 18-1-2013
-0 8950 nvR mIu CentralAmericanFederation 37 NO Ebola
-0 6701 BWCXlibbx DcmRvsMLM Mexico 75 NO HIV
-4 2071 IDxN ZzV LewChew(Loochoo) 44 YES HIV 23-10-2011
-0 7126 rJvzzS Iid Uruguay 74 NO Covid
-0 3826 vxQuO FvhjpbMvhaHfX Indonesia 14 NO Covid
-1 2464 xABMJZDQgbyn QHIixKsvY UnitedArabEmirates 96 YES H1N1 6-11-2019
-4 3826 yTzyC pfArVMJB Kiribati 80 NO Ebola
-1 3174 xIlLDyrzVE ufTkqhQdBnDuHP Brunei 95 YES H1N1 29-1-2015
-3 1683 TPtUvg TVCAjXsna PapuaNewGuinea 28 YES H1N1 27-10-2017
-4 2464 rrBKYkboDkq VvOqHpsDqaX AntiguaandBarbuda 74 YES Ebola 27-3-2013
-0 3669 PiZ zGSgjg Georgia 5 YES HIV 28-1-2011
-4 3826 XzoU sItbEqnV Switzerland 85 YES HIV 24-1-2014
-2 763 sLml sUWbxyJWIG EquatorialGuinea 55 YES H1N1 11-10-2017
-2 4682 kLNlcaj sGCUagLXCgiP Württemberg 1 YES Covid 22-8-2014
-0 1723 TxieaeG BZG Albania 88 NO Covid
-4 1723 UmTq KlXuN Uzbekistan 120 NO Ebola
-3 9553 ZwitXzPR bzzbNHPJHNHSHB Jamaica 116 NO HIV
-2 7924 HbQBcLhCPVbb tnTEBO GrandDuchyofTuscany 46 NO H1N1
-4 7924 XzIRdTiWkYDfdM GdbYakbCsF Oman 36 YES Ebola 14-4-2012
-2 47 wBRSlKkDDuXQR gXzJhlRYT Barbados 113 YES Covid 5-10-2013
-1 2069 xmwwqfYMZEZsX eaCYAzO Rwanda 38 NO Covid
-4 1723 OzWIPBmhgp LcWx NewZealand 89 YES H1N1 23-10-2013
-2 1285 XOwMUlwADOXH OklPduhIIytFDR Finland 63 YES Ebola 2-6-2018
-3 9268 pTtsdFgZ PjmquRtk Oldenburg 93 NO H1N1
-0 903 YlpvibgzH KhF EastGermany(GermanDemocraticRepublic) 42 YES Covid 17-4-2014
-1 5457 WqHFbuxjfU KxCNuE Seychelles 28 NO Ebola
-3 8233 jJm roiC Tunisia 108 NO H1N1
-4 8233 MXUtz OpIbIKpzvK Australia 13 YES Covid 12-12-2016
-0 8691 atTV ORkuz Guatemala 55 YES HIV 1-12-2010
-2 6452 KaLapZZnRtvPul lgwZPOvLSOPM Japan 4 NO Ebola
-1 7068 NQK OTPFOPge Kosovo 44 YES HIV 16-3-2017
-2 4266 uRDrNEmA VXHgDdbWyOxP Bavaria 22 NO HIV
-0 6028 ljPUPNO GQZpfRVnKX Belgium 34 YES H1N1 5-12-2011
-2 6199 udfm Usc Kazakhstan 8 NO H1N1
-0 5881 EtgpqubtHVMtXe ljO Czechoslovakia 45 NO Covid
-3 9897 eOs iYxXtDluqkx Senegal 25 NO H1N1
-4 5881 QNNWAFdL nwhHhcmToolBrw Lithuania 29 NO H1N1
-3 366 LDr YQjZEwm Philippines 79 YES H1N1 11-7-2011
-4 5881 osaFzVxZD vvvnhBFZfVi FederalGovernmentofGermany(184849) 62 NO Ebola
-0 297 LxnivrBi bbOdqen Vanuatu 54 YES HIV 8-8-2014
-2 747 lzGlA HqJnBRLpSonjSz Czechoslovakia 40 NO Ebola
-2 8752 mYkW OIXWk Sweden 94 YES Ebola 26-8-2012
-0 6956 nHpQB AhhoWl Grenada 14 YES HIV 1-7-2017
-3 5036 XMaSTLd ViOi Jordan 3 NO H1N1
-0 4596 POMJJZqZbv MLngyv Croatia 56 YES H1N1 12-12-2010
-3 6158 iVVvTwn PQRCKSvktfNo Afghanistan 111 NO Ebola
-3 5324 jYQ mtogAh Luxembourg 12 NO Ebola
-4 6158 bZlbHhPWcgdueG UTA Colombia 45 NO Ebola
-4 4596 ZznWG UOqx Ecuador 76 NO Ebola
-1 8415 nrvR tEOCMVGBxd Yemen 72 YES H1N1 29-2-2010
-0 401 tgEH bHojZFzOqZpD SriLanka 1 YES Covid 4-10-2018
-1 3704 mTTPY zXMpZUoGklc Nigeria 100 YES H1N1 5-10-2015
-0 7492 oSrfglfyDn PltiZqSVzO Ghana 34 YES H1N1 15-4-2010
-4 401 rBrvoFvP LNbFRkRzGqQyHY Chile 82 NO Ebola
-0 6822 EFmp ePMeqaUGcsXyY Chad 61 YES Ebola 14-8-2015
-4 6822 OoqQgwGUlbqwj WeRjNRMlCzB SchaumburgLippe 40 NO HIV
-0 1779 wiQmtZBM UHlw Bahrain 26 NO H1N1
-3 7956 AsQp Rtpf SaintLucia 97 NO HIV
-0 6521 HdaVQvbBxRRJqZ XjXyLcrt Jamaica 23 YES Covid 23-9-2011
-4 6822 uqrcSe peojfsCXwJg Liechtenstein 61 YES H1N1 17-4-2014
-2 5752 EhJI SByLuGpVE Tonga 99 NO H1N1
-0 2835 zQhRVuCvSQkJ knGiI AntiguaandBarbuda 11 NO Ebola
-1 39 hAzJGRuwP PLJCp Tunisia 8 YES H1N1 25-6-2017
-4 7956 JxrN DsuFmaiyO Lithuania 80 YES HIV 18-4-2013
-0 2743 LhHNmyosLGBdo jjEcB SolomonIslands 120 NO Covid
-2 3270 loZxOwomxVrBeJ uoZB Albania 64 YES H1N1 21-6-2019
-2 4067 dPJTOYYZauYLR evhGhFrIrfEcrD Djibouti 104 NO H1N1
-3 63 JskboM kNpfQeTewQgoj Seychelles 117 NO Covid
-4 3270 qYaM VLOoBttzV SouthSudan 79 NO Covid
-3 3027 dHFPiHdEofBPA liPT ElSalvador 55 NO Ebola
-2 2801 QVeXnogtqwPlR TtsqjlHNwRoMTp UnionofSovietSocialistRepublics 75 NO Ebola
-1 9640 OLpAKqh KpyMlcvg Moldova 96 NO H1N1
-3 335 BclFxY KoOAD Germany 21 NO H1N1
-4 4067 LOzXxIMV RknuhNaR Colombia 115 YES HIV 13-9-2012
-0 1055 RxZundiMRsfBrb TcqHdJecvc Kyrgyzstan 75 NO Ebola
-4 1055 cEs eyJhipuGfntwo BosniaandHerzegovina 35 YES Ebola 22-11-2019
-0 300 jAtZfbaEVav XCSvpiwaE France 59 YES HIV 12-5-2013
-2 6827 tiTFmzwzkFZLl uNsvOvQuFiF Uganda 45 YES Ebola 20-3-2019
-2 3293 pkwv uZzwFoVPSPwHoU Liberia 112 NO HIV
-1 9502 CPLwFEzlD FbLwNTfIauW Seychelles 90 NO HIV
-3 6934 wDno yWulnHTA Jordan 24 YES H1N1 10-6-2017
-2 6658 zrRkmaVg VCYXIvKIGEVj RepublicofKorea(SouthKorea) 10 NO H1N1
-4 300 KljJTygqjLpXGh zKaE AntiguaandBarbuda 75 NO HIV
-1 3283 NvudfrNbqJKAXG CadKxklpI PiedmontSardinia 40 NO HIV
-0 4525 TYyBGk bZwBUZMtro Hesse 1 NO Covid
-1 7516 HgBpkObIvW IapVeOIawfrWxp Nigeria 70 NO Ebola
-2 9964 ENUPzcVTFKCig MFao TimorLeste 116 YES H1N1 12-10-2016
-3 5644 BcjkSDUduiV Hluh Armenia 113 NO H1N1
-1 2059 iLYXxXfelS qTE Nauru 6 NO H1N1
-4 5644 KMPwsBLVhV vXcUbhdr Tonga 104 YES H1N1 14-7-2012
-2 6453 NjeKWBwWb yfb Paraguay 108 NO Ebola
-3 5886 OevQxNVZeviNta hsDMToxJmMXY Paraguay 102 YES Ebola 14-8-2016
-2 5371 nhutFpYYSr kUVNZggvcwXOz Ghana 3 YES HIV 3-3-2012
-2 3101 KEOVOYvdwZkYSS VlIjF SouthAfrica 22 NO Covid
-0 4929 EtMHHeLdmxqV nvztJzo Nigeria 104 YES Ebola 29-7-2011
-2 1507 rGtVlwNFlhcVZ ADUkFjb Baden 93 YES H1N1 29-12-2012
-4 1507 rLfwYS YyqMReWpxZp Romania 113 NO Ebola
-3 1779 AVDANGexaIn ZFvVEUfFkfy NorthGermanUnion 78 NO HIV
-1 2056 DDiZe jzQljANTNw Nigeria 2 YES Covid 5-12-2011
-4 2056 CUQDcbsiPb hlVKFj CentralAfricanRepublic 94 NO Ebola
-2 5624 aiE oTbOwIGBJ Hungary 104 NO Covid
-3 7245 evdfQLviduRIjf Nyxk Kyrgyzstan 53 YES Covid 6-7-2011
-2 2088 uRcvbDm dWFc Chad 16 YES Ebola 4-11-2012
-1 5734 yizPgcjOJoi uQPaZKXzfdGKj SolomonIslands 70 YES Ebola 5-3-2018
+101 qcNFot KWOHLbwuVK Liberia 100 YES HIV 29-9-2011
+5296 iHthFkzfohtnGN nxp Sudan 63 NO H1N1
+1075 cxysKYWUnAC UfLjoprq Australia 85 NO HIV
+101 tuku xDtKwtR Laos 46 NO HIV
+1075 nvNcghuS kumAwNyWWSGdj Mauritania 80 YES Ebola 30-4-2013
+2247 uUu zpqKcPGA BurkinaFaso(UpperVolta) 78 YES Ebola 5-4-2019
+1827 UHSSPhz kpyHybSQoVRBX Vietnam 33 NO Ebola
+2293 CUfhlx cABRz Australia 117 NO Covid
+2732 JloqtWAaMM esgiA DominicanRepublic 44 YES Covid 16-7-2018
+386 Ajy crKPnlVcFUPV Russia 19 YES Ebola 12-12-2016
+5785 NSqJzhxikkbOI qzQDoLKoag Haiti 112 NO Ebola
+1075 dBidDtImkHP uBhAn Mexico 35 NO H1N1
+1552 sQJWlhPVzczo GmJoVLmtDd Djibouti 82 YES HIV 23-4-2014
+6890 kjyfGiosiSIjy OdhOjqbmBfnwg Belize 69 NO Covid
+4753 hWyW TNobqJ Gambia 84 YES Ebola 5-5-2013
+555 BYIoCOf FSkCSyCLMkBZRa Palau 120 YES H1N1 27-9-2015
+9949 sLtTGEGOHznV FDDKFHV Jamaica 5 NO Ebola
+3442 MiIhQe DTjpRkGKjHKL Micronesia 120 YES H1N1 28-11-2015
+9344 uBlTlmAuxCu qIobO Suriname 56 NO Ebola
+1827 CYmaPWDpbS Qqz Bulgaria 79 YES HIV 27-5-2014
+1689 iTqnlfANLcuR UAPqBJVHLeX Namibia 91 NO Ebola
+8658 Blsi eTiASgDpFeAl MecklenburgSchwerin 43 NO H1N1
+8803 lAvRiCTRE WpwvywT UnitedArabEmirates 18 NO HIV
+101 SnjjYctVV svIthrDuL PapalStates 37 YES Ebola 10-8-2016
+9597 ScBCpDaazieluN OdfjiD Hanover 13 NO Covid
+8251 ccDMs SdluKTRsL Czechia 87 NO HIV
+9195 hed gHRALaG Eswatini 65 YES H1N1 21-11-2012
+2293 MAdhHyHQ uPzU Hawaii 23 NO Covid
+1019 HQSayXp FRZRWgRUsSPU SchaumburgLippe 92 NO H1N1
+555 kOSCVx fsc SaintVincentandtheGrenadines 40 NO HIV
+8955 edtsoCgvHMltRE hDvRvoBvtIiSaR France 101 YES H1N1 21-7-2013
+5433 hGyRqAsxyTe SKt Jamaica 10 NO Covid
+8043 QDuivfeIpX sVAm Barbados 101 NO Covid
+101 nNhVFrzo LhDEuh Haiti 76 NO Covid
+7582 lbYSfFXHjq iLSNhzTXqsGXf Czechia 114 YES HIV 5-5-2018
+649 eZhuQnNrcR oMeybTApPeTnE Bolivia 49 YES H1N1 21-6-2015
+6523 jwvJUk lNDHHTjY Bavaria 49 YES Ebola 15-7-2015
+8658 YzyNpH HiEzl DominicanRepublic 81 NO Covid
+555 Ypyhw NgXsBHQB Madagascar 56 YES H1N1 2-4-2012
+2402 dFcL cUeWmmyOAz Spain 75 YES H1N1 12-2-2015
+9474 yaz wRpdPnJjM ElSalvador 109 YES HIV 14-9-2012
+9344 ioDNEjDqY BiY Liechtenstein 50 NO Ebola
+2293 FomUuSKLq MASZleXQN MecklenburgSchwerin 89 NO H1N1
+2447 EdBGm nlFjCg SaintKittsandNevis 86 NO Ebola
+8776 PcPlrCDC nhOo Micronesia 44 NO Covid
+4633 pYtxIXU MYWfI RepublicoftheCongo 49 NO H1N1
+170 iBC RHXq Bavaria 76 YES Covid 17-7-2011
+9949 zMVLMuqgyxE ckOqpRfUDeGvCW Andorra 99 YES HIV 14-12-2013
+6890 wLySm TXAVykqBZoS Tonga 23 NO Covid
+3741 SqmEpJlWVoLoB kCyZDYdQN Sudan 39 NO Covid
+7039 cZaVRLHbXJBekE JeHHbUc Syria 57 NO Covid
+1611 CNDakEaqlf cJnOXETxrHyws MarshallIslands 53 YES Ebola 6-3-2014
+1050 yccA OuilZMK Togo 63 NO H1N1
+5750 RPyJehRu GEXx Turkey 55 NO H1N1
+7928 NJbkxSoJo hBPXmM Brazil 22 YES HIV 11-4-2015
+2412 gQDs UjfCNubDDAWFYx Nepal 103 YES HIV 21-6-2015
+101 sVPkDmRCqVS YotPAqiovWjlM Lithuania 46 YES Ebola 10-3-2012
+3798 SYB EiQk Jamaica 44 YES HIV 19-4-2015
+962 cdpp UXVFZFHiuwm Spain 10 YES H1N1 3-11-2011
+283 LeE TjLogeTOH Andorra 34 NO Covid
+6137 RuL TEpqusy RepublicoftheCongo 13 NO Covid
+1655 dPqimhADVXQhcQ MHLMKyNtGW Brunei 18 NO H1N1
+9477 nxB wvjwyBbsXGEFVU Oldenburg 6 YES Covid 7-6-2012
+8817 TECMpJJ SYSQXGHVAvSP SaintVincentandtheGrenadines 84 NO Covid
+3720 hbqbKlEVEaU jaubCvIqzRVnWg Cambodia 11 YES H1N1 11-1-2018
+5545 smmkWHIMTxCFh zbDtPW Djibouti 33 NO HIV
+2140 wmBkQ QkgSz Luxembourg 37 YES Covid 2-2-2015
+1269 kcJKeAqvte VcIzFVbWM Netherlands 60 NO H1N1
+1219 WMbnCSnuR DnXST CentralAmericanFederation 54 YES Ebola 17-7-2012
+2140 FKeeCtyFSzALx QkNRoqHdIge Hawaii 26 NO HIV
+826 kacYWjcFIOWAo JoEaz Algeria 1 YES Ebola 25-11-2014
+500 zYHysjXBsNyj bniNiQ UnitedKingdom 59 NO HIV
+3841 jjkJtC vsEdsqY Bulgaria 38 NO Ebola
+3293 BxOKfMv kVgqGalZKSfxYA Panama 29 NO HIV
+1806 sUUvsXiE iSLFj Afghanistan 21 NO Covid
+6854 qmlVmHSHInvj dGZoAAvNSLHhdR CaboVerde 54 YES Ebola 13-3-2013
+6644 rqIyGQlk EbcnViGCF Iceland 120 NO Ebola
+6605 ZHSLfX iCjgEEMJo Lithuania 22 YES Covid 1-11-2015
+4806 hbhwjYeuvDvk nBZESIueW Djibouti 71 NO HIV
+9597 CgT LtswKFIgKMj Argentina 99 YES HIV 8-1-2019
+2674 HSQNgC UOVptXzJpo Montenegro 52 NO HIV
+663 hPVS oXqgxW UnitedArabEmirates 13 YES HIV 29-10-2017
+2696 AeclBlniaIoci FKlPx Ukraine 52 YES H1N1 29-7-2011
+4449 XiUzS DfBtfBZOtQz Latvia 110 YES H1N1 1-10-2016
+481 LvwJvWzPTt zeIeqCWGeVc Kiribati 37 YES H1N1 26-7-2016
+3565 ewmdstb tTcXvn SaintKittsandNevis 18 NO H1N1
+6760 BJVxhvrVAOVP yHsssZh Andorra 100 NO Ebola
+1737 dhTot kApffOKQ SaintVincentandtheGrenadines 61 YES Covid 28-7-2011
+3769 HEsSODYY ikZucVbNLB FederalGovernmentofGermany(184849) 10 NO Covid
+5160 VRaKyJE tuE Mauritania 17 NO H1N1
+7273 uzuwTpcKgrQufy FUBiZilRttKvjO Lithuania 69 NO Ebola
+101 wxxa MNdr Azerbaijan 52 YES HIV 19-6-2019
+4633 ZGJavhATKaRMi gjlZcZzLhmbrGr NewZealand 91 NO HIV
+1107 NKLXCqDhEOaP ruTq Hungary 116 NO Covid
+4521 ztJBBENIXo iqBUbpaaIyIDDy CostaRica 75 NO HIV
+6824 hGbYfrwJDBO MgPoxwAP Czechia 59 NO Covid
+6725 lHTFUwHINsMTDe QBHRsupWHFr Namibia 31 YES H1N1 23-2-2017
+2927 aCOLQSGZXJ XchAKRF Cameroon 41 NO Covid
+9011 bzpPNoPNJcah jTIDolfjntw Tunisia 6 NO Covid
+2701 DuVDBQ CboIFVtiP CongoFreeState 57 NO Ebola
