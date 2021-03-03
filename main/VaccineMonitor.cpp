@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "Functions.h"
+#include "CitizenRecord.h"
 
 int main(int argc, char *argv[])
 {

@@ -18,8 +18,9 @@ class CitizenRecord
     string date;
 
 public:
-    CitizenRecord();
+    CitizenRecord(int, string, string, string, int, string, string, string);
     ~CitizenRecord();
-}
+    void print();
+};
 
 #endif
