@@ -49,14 +49,14 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do
         isUnique=1
         while [ $isUnique -ne 0 ]
         do
-            # id=$((1 + $RANDOM % 9999))
-            # for (( k=0; k<$lengthIdesArray; k++ )) do
-            #     if [ $id -eq ${idesArray[k]} ]
-            #     then
-            #         isUnique=0
-            #         break
-            #     fi
-            # done
+            id=$((1 + $RANDOM % 9999))
+            for (( k=0; k<$lengthIdesArray; k++ )) do
+                if [ $id -eq ${idesArray[k]} ]
+                then
+                    isUnique=0
+                    break
+                fi
+            done
         done
     else
         randomId=$(($RANDOM % $lengthIdesArray))
