@@ -37,23 +37,25 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do
     hasDoneVaccine=$(($RANDOM % 2))
     date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 10))"
 
-    duplicate=0
-    if [ $duplicatesAllowed -eq 1 ]
-    then
-        duplicate=$(($RANDOM % 2))
-    fi
 
     lengthIdesArray=${#idesArray[@]}
-    if [ $duplicate -eq 0 ]
+    duplicate=0
+    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthIdesArray -ne 0 ]]
+    then
+        duplicate=$(($RANDOM % 5))
+    fi
+
+    if [ $duplicate -ne 4 ]
     then
         isUnique=1
         while [ $isUnique -ne 0 ]
         do
             id=$((1 + $RANDOM % 9999))
+            isUnique=0
             for (( k=0; k<$lengthIdesArray; k++ )) do
                 if [ $id -eq ${idesArray[k]} ]
                 then
-                    isUnique=0
+                    isUnique=1
                     break
                 fi
             done
