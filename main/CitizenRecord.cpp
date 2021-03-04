@@ -13,5 +13,5 @@ CitizenRecord::~CitizenRecord()
 
 void CitizenRecord::print()
 {
-    cout << id << firstName << lastName << country << age << virusName << vaccinated << date << endl;
+    cout << id << " " << firstName << " " << lastName << " " << country << " " << age << " " << virusName << " " << vaccinated << " " << date << endl;
 }
