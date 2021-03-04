@@ -1,5 +1,5 @@
-#ifndef CITIZENRECORDS_H
-#define CITIZENRECORDS_H
+#ifndef CITIZENRECORD_H
+#define CITIZENRECORD_H
 
 #include <string>
 
