@@ -73,9 +73,9 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     idesArray+=("$id") # inserting the new id to the array of ides 
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
     then
-        echo $duplicate $id $firstName $lastName $country $age "NO" $virus >> ../main/citizenRecordsFile.txt
+        echo $id $firstName $lastName $country $age "NO" $virus >> ../main/citizenRecordsFile.txt
     else # uf the citizen has done the vaccine
         date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-        echo $duplicate $id $firstName $lastName $country $age "YES" $virus $date >> ../main/citizenRecordsFile.txt
+        echo $id $firstName $lastName $country $age "YES" $virus $date >> ../main/citizenRecordsFile.txt
     fi
 done
