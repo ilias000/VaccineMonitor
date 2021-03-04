@@ -28,51 +28,54 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
     age=$((1 + $RANDOM % 120)) # random number [1, 120] for the length of the last name
 
-    firstName=$(head -3 /dev/urandom | tr -cd '[:alpha:]' | cut -c -$firstNameLength) # taking firstNameLength random numbers to create the firstName
-    lastName=$(head -3 /dev/urandom | tr -cd '[:alpha:]' | cut -c -$lastNameLength) # taking LastNameLength random numbers to create the lastName
-    
-    countriesArrayLength=${#countriesArray[@]}
-    virusesArrayLength=${#virusesArray[@]}
-    randomCountryIndex=$(($RANDOM % $countriesArrayLength))
-    randomVirusIndex=$(($RANDOM % $virusesArrayLength))
-    country=${countriesArray[randomCountryIndex]}
-    virus=${virusesArray[randomVirusIndex]}
-    hasDoneVaccine=$(($RANDOM % 2))
-    date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 10))"
+    firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
+    lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
 
+    countriesArrayLength=${#countriesArray[@]} # storing the size of the countriesArray array
+    virusesArrayLength=${#virusesArray[@]} # storing the size of the virusesArray array
 
-    lengthIdesArray=${#idesArray[@]}
+    randomCountryIndex=$(($RANDOM % $countriesArrayLength)) # finding a random index for countriesArray array
+    randomVirusIndex=$(($RANDOM % $virusesArrayLength)) # finding a random index for virusesArray array
+
+    country=${countriesArray[randomCountryIndex]} # storing the name of the random country
+    virus=${virusesArray[randomVirusIndex]} # storing the name of the random virus
+
+    hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
+
+    lengthIdesArray=${#idesArray[@]} # storing the size of the idesArray array
     duplicate=0
-    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthIdesArray -ne 0 ]]
+    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthIdesArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
-        duplicate=$(($RANDOM % 5))
+        duplicate=$(($RANDOM % 5)) # deciding if the specific id will be duplicate or not (if duplicate == 1 it will be duplicate id)
     fi
 
-    if [ $duplicate -ne 4 ]
+    if [ $duplicate -ne 1 ] # if duplicate is 0 or 2 or 3 or 4 the id will not be duplicate
     then
-        isUnique=1
-        while [ $isUnique -ne 0 ]
+        # i will find a random id [1,9999] but i have to check that is not duplicate
+        isUnique=0 # is 0 so it will enter the while the first time (i convert the while to do while) 1 = is unique 0 = is not unique
+        while [ $isUnique -eq 0 ] # while the id i choose is not unique i will choose another random id
         do
-            id=$((1 + $RANDOM % 9999))
-            isUnique=0
-            for (( k=0; k<$lengthIdesArray; k++ )) do
+            isUnique=1
+            id=$((1 + $RANDOM % 9999)) # choosing a random number [1, 9999] for the id
+            for (( k=0; k<$lengthIdesArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
                 if [ $id -eq ${idesArray[k]} ]
                 then
-                    isUnique=1
+                    isUnique=0 # the id is not unique
                     break
                 fi
             done
         done
-    else
-        randomId=$(($RANDOM % $lengthIdesArray))
+    else # the duplicate is 1 so the id will be duplicate
+        randomId=$(($RANDOM % $lengthIdesArray)) # choosing a random id from the ides that i already have used
         id=${idesArray[randomId]}
     fi
     
-    idesArray+=("$id")
-    if [ $hasDoneVaccine -eq 0 ]
+    idesArray+=("$id") # inserting the new id to the array of ides 
+    if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
     then
-        echo $id $firstName $lastName $country $age "NO" $virus >> ../main/citizenRecordsFile.txt
-    else
-        echo $id $firstName $lastName $country $age "YES" $virus $date >> ../main/citizenRecordsFile.txt
+        echo $duplicate $id $firstName $lastName $country $age "NO" $virus >> ../main/citizenRecordsFile.txt
+    else # uf the citizen has done the vaccine
+        date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
+        echo $duplicate $id $firstName $lastName $country $age "YES" $virus $date >> ../main/citizenRecordsFile.txt
     fi
 done
