@@ -24,5 +24,5 @@ clean:
 	rm -f $(PROGRAM) $(OBJS)
 
 run: 
-	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
+	./vaccineMonitor -c inputFile -b 1000
 
