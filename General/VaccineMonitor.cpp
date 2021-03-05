@@ -43,20 +43,25 @@ int main(int argc, char *argv[])
 
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {
-        int numWords;                                            // will store the size of the array that I keep every word of the line
-        string *wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
-        if (wordsOfLine == NULL)
-            return 0;
+        // int numWords;                                          // will store the size of the array that I keep every word of the line
+        // string *wordsOfLine = stringSeperator(line, numWords); // wordsOfLine will point to the array of strings that contains every word of the line
+        // if (wordsOfLine == NULL)
+        //     return 0;
 
-        CitizenRecord *citizen; // creating a citizen
+        // for (int i = 0; i < numWords; i++)
+        //     cout << wordsOfLine[i] << " ";
+        // cout << endl;
+        // CitizenRecord *citizen; // creating a citizen
 
-        if (numWords == 8) // if it has 8 it means it has also date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], wordsOfLine[7]);
-        else // it has not date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], "");
+        // if (numWords == 8) // if it has 8 it means it has also date
+        //     citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], wordsOfLine[7]);
+        // else // it has not date
+        //     citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], "");
 
-        citizen->print();
-        cout << endl;
+        // citizen->print();
+        // cout << endl;
+        // delete[] wordsOfLine;
+        // delete citizen;
     }
 
     cout << "                             ---  THE VACCINE MONITOR PROGRAM ENDED  ---                                 " << endl;

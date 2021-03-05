@@ -4,24 +4,18 @@
 #include <iostream>
 using namespace std;
 
-string *stringSeperator(string *line, int *numWords)
+string *stringSeperator(string line, int &numWords)
 {
-    if (line == NULL) // cheking if the string is NULL
-    {
-        cout << "The string is NULL !" << endl;
-        return 0;
-    }
-
-    *numWords = 0;
+    numWords = 0;
     string word; // will store every word of the string
 
-    istringstream countWords(*line); // counting how many words the string has
+    istringstream countWords(line); // counting how many words the string has
     while (countWords >> word)
-        (*numWords)++;
+        (numWords)++;
 
-    string *wordsOfLine = new string[*numWords]; // allocating memory for an array of strings that will store every word
-    istringstream I_line(*line);
-    for (int currentWord = 0; currentWord < *numWords; currentWord++) // inserting every word of the string to the array
+    string *wordsOfLine = new string[numWords]; // allocating memory for an array of strings that will store every word
+    istringstream I_line(line);
+    for (int currentWord = 0; currentWord < numWords; currentWord++) // inserting every word of the string to the array
         I_line >> wordsOfLine[currentWord];
 
     return wordsOfLine; // returning the array that contains the strings
