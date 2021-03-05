@@ -26,7 +26,7 @@ else
 fi
 
 maxRecordsNumber=$3 # taking the third argumnet and saving it to the maxRecordsNumber
-duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the maxRecordsNumber (1 = true, 0 = False)
+duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the duplicatesAllowed (1 = true, 0 = False)
 
 
 declare -a countriesArray; # creating an array to store coutries names

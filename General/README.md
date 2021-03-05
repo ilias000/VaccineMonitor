@@ -13,7 +13,7 @@
                     ή 
     - ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
 
-- το citizenRecordsFile θα δωθεί χωρίς .txt extension  
+- το citizenRecordsFile θα δωθεί χωρίς .txt extension.  
 - για να αλαχτεί το όνομα του citizenRecordsFile σε κάποιο άλλο αρχείο, πρέπει να αλλαχτεί στο Makefile η τμή του :   
 ```Makefile
 FILE = -c citizenRecordsFile
@@ -59,11 +59,18 @@ make run
 make clean
 ```
 
-#### **Δομή Heap File Block**
-
--   Bytes 0-480 : Χώρος Εγγραφών (Records)
--   Bytes 504-508 : BlockId του επόμενου Block
--   Bytes 508-512 : Τρέχων πλήθος εγγραφών στο Block
+## **Script**
+### ΓΕΝΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ
+- η εντολή εκτέλεσης θα είναι της μορφής :   
+  - ./testFile.sh virusesFile.txt countriesFile.txt 100 1  
+- Γίνεται έλεγχος για το αν έχουν δωθεί και τα 4 arguments που πρέπει.  
+- Γίνεται έλεγχος για το αν υπάρχει το αρχείο virusesFile.  
+- Γίνεται έλεγχος για το αν υπάρχει το αρχείο countriesFile.  
+- Αν ο χρήστης θέλει να υπάρχουν duplicate ids βρίσκω για κάθε record έναν αριθμό τυχαία από το 0 έως και το 5 και αν έρθει το 1 τότε το  
+συγκεκριμένο record θα έχει για id ένα id που έχει ξανά χρησιμοποιθεί αλλιώς θα έχει διαφορετικό.  
+- Τα ids που είναι duplicate έχουν περισσότερες πιθανότητες να ξανά γίνουν duplicate αφού θα υπάρχουν πάνω απο μία φορά στο πίνακα με τα ids.  
+- Αν για το συγκεκριμένο record ο citizen δεν έχει κάνει το εβόλιο βρίσκω τυχαία έναν αριθμό από το 0 έως και το 5 και αν έρθει το 1 τότε   
+θα βάλω και ημερομινία οπότε θα είναι inconsistent.
 
 
 ---
