@@ -94,7 +94,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     
     idesArray+=("$id") # inserting the new id to the array of ides 
 
-    destinationFilePath=../main/citizenRecordsFile.txt
+    destinationFilePath=../main/inputFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
     then
         dateProbability=$(($RANDOM % 5)) # deciding if the specific citizen record will have date while the citizen has not done the vaccine (if dateProbability == 1 it will have date so the record will be inconsistent)
