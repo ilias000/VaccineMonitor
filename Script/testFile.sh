@@ -41,7 +41,7 @@ while IFS= read -r line; do # read from the file virusesNames that contains, the
     virusesArray+=("$line")
 done < $virusesNamesFile
 
-declare -a citizensIdesArray; # creating an array to store the ides i use so i know if i have already use an id 
+declare -a citizensIdsArray; # creating an array to store the ids i use so i know if i have already use an id 
 
 # creating the records
 for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wants
@@ -64,9 +64,9 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
 
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
 
-    lengthcitizensIdesArray=${#citizensIdesArray[@]} # storing the size of the citizensIdesArray array
+    lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
     duplicate=0
-    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdesArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
+    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
         duplicate=$(($RANDOM % 5)) # deciding if the specific id will be duplicate or not (if duplicate == 1 it will be duplicate id)
     fi
@@ -79,8 +79,8 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         do
             isUnique=1
             id=$((0 + $RANDOM % 10000)) # choosing a random number [0, 9999] for the id
-            for (( k=0; k<$lengthcitizensIdesArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
-                if [ $id -eq ${citizensIdesArray[k]} ]
+            for (( k=0; k<$lengthcitizensIdsArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
+                if [ $id -eq ${citizensIdsArray[k]} ]
                 then
                     isUnique=0 # the id is not unique
                     break
@@ -88,11 +88,11 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
             done
         done
     else # the duplicate is 1 so the id will be duplicate
-        randomId=$(($RANDOM % $lengthcitizensIdesArray)) # choosing a random id from the ides that i already have used
-        id=${citizensIdesArray[randomId]}
+        randomId=$(($RANDOM % $lengthcitizensIdsArray)) # choosing a random id from the ids that i already have used
+        id=${citizensIdsArray[randomId]}
     fi
     
-    citizensIdesArray+=("$id") # inserting the new id to the array of ides 
+    citizensIdsArray+=("$id") # inserting the new id to the array of ids 
 
     destinationFilePath=../main/inputFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
