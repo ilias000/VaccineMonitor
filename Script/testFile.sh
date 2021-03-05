@@ -100,14 +100,14 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         dateProbability=$(($RANDOM % 5)) # deciding if the specific citizen record will have date while the citizen has not done the vaccine (if dateProbability == 1 it will have date so the record will be inconsistent)
         if [ $dateProbability -ne 1 ] # if dateProbability is 0 or 2 or 3 or 4 the record will not have date
         then
-            echo $id $firstName $lastName $country $age "NO" $virus >> $destinationFilePath
+            echo $id $firstName $lastName $country $age $virus "NO" >> $destinationFilePath
         else # the dateProbability is 1 so the record will have date (so it will be inconsistent)
             date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-            echo $id $firstName $lastName $country $age "NO" $virus $date >> $destinationFilePath
+            echo $id $firstName $lastName $country $age $virus "NO" $date >> $destinationFilePath
         fi
     else # if the citizen has done the vaccine
         date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-        echo $id $firstName $lastName $country $age "YES" $virus $date >> $destinationFilePath
+        echo $id $firstName $lastName $country $age $virus "YES" $date >> $destinationFilePath
     fi
 done
 
