@@ -7,22 +7,22 @@ else
     echo "Correct number of arguments"
 fi
 
-countriesNamesFile=$1 # taking the first argumnet and saving it to the countriesNamesFile
-
-if [ ! -f "$countriesNamesFile" ]; then # checking if the file that contains the countries names exist
-    echo "$countriesNamesFile does not exist."
-    exit
-else
-    echo "$countriesNamesFile does exist."
-fi
-
-virusesNamesFile=$2 # taking the second argumnet and saving it to the virusesNamesFile
+virusesNamesFile=$1 # taking the first argumnet and saving it to the virusesNamesFile
 
 if [ ! -f "$virusesNamesFile" ]; then # checking if the file that contains the viruses names exist
     echo "$virusesNamesFile does not exist."
     exit
 else
     echo "$virusesNamesFile does exist."
+fi
+
+countriesNamesFile=$2 # taking the second argumnet and saving it to the countriesNamesFile
+
+if [ ! -f "$countriesNamesFile" ]; then # checking if the file that contains the countries names exist
+    echo "$countriesNamesFile does not exist."
+    exit
+else
+    echo "$countriesNamesFile does exist."
 fi
 
 maxRecordsNumber=$3 # taking the third argumnet and saving it to the maxRecordsNumber
@@ -41,7 +41,7 @@ while IFS= read -r line; do # read from the file virusesNames that contains, the
     virusesArray+=("$line")
 done < $virusesNamesFile
 
-declare -a idesArray; # creating an array to store the ides i use so i know if i have already use an id 
+declare -a citizensIdesArray; # creating an array to store the ides i use so i know if i have already use an id 
 
 # creating the records
 for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wants
@@ -64,23 +64,23 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
 
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
 
-    lengthIdesArray=${#idesArray[@]} # storing the size of the idesArray array
+    lengthcitizensIdesArray=${#citizensIdesArray[@]} # storing the size of the citizensIdesArray array
     duplicate=0
-    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthIdesArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
+    if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdesArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
         duplicate=$(($RANDOM % 5)) # deciding if the specific id will be duplicate or not (if duplicate == 1 it will be duplicate id)
     fi
 
     if [ $duplicate -ne 1 ] # if duplicate is 0 or 2 or 3 or 4 the id will not be duplicate
     then
-        # i will find a random id [1,9999] but i have to check that is not duplicate
+        # i will find a random id [0,9999] but i have to check that is not duplicate
         isUnique=0 # is 0 so it will enter the while the first time (i convert the while to do while) 1 = is unique 0 = is not unique
         while [ $isUnique -eq 0 ] # while the id i choose is not unique i will choose another random id
         do
             isUnique=1
-            id=$((1 + $RANDOM % 9999)) # choosing a random number [1, 9999] for the id
-            for (( k=0; k<$lengthIdesArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
-                if [ $id -eq ${idesArray[k]} ]
+            id=$((0 + $RANDOM % 10000)) # choosing a random number [0, 9999] for the id
+            for (( k=0; k<$lengthcitizensIdesArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
+                if [ $id -eq ${citizensIdesArray[k]} ]
                 then
                     isUnique=0 # the id is not unique
                     break
@@ -88,11 +88,11 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
             done
         done
     else # the duplicate is 1 so the id will be duplicate
-        randomId=$(($RANDOM % $lengthIdesArray)) # choosing a random id from the ides that i already have used
-        id=${idesArray[randomId]}
+        randomId=$(($RANDOM % $lengthcitizensIdesArray)) # choosing a random id from the ides that i already have used
+        id=${citizensIdesArray[randomId]}
     fi
     
-    idesArray+=("$id") # inserting the new id to the array of ides 
+    citizensIdesArray+=("$id") # inserting the new id to the array of ides 
 
     destinationFilePath=../main/inputFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
