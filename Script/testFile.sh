@@ -3,10 +3,28 @@
 if [ "$#" -ne 4 ]; then # checking if the number of arguments is correct
     echo "Illegal number of arguments"
     exit
+else
+    echo "Correct number of arguments"
 fi
 
 countriesNamesFile=$1 # taking the first argumnet and saving it to the countriesNamesFile
+
+if [ ! -f "$countriesNamesFile" ]; then # checking if the file that contains the countries names exist
+    echo "$countriesNamesFile does not exist."
+    exit
+else
+    echo "$countriesNamesFile does exist."
+fi
+
 virusesNamesFile=$2 # taking the second argumnet and saving it to the virusesNamesFile
+
+if [ ! -f "$virusesNamesFile" ]; then # checking if the file that contains the viruses names exist
+    echo "$virusesNamesFile does not exist."
+    exit
+else
+    echo "$virusesNamesFile does exist."
+fi
+
 maxRecordsNumber=$3 # taking the third argumnet and saving it to the maxRecordsNumber
 duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the maxRecordsNumber (1 = true, 0 = False)
 
@@ -75,11 +93,22 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     fi
     
     idesArray+=("$id") # inserting the new id to the array of ides 
+
+    destinationFilePath=../main/citizenRecordsFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
     then
-        echo $id $firstName $lastName $country $age "NO" $virus >> ../main/citizenRecordsFile.txt
+        dateProbability=$(($RANDOM % 5)) # deciding if the specific citizen record will have date while the citizen has not done the vaccine (if dateProbability == 1 it will have date so the record will be inconsistent)
+        if [ $dateProbability -ne 1 ] # if dateProbability is 0 or 2 or 3 or 4 the record will not have date
+        then
+            echo $id $firstName $lastName $country $age "NO" $virus >> $destinationFilePath
+        else # the dateProbability is 1 so the record will have date (so it will be inconsistent)
+            date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
+            echo $id $firstName $lastName $country $age "NO" $virus $date >> $destinationFilePath
+        fi
     else # if the citizen has done the vaccine
         date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-        echo $id $firstName $lastName $country $age "YES" $virus $date >> ../main/citizenRecordsFile.txt
+        echo $id $firstName $lastName $country $age "YES" $virus $date >> $destinationFilePath
     fi
 done
+
+echo "The file was created successfully at : " $destinationFilePath
