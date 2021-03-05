@@ -8,16 +8,15 @@ duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the maxRecord
 
 declare -a countriesArray; # creating an array to store coutries names
 
-while IFS= read -r line; do # read from the file that contains the countriesNames, the countries names and inserting them to the array
+while IFS= read -r line; do # read from the file countriesNames that contains , the countries names and inserting them to the array
     countriesArray+=("$line")
 done < $countriesNamesFile
 
 declare -a virusesArray; # creating an array to store viruses names
 
-while IFS= read -r line; do # read from the file that contains the virusesNames, the viruses names and inserting them to the array
+while IFS= read -r line; do # read from the file virusesNames that contains, the viruses names and inserting them to the array
     virusesArray+=("$line")
 done < $virusesNamesFile
-
 
 declare -a idesArray; # creating an array to store the ides i use so i know if i have already use an id 
 
@@ -26,7 +25,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
 
     firstNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the first name
     lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
-    age=$((1 + $RANDOM % 120)) # random number [1, 120] for the length of the last name
+    age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
 
     firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
     lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
