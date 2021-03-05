@@ -1,5 +1,10 @@
 #! /bin/bash
 
+if [ "$#" -ne 4 ]; then # checking if the number of arguments is correct
+    echo "Illegal number of arguments"
+    exit
+fi
+
 countriesNamesFile=$1 # taking the first argumnet and saving it to the countriesNamesFile
 virusesNamesFile=$2 # taking the second argumnet and saving it to the virusesNamesFile
 maxRecordsNumber=$3 # taking the third argumnet and saving it to the maxRecordsNumber
