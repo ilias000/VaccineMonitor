@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     int bloomSize; // size of bloom filter (bytes)
     string line;   // will store one line of the file each time
 
-    if (argc < 5) // checking the general form of the execution command
+    if (argc != 5) // checking the general form of the execution command
     {
         cout << "The general form of the command is not acceptable ! " << endl;
         return 0;
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     strcpy(fileNameChar, fileName.c_str());
     if (stat(fileNameChar, &buffer) != 0) // checking if the file exist
     {
-        cout << "The file : " << fileName << "does not exist!" << endl;
+        cout << "The file : " << fileName << " does not exist!" << endl;
         delete fileNameChar;
         return 0;
     }

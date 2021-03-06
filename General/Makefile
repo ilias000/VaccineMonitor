@@ -10,7 +10,6 @@ OBJS = VaccineMonitor.o Functions.o CitizenRecord.o
 
 $(PROGRAM): clean $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(PROGRAM)
-	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 
 VaccineMonitor.o: VaccineMonitor.cpp Functions/Functions.h CitizenRecord/CitizenRecord.h
 	$(CC) $(CFLAGS) -c VaccineMonitor.cpp 

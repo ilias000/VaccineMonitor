@@ -22,7 +22,7 @@
 - το citizenRecordsFile θα δωθεί χωρίς .txt extension.  
 - για να αλαχτεί το όνομα του citizenRecordsFile σε κάποιο άλλο αρχείο, πρέπει να αλλαχτεί στο Makefile η τμή του :   
 ```Makefile
-FILE = -c citizenRecordsFile
+FILE = -c inputFile
 ```   
 σε  
 ```Makefile
@@ -42,31 +42,31 @@ BLOOMSIZE = -b *καινούριο_μέγεθος_bloom_filter_σε_bytes*
  ```./vaccineMonitor –b bloomSize -c citizenRecordsFile```  
  πρέπει να αλλαχτεί στο Makefile το :  
  ```Makefile
- run: 
+ val: 
 	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
 ```
 σε
-```Makefile
-run: 
-	./$(PROGRAM) $(BLOOMSIZE) $(FILE)
-```
+ ```Makefile
+ val: 
+    ./$(PROGRAM) $(BLOOMSIZE) $(FILE)
+ ```
 
 #### **Μεταγλώττιση & Εκτέλεση**
-- Eντολή Μεταγλώττισης Και Εκτέλεσης:
+- Eντολή Μεταγλώττισης :
 ```terminal
 make
 ```
-- Εντολή Εκτέλεσης
+- Εντολή Εκτέλεσης :
 ```
-    ./vaccineMonitor -c citizenRecordsFile –b bloomSize   
+    ./vaccineMonitor -c inputFile -b 100000   
     ```
 
     ## ή 
 
     ```
-    ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
+    ./vaccineMonitor -b 100000 -c inputFile  
     ```
-- Εντολή Εκτέλεσης Με Valgrind:
+- Εντολή Εκτέλεσης Με Valgrind :
 ```terminal
 make val
 ```
