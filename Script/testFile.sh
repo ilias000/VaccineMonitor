@@ -31,13 +31,13 @@ duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the duplicate
 
 declare -a countriesArray; # creating an array to store coutries names
 
-while IFS= read -r line; do # read from the file countriesNames that contains , the countries names and inserting them to the array
+while IFS= read -r line; do # read from the file countriesNames, the countries names and inserting them to the array
     countriesArray+=("$line")
 done < $countriesNamesFile
 
 declare -a virusesArray; # creating an array to store viruses names
 
-while IFS= read -r line; do # read from the file virusesNames that contains, the viruses names and inserting them to the array
+while IFS= read -r line; do # read from the file virusesNames, the viruses names and inserting them to the array
     virusesArray+=("$line")
 done < $virusesNamesFile
 
@@ -75,10 +75,10 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     then
         # i will find a random id [0,9999] but i have to check that is not duplicate
         isUnique=0 # is 0 so it will enter the while the first time (i convert the while to do while) 1 = is unique 0 = is not unique
-        while [ $isUnique -eq 0 ] # while the id i choose is not unique i will choose another random id
+        while [ $isUnique -eq 0 ] # while the id is not unique i will choose another random id
         do
             isUnique=1
-            id=$((0 + $RANDOM % 10000)) # choosing a random number [0, 9999] for the id
+            id=$(($RANDOM % 10000)) # choosing a random number [0, 9999] for the id
             for (( k=0; k<$lengthcitizensIdsArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
                 if [ $id -eq ${citizensIdsArray[k]} ]
                 then
