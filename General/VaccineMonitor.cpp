@@ -1,5 +1,7 @@
 #include "Functions/Functions.h"
 #include "CitizenRecord/CitizenRecord.h"
+#include "LinkedList/LinkedListString/LinkedListString.h"
+#include "LinkedList/LinkedListCitizen/LinkedListCitizen.h"
 
 #include <stdlib.h>
 #include <string>
@@ -57,6 +59,10 @@ int main(int argc, char *argv[])
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
 
+    LinkedListString *countries = new LinkedListString();
+    LinkedListString *viruses = new LinkedListString();
+    LinkedListCitizen *citizens = new LinkedListCitizen();
+
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {
         int numWords;                                            // will store the size of the array that I keep every word of the line
@@ -67,19 +73,35 @@ int main(int argc, char *argv[])
             return 0;
         }
 
+        // checking if i have already the country in the list
+        LinkedListStringNode *country = countries->findNode(wordsOfLine[3]);
+        if (country == NULL) // the country does not exist in the list so i will insert it
+        {
+            countries->insertNode(wordsOfLine[3]);
+        }
+
+        // checking if i have already the virus in the list
+        LinkedListStringNode *virus = viruses->findNode(wordsOfLine[5]);
+        if (virus == NULL) // the country does not exist in the list so i will insert it
+        {
+            viruses->insertNode(wordsOfLine[5]);
+        }
+
         CitizenRecord *citizen; // creating a citizen
 
         if (numWords == 8) // if it has 8 it means it has also date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], wordsOfLine[7]);
+            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], virus, stoi(wordsOfLine[4]), country, wordsOfLine[6], wordsOfLine[7]);
         else // it has not date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], wordsOfLine[3], stoi(wordsOfLine[4]), wordsOfLine[5], wordsOfLine[6], "");
+            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], virus, stoi(wordsOfLine[4]), country, wordsOfLine[6], "");
 
         citizen->print();
         cout << endl;
         delete[] wordsOfLine;
-        delete citizen;
     }
 
+    delete countries;
+    delete viruses;
+    delete citizens;
     cout << "                             ---  THE VACCINE MONITOR PROGRAM ENDED  ---                                 " << endl;
 
     return 0;

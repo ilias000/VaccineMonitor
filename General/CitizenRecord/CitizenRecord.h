@@ -1,6 +1,8 @@
 #ifndef CITIZENRECORD_H
 #define CITIZENRECORD_H
 
+#include "LinkedList/LinkedListString/LinkedListString.h"
+
 #include <string>
 
 #include <iostream>
@@ -18,7 +20,7 @@ class CitizenRecord
     string date;
 
 public:
-    CitizenRecord(int, string, string, string, int, string, string, string);
+    CitizenRecord(int, string, string, LinkedListStringNode *, int, LinkedListStringNode *, string, string);
     ~CitizenRecord();
     void print();
 };

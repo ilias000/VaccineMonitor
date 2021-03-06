@@ -1,9 +1,11 @@
 #include "CitizenRecord.h"
 
+#include "LinkedList/LinkedListString/LinkedListString.h"
+
 #include <iostream>
 using namespace std;
 
-CitizenRecord::CitizenRecord(int id, string firstName, string lastName, string country, int age, string virusName, string vaccinated, string date) : id(id), firstName(firstName), lastName(lastName), country(country), age(age), virusName(virusName), vaccinated(vaccinated), date(date) {}
+CitizenRecord::CitizenRecord(int id, string firstName, string lastName, LinkedListStringNode *country, int age, LinkedListStringNode *virusName, string vaccinated, string date) : id(id), firstName(firstName), lastName(lastName), country(country), age(age), virusName(virusName), vaccinated(vaccinated), date(date) {}
 
 CitizenRecord::~CitizenRecord() {}
 

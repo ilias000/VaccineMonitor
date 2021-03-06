@@ -42,24 +42,29 @@ while IFS= read -r line; do # read from the file virusesNames, the viruses names
 done < $virusesNamesFile
 
 declare -a citizensIdsArray; # creating an array to store the ids i use so i know if i have already use an id 
+declare -A citizenIdMap # creating an associative array with key the ID and values citizenID, firstName, lastName, country, age
+
+countriesArrayLength=${#countriesArray[@]} # storing the size of the countriesArray array
+virusesArrayLength=${#virusesArray[@]} # storing the size of the virusesArray array
 
 # creating the records
 for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wants
 
     firstNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the first name
-    lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
-    age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
-
     firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
+    
+    lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
     lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
 
-    countriesArrayLength=${#countriesArray[@]} # storing the size of the countriesArray array
-    virusesArrayLength=${#virusesArray[@]} # storing the size of the virusesArray array
-
+    
     randomCountryIndex=$(($RANDOM % $countriesArrayLength)) # finding a random index for countriesArray array
-    randomVirusIndex=$(($RANDOM % $virusesArrayLength)) # finding a random index for virusesArray array
-
     country=${countriesArray[randomCountryIndex]} # storing the name of the random country
+    
+    age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
+    
+
+
+    randomVirusIndex=$(($RANDOM % $virusesArrayLength)) # finding a random index for virusesArray array
     virus=${virusesArray[randomVirusIndex]} # storing the name of the random virus
 
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
@@ -79,13 +84,11 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         do
             isUnique=1
             id=$(($RANDOM % 10000)) # choosing a random number [0, 9999] for the id
-            for (( k=0; k<$lengthcitizensIdsArray; k++ )) do # checking every id that i already used to see if it is the same with the one i chose
-                if [ $id -eq ${citizensIdsArray[k]} ]
-                then
-                    isUnique=0 # the id is not unique
-                    break
-                fi
-            done
+            if [ ${citizenIdMap[$id]+_} ]
+            then
+                isUnique=0 # the id is not unique
+                break
+            fi
         done
     else # the duplicate is 1 so the id will be duplicate
         randomId=$(($RANDOM % $lengthcitizensIdsArray)) # choosing a random id from the ids that i already have used
@@ -93,6 +96,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     fi
     
     citizensIdsArray+=("$id") # inserting the new id to the array of ids 
+    citizenIdMap+=([$id]=$id)
 
     destinationFilePath=../General/inputFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
@@ -110,5 +114,5 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         echo $id $firstName $lastName $country $age $virus "YES" $date >> $destinationFilePath
     fi
 done
-
+for id in "${!citizenIdMap[@]}"; do echo "$id => ${citizenIdMap[$id]}"; done
 echo "The file was created successfully at : " $destinationFilePath
