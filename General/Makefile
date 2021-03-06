@@ -1,7 +1,7 @@
 FILE = -c inputFile 
 BLOOMSIZE = -b 100000
 
-CC = g++
+CC = g++ -std=c++11
 CFLAGS = -Wall -g
 
 PROGRAM = vaccineMonitor

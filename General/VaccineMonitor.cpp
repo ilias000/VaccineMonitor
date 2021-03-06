@@ -1,6 +1,7 @@
 #include "Functions/Functions.h"
 #include "CitizenRecord/CitizenRecord.h"
 
+#include <stdlib.h>
 #include <string>
 #include <fstream>
 #include <cstring>
