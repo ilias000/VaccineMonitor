@@ -61,11 +61,11 @@ int main(int argc, char *argv[])
         int numWords;                                            // will store the size of the array that I keep every word of the line
         string *wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
         if (wordsOfLine == NULL)
+        {
+            cout << "Error wordsOfLine is NULL !" << endl;
             return 0;
+        }
 
-        // for (int i = 0; i < numWords; i++)
-        //     cout << wordsOfLine[i] << " ";
-        // cout << endl;
         CitizenRecord *citizen; // creating a citizen
 
         if (numWords == 8) // if it has 8 it means it has also date
