@@ -6,6 +6,9 @@ using namespace std;
 
 string *stringSeperator(string *line, int *numWords)
 {
+    if (line == NULL)
+        return NULL;
+
     *numWords = 0;
     string word; // will store every word of the string
 

@@ -1,3 +1,6 @@
+#include "Functions/Functions.h"
+#include "CitizenRecord/CitizenRecord.h"
+
 #include <string>
 #include <fstream>
 #include <cstring>
@@ -5,9 +8,6 @@
 
 #include <iostream>
 using namespace std;
-
-#include "Functions/Functions.h"
-#include "CitizenRecord/CitizenRecord.h"
 
 int main(int argc, char *argv[])
 {
