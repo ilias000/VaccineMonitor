@@ -52,13 +52,23 @@ run:
 ```
 
 #### **Μεταγλώττιση & Εκτέλεση**
-- Eντολή Μεταγλώττισης :
+- Eντολή Μεταγλώττισης Και Εκτέλεσης:
 ```terminal
 make
 ```
-- Εντολή Εκτέλεσης :
+- Εντολή Εκτέλεσης
+```
+    ./vaccineMonitor -c citizenRecordsFile –b bloomSize   
+    ```
+
+    ## ή 
+
+    ```
+    ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
+    ```
+- Εντολή Εκτέλεσης Με Valgrind:
 ```terminal
-make run
+make val
 ```
 - Εντολή Καθαρισμού :
 ```terminal
