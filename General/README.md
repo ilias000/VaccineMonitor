@@ -9,9 +9,15 @@
 ## **ΓΕΝΙΚΕΣ ΟΔΗΓΙΕΣ**
 ### Θεωρώ δεδομένο ότι :
 - η εντολή εκτέλεσης θα είναι της μορφής :     
-    - ./vaccineMonitor -c citizenRecordsFile –b bloomSize   
-                    ή 
-    - ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
+    ```
+    ./vaccineMonitor -c citizenRecordsFile –b bloomSize   
+    ```
+
+    ## ή 
+
+    ```
+    ./vaccineMonitor –b bloomSize -c citizenRecordsFile  
+    ```
 
 - το citizenRecordsFile θα δωθεί χωρίς .txt extension.  
 - για να αλαχτεί το όνομα του citizenRecordsFile σε κάποιο άλλο αρχείο, πρέπει να αλλαχτεί στο Makefile η τμή του :   
@@ -62,7 +68,9 @@ make clean
 ## **Script**
 ### ΓΕΝΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ
 - η εντολή εκτέλεσης θα είναι της μορφής :   
-  - ./testFile.sh virusesFile.txt countriesFile.txt 100 1  
+  ``` 
+  ./testFile.sh virusesFile.txt countriesFile.txt 100 1  
+  ```
 - Γίνεται έλεγχος για το αν έχουν δωθεί και τα 4 arguments που πρέπει.  
 - Γίνεται έλεγχος για το αν υπάρχει το αρχείο virusesFile.  
 - Γίνεται έλεγχος για το αν υπάρχει το αρχείο countriesFile.  
