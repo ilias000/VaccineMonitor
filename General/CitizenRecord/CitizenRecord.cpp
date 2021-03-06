@@ -1,15 +1,24 @@
 #include "CitizenRecord.h"
 
-#include "LinkedList/LinkedListString/LinkedListString.h"
+#include "../LinkedList/LinkedListString/LinkedListString.h"
 
 #include <iostream>
 using namespace std;
 
-CitizenRecord::CitizenRecord(int id, string firstName, string lastName, LinkedListStringNode *country, int age, LinkedListStringNode *virusName, string vaccinated, string date) : id(id), firstName(firstName), lastName(lastName), country(country), age(age), virusName(virusName), vaccinated(vaccinated), date(date) {}
+CitizenRecord::CitizenRecord(int id, string firstName, string lastName, LinkedListStringNode *country, int age, LinkedListStringNode *virusName, string vaccinated, string date) : id(id), firstName(firstName), lastName(lastName), country(country), age(age)
+{
+    viruses = new LinkedListVaccine();
+    viruses->insertNode(virusName, vaccinated, date);
+}
 
-CitizenRecord::~CitizenRecord() {}
+CitizenRecord::~CitizenRecord()
+{
+    delete viruses;
+}
 
 void CitizenRecord::print()
 {
-    cout << id << " " << firstName << " " << lastName << " " << country << " " << age << " " << virusName << " " << vaccinated << " " << date << endl;
+    cout << id << " " << firstName << " " << lastName << " " << country->name << " " << age << " ";
+    viruses->print();
+    cout << endl;
 }

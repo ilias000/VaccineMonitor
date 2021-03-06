@@ -1,7 +1,8 @@
 #ifndef CITIZENRECORD_H
 #define CITIZENRECORD_H
 
-#include "LinkedList/LinkedListString/LinkedListString.h"
+#include "../LinkedList/LinkedListString/LinkedListString.h"
+#include "../LinkedList/LinkedListVaccine/LinkedListVaccine.h"
 
 #include <string>
 
@@ -13,11 +14,9 @@ class CitizenRecord
     int id;
     string firstName;
     string lastName;
-    string country;
+    LinkedListStringNode *country;
     int age;
-    string virusName;
-    string vaccinated;
-    string date;
+    LinkedListVaccine *viruses;
 
 public:
     CitizenRecord(int, string, string, LinkedListStringNode *, int, LinkedListStringNode *, string, string);

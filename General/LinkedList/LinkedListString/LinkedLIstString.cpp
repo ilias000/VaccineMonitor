@@ -11,11 +11,13 @@ LinkedListString::LinkedListString() : start(NULL), end(NULL)
 
 LinkedListString::~LinkedListString()
 {
-    while (start != NULL)
+    LinkedListStringNode *tmpNode = start;
+    LinkedListStringNode *tmpNodeNext;
+    while (tmpNode != NULL)
     {
-        LinkedListStringNode *tmpNode = start;
-        delete start;
-        start = tmpNode;
+        tmpNodeNext = tmpNode->next;
+        delete tmpNode;
+        tmpNode = tmpNodeNext;
     }
 }
 
@@ -39,7 +41,7 @@ void LinkedListString::insertNode(string name) // inserts a node at the end of t
     }
 }
 
-Node *LinkedListString::findNode(string name) // if the name exist returns the node else returns NULL
+LinkedListStringNode *LinkedListString::findNode(string name) // if the name exist returns the node else returns NULL
 {
     LinkedListStringNode *current = start; // initialize current
     while (current != NULL)

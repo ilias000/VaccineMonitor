@@ -10,7 +10,7 @@ using namespace std;
 struct LinkedListStringNode
 {
     string name;
-    Node *next;
+    LinkedListStringNode *next;
 };
 
 class LinkedListString
@@ -22,8 +22,8 @@ public:
     LinkedListString();
     ~LinkedListString();
 
-    void insertNode(string); // inserts a node at the end of the list
-    Node *findNode(string);  // if the name exist returns the node else returns NULL
+    void insertNode(string);                // inserts a node at the end of the list
+    LinkedListStringNode *findNode(string); // if the name exist returns the node else returns NULL
 };
 
 #endif

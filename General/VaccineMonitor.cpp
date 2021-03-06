@@ -51,10 +51,10 @@ int main(int argc, char *argv[])
     if (stat(fileNameChar, &buffer) != 0) // checking if the file exist
     {
         cout << "The file : " << fileName << " does not exist!" << endl;
-        delete fileNameChar;
+        delete[] fileNameChar;
         return 0;
     }
-    delete fileNameChar;
+    delete[] fileNameChar;
 
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
         if (country == NULL) // the country does not exist in the list so i will insert it
         {
             countries->insertNode(wordsOfLine[3]);
+            country = countries->findNode(wordsOfLine[3]);
         }
 
         // checking if i have already the virus in the list
@@ -85,14 +86,18 @@ int main(int argc, char *argv[])
         if (virus == NULL) // the country does not exist in the list so i will insert it
         {
             viruses->insertNode(wordsOfLine[5]);
+            virus = viruses->findNode(wordsOfLine[5]);
         }
 
         CitizenRecord *citizen; // creating a citizen
 
         if (numWords == 8) // if it has 8 it means it has also date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], virus, stoi(wordsOfLine[4]), country, wordsOfLine[6], wordsOfLine[7]);
+            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], wordsOfLine[7]);
         else // it has not date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], virus, stoi(wordsOfLine[4]), country, wordsOfLine[6], "");
+            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
+
+        //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
+        citizens->insertNode(citizen);
 
         citizen->print();
         cout << endl;

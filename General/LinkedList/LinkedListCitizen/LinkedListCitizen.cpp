@@ -9,12 +9,14 @@ LinkedListCitizen::LinkedListCitizen() : start(NULL), end(NULL)
 
 LinkedListCitizen::~LinkedListCitizen()
 {
-    while (start != NULL)
+    LinkedListCitizenNode *tmpNode = start;
+    LinkedListCitizenNode *tmpNodeNext;
+    while (tmpNode != NULL)
     {
-        LinkedListCitizenNode *tmpNode = start;
-        delete start->citizen;
-        delete start;
-        start = tmpNode;
+        tmpNodeNext = tmpNode->next;
+        delete tmpNode->citizen;
+        delete tmpNode;
+        tmpNode = tmpNodeNext;
     }
 }
 
