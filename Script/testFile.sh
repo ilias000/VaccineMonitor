@@ -31,13 +31,13 @@ duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the duplicate
 
 declare -a countriesArray; # creating an array to store coutries names
 
-while IFS= read -r line; do # read from the file countriesNames, the countries names and inserting them to the array
+while IFS= read -r line; do # read from the file countriesFile, the countries names and inserting them to the array
     countriesArray+=("$line")
 done < $countriesNamesFile
 
 declare -a virusesArray; # creating an array to store viruses names
 
-while IFS= read -r line; do # read from the file virusesNames, the viruses names and inserting them to the array
+while IFS= read -r line; do # read from the file virusesFile, the viruses names and inserting them to the array
     virusesArray+=("$line")
 done < $virusesNamesFile
 
@@ -55,7 +55,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
 
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
 
-    lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array (des mhpws to ypologiseis mia fora kai meta to kaneis ++ einai pio grhgoro)
+    lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
     duplicate=0
     if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
@@ -109,5 +109,4 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         echo ${citizenIdMap[$id]} $virus "YES" $date >> $destinationFilePath
     fi
 done
-for id in "${!citizenIdMap[@]}"; do echo "$id => ${citizenIdMap[$id]}"; done
-#echo "The file was created successfully at : " $destinationFilePath
+echo "The file was created successfully at : " $destinationFilePath
