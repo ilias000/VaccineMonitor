@@ -41,7 +41,7 @@ while IFS= read -r line; do # read from the file virusesNames, the viruses names
     virusesArray+=("$line")
 done < $virusesNamesFile
 
-declare -a citizensIdsArray; # creating an array to store the ids i use so i know if i have already use an id 
+declare -a citizensIdsArray; # creating an array to store the ids i use so i can choose an id from this array if i want duplicate
 declare -A citizenIdMap # creating an associative array with key the ID and values citizenID, firstName, lastName, country, age
 
 countriesArrayLength=${#countriesArray[@]} # storing the size of the countriesArray array
@@ -50,26 +50,12 @@ virusesArrayLength=${#virusesArray[@]} # storing the size of the virusesArray ar
 # creating the records
 for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wants
 
-    firstNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the first name
-    firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
-    
-    lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
-    lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
-
-    
-    randomCountryIndex=$(($RANDOM % $countriesArrayLength)) # finding a random index for countriesArray array
-    country=${countriesArray[randomCountryIndex]} # storing the name of the random country
-    
-    age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
-    
-
-
     randomVirusIndex=$(($RANDOM % $virusesArrayLength)) # finding a random index for virusesArray array
     virus=${virusesArray[randomVirusIndex]} # storing the name of the random virus
 
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
 
-    lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
+    lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array (des mhpws to ypologiseis mia fora kai meta to kaneis ++ einai pio grhgoro)
     duplicate=0
     if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
@@ -90,13 +76,22 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
                 break
             fi
         done
+        firstNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the first name
+        firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
+        
+        lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
+        lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
+
+        randomCountryIndex=$(($RANDOM % $countriesArrayLength)) # finding a random index for countriesArray array
+        country=${countriesArray[randomCountryIndex]} # storing the name of the random country
+        
+        age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
+        citizenIdMap+=([$id]="$id $firstName $lastName $country $age")
+        citizensIdsArray+=("$id") # inserting the new id to the array of ids 
     else # the duplicate is 1 so the id will be duplicate
         randomId=$(($RANDOM % $lengthcitizensIdsArray)) # choosing a random id from the ids that i already have used
         id=${citizensIdsArray[randomId]}
     fi
-    
-    citizensIdsArray+=("$id") # inserting the new id to the array of ids 
-    citizenIdMap+=([$id]=$id)
 
     destinationFilePath=../General/inputFile.txt
     if [ $hasDoneVaccine -eq 0 ] # if the citizen has not done the vaccine 
@@ -104,15 +99,15 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         dateProbability=$(($RANDOM % 5)) # deciding if the specific citizen record will have date while the citizen has not done the vaccine (if dateProbability == 1 it will have date so the record will be inconsistent)
         if [ $dateProbability -ne 1 ] # if dateProbability is 0 or 2 or 3 or 4 the record will not have date
         then
-            echo $id $firstName $lastName $country $age $virus "NO" >> $destinationFilePath
+            echo ${citizenIdMap[$id]} $virus "NO" >> $destinationFilePath
         else # the dateProbability is 1 so the record will have date (so it will be inconsistent)
             date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-            echo $id $firstName $lastName $country $age $virus "NO" $date >> $destinationFilePath
+            echo ${citizenIdMap[$id]} $virus "NO" $date >> $destinationFilePath
         fi
     else # if the citizen has done the vaccine
         date="$((1 + $RANDOM % 30))-$((1 + $RANDOM % 12))-$((2010 + $RANDOM % 11))" # randomly choosing a date that the citizen has done the vaccine [2010, 2020]
-        echo $id $firstName $lastName $country $age $virus "YES" $date >> $destinationFilePath
+        echo ${citizenIdMap[$id]} $virus "YES" $date >> $destinationFilePath
     fi
 done
 for id in "${!citizenIdMap[@]}"; do echo "$id => ${citizenIdMap[$id]}"; done
-echo "The file was created successfully at : " $destinationFilePath
+#echo "The file was created successfully at : " $destinationFilePath
