@@ -28,7 +28,6 @@ fi
 maxRecordsNumber=$3 # taking the third argumnet and saving it to the maxRecordsNumber
 duplicatesAllowed=$4 # taking the fourth argumnet and saving it to the duplicatesAllowed (1 = true, 0 = False)
 
-
 declare -a countriesArray; # creating an array to store coutries names
 
 while IFS= read -r line; do # read from the file countriesFile, the countries names and inserting them to the array
@@ -44,17 +43,11 @@ done < $virusesNamesFile
 declare -a citizensIdsArray; # creating an array to store the ids i use so i can choose an id from this array if i want duplicate
 declare -A citizenIdMap # creating an associative array with key the ID and values citizenID, firstName, lastName, country, age
 
-countriesArrayLength=${#countriesArray[@]} # storing the size of the countriesArray array
-virusesArrayLength=${#virusesArray[@]} # storing the size of the virusesArray array
-
 # creating the records
 for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wants
 
-    randomVirusIndex=$(($RANDOM % $virusesArrayLength)) # finding a random index for virusesArray array
-    virus=${virusesArray[randomVirusIndex]} # storing the name of the random virus
-
+    virus=${virusesArray[$(($RANDOM % ${#virusesArray[@]}))]} # finding a random index for virusesArray array and storing the name of the random virus
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
-
     lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
     duplicate=0
     if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
@@ -76,21 +69,14 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
                 break
             fi
         done
-        firstNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the first name
-        firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $firstNameLength | head -n 1) # taking firstNameLength random letters to create the firstName
-        
-        lastNameLength=$((3 + $RANDOM % 10)) # random number [3, 12] for the length of the last name
-        lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $lastNameLength | head -n 1) # taking LastNameLength random letters to create the lastName
-
-        randomCountryIndex=$(($RANDOM % $countriesArrayLength)) # finding a random index for countriesArray array
-        country=${countriesArray[randomCountryIndex]} # storing the name of the random country
-        
+        firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $((3 + $RANDOM % 10)) | head -n 1) # taking random number [3, 12] random letters to create the firstName
+        lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $((3 + $RANDOM % 10)) | head -n 1) # taking random number [3, 12]  random letters to create the lastName
+        country=${countriesArray[$(($RANDOM % ${#countriesArray[@]}))]} # finding a random index for countriesArray array and storing the name of the random country
         age=$((1 + $RANDOM % 120)) # random number [1, 120] for the age
         citizenIdMap+=([$id]="$id $firstName $lastName $country $age")
         citizensIdsArray+=("$id") # inserting the new id to the array of ids 
     else # the duplicate is 1 so the id will be duplicate
-        randomId=$(($RANDOM % $lengthcitizensIdsArray)) # choosing a random id from the ids that i already have used
-        id=${citizensIdsArray[randomId]}
+        id=${citizensIdsArray[$(($RANDOM % $lengthcitizensIdsArray))]} # choosing a random id from the ids that i already have used
     fi
 
     destinationFilePath=../General/inputFile.txt
