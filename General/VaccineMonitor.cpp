@@ -4,7 +4,7 @@
 #include "LinkedList/LinkedListCitizen/LinkedListCitizen.h"
 
 #include <stdlib.h>
-#include <string>
+//#include <string>
 #include <fstream>
 #include <cstring>
 #include <sys/stat.h>
@@ -73,13 +73,13 @@ int main(int argc, char *argv[])
             return 0;
         }
 
-        // checking if i have already the country in the list
-        LinkedListStringNode *country = countries->findNode(wordsOfLine[3]);
-        if (country == NULL) // the country does not exist in the list so i will insert it
-        {
-            countries->insertNode(wordsOfLine[3]);
-            country = countries->findNode(wordsOfLine[3]);
-        }
+        // // checking if i have already the country in the list
+        // LinkedListStringNode *country = countries->findNode(wordsOfLine[3]);
+        // if (country == NULL) // the country does not exist in the list so i will insert it
+        // {
+        //     countries->insertNode(wordsOfLine[3]);
+        //     country = countries->findNode(wordsOfLine[3]);
+        // }
 
         // checking if i have already the virus in the list
         LinkedListStringNode *virus = viruses->findNode(wordsOfLine[5]);
@@ -88,19 +88,19 @@ int main(int argc, char *argv[])
             viruses->insertNode(wordsOfLine[5]);
             virus = viruses->findNode(wordsOfLine[5]);
         }
+        cout << virus->name << " " << wordsOfLine[5] << endl;
+        // CitizenRecord *citizen; // creating a citizen
 
-        CitizenRecord *citizen; // creating a citizen
+        // if (numWords == 8) // if it has 8 it means it has also date
+        //     citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], wordsOfLine[7]);
+        // else // it has not date
+        //     citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        if (numWords == 8) // if it has 8 it means it has also date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], wordsOfLine[7]);
-        else // it has not date
-            citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
+        // //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
+        // citizens->insertNode(citizen);
 
-        //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
-        citizens->insertNode(citizen);
-
-        citizen->print();
-        cout << endl;
+        // citizen->print();
+        // cout << endl;
         delete[] wordsOfLine;
     }
 
