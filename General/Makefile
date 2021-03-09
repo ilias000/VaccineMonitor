@@ -9,25 +9,25 @@ PROGRAM = vaccineMonitor
 OBJS = VaccineMonitor.o Functions.o CitizenRecord.o LinkedListCitizen.o LinkedListString.o LinkedListVaccine.o
 
 $(PROGRAM): clean $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(PROGRAM)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-VaccineMonitor.o: VaccineMonitor.cpp Functions/Functions.h CitizenRecord/CitizenRecord.h LinkedList/LinkedListString/LinkedListString.h LinkedList/LinkedListCitizen/LinkedListCitizen.h
-	$(CC) $(CFLAGS) -c VaccineMonitor.cpp 
+VaccineMonitor.o: VaccineMonitor.cpp
+	$(CC) $(CFLAGS) -c $?
 
-Functions.o: Functions/Functions.cpp Functions/Functions.h
-	$(CC) $(CFLAGS) -c Functions/Functions.cpp 
+Functions.o: Functions/Functions.cpp
+	$(CC) $(CFLAGS) -c $?
 
-CitizenRecord.o: CitizenRecord/CitizenRecord.cpp CitizenRecord/CitizenRecord.h
-	$(CC) $(CFLAGS) -c CitizenRecord/CitizenRecord.cpp 
+CitizenRecord.o: CitizenRecord/CitizenRecord.cpp
+	$(CC) $(CFLAGS) -c $? 
 
-LinkedListCitizen.o: LinkedList/LinkedListCitizen/LinkedListCitizen.cpp LinkedList/LinkedListCitizen/LinkedListCitizen.cpp
-	$(CC) $(CFLAGS) -c LinkedList/LinkedListCitizen/LinkedListCitizen.cpp
+LinkedListCitizen.o: LinkedList/LinkedListCitizen/LinkedListCitizen.cpp
+	$(CC) $(CFLAGS) -c $?
 
-LinkedListString.o: LinkedList/LinkedListString/LinkedListString.cpp LinkedList/LinkedListString/LinkedListString.h
-	$(CC) $(CFLAGS) -c LinkedList/LinkedListString/LinkedListString.cpp
+LinkedListString.o: LinkedList/LinkedListString/LinkedListString.cpp
+	$(CC) $(CFLAGS) -c $?
 	
-LinkedListVaccine.o: LinkedList/LinkedListVaccine/LinkedListVaccine.cpp LinkedList/LinkedListVaccine/LinkedListVaccine.h
-	$(CC) $(CFLAGS) -c LinkedList/LinkedListVaccine/LinkedListVaccine.cpp
+LinkedListVaccine.o: LinkedList/LinkedListVaccine/LinkedListVaccine.cpp
+	$(CC) $(CFLAGS) -c $?
 	
 clean:
 	rm -f $(PROGRAM) $(OBJS)
