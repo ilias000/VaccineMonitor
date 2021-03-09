@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if [ "$#" -ne 4 ]; then # checking if the number of arguments is correct
     echo "Illegal number of arguments"
