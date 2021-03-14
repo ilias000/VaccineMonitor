@@ -95,4 +95,4 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         echo ${citizenIdMap[$id]} $virus "YES" $date >> $destinationFilePath
     fi
 done
-# echo "The file was created successfully at : " $destinationFilePath
+echo "The file was created successfully at : " $destinationFilePath
