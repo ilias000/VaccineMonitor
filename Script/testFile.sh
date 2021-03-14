@@ -59,16 +59,16 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     then
         # i will find a random id [0,9999] but i have to check that is not duplicate
         isUnique=0 # is 0 so it will enter the while the first time (i convert the while to do while) 1 = is unique 0 = is not unique
-        # while [ $isUnique -eq 0 ] # while the id is not unique i will choose another random id
-        # do
-        #     isUnique=1
-        #     id=$(($RANDOM % 10000)) # choosing a random number [0, 9999] for the id
-        #     if [ ${citizenIdMap[$id]+_} ]
-        #     then
-        #         isUnique=0 # the id is not unique
-        #         break
-        #     fi
-        # done
+        while [ $isUnique -eq 0 ] # while the id is not unique i will choose another random id
+        do
+            isUnique=1
+            id=$(($RANDOM % 10000)) # choosing a random number [0, 9999] for the id
+            if [ ${citizenIdMap[$id]+_} ]
+            then
+                isUnique=0 # the id is not unique
+                break
+            fi
+        done
         firstName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $((3 + $RANDOM % 10)) | head -n 1) # taking random number [3, 12] random letters to create the firstName
         lastName=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w $((3 + $RANDOM % 10)) | head -n 1) # taking random number [3, 12]  random letters to create the lastName
         country=${countriesArray[$(($RANDOM % ${#countriesArray[@]}))]} # finding a random index for countriesArray array and storing the name of the random country
