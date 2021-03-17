@@ -50,6 +50,10 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     hasDoneVaccine=$(($RANDOM % 2)) # randomly deciding if the citizen has done the vaccine or not
     lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
     duplicate=0
+
+    #VALE AN EXEIS FTIAXEI PANW APO 10.000 OXI DUPLICATE NA FTIAXNEI MONO DUPLICATE TA YPOLOIPA GIATI DEN EXEIS ALLA ID NA DWSEIS
+
+
     if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
     then
         duplicate=$(($RANDOM % 5)) # deciding if the specific id will be duplicate or not (if duplicate == 1 it will be duplicate id)
