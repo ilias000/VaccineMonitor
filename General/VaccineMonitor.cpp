@@ -44,18 +44,11 @@ int main(int argc, char *argv[])
 
     fileName.append(extensionOfFileName); // adding extension to the filename
 
-    struct stat buffer;
-
-    int fileNameLength = fileName.length();
-    char *fileNameChar = new char[fileNameLength + 1];
-    strcpy(fileNameChar, fileName.c_str());
-    if (stat(fileNameChar, &buffer) != 0) // checking if the file exist
+    if (!fstream{fileName}) // checking if the file exist
     {
         cout << "The file : " << fileName << " does not exist!" << endl;
-        delete[] fileNameChar;
         return 0;
     }
-    delete[] fileNameChar;
 
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
