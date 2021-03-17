@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     }
 
     fileName.append(extensionOfFileName); // adding extension to the filename
+
     struct stat buffer;
 
     int fileNameLength = fileName.length();
