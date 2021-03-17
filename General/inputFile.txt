@@ -1,0 +1,100 @@
+5811 ZImDR zFh Colombia 49 Rubella YES 6-3-2016
+873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Pertussis NO
+872 OwFdlb vgYSNEyAU Niger 56 Trichomoniasis YES 28-4-2011
+872 OwFdlb vgYSNEyAU Niger 56 Botulism NO
+7649 hZp bcZZ Qatar 42 Powassan NO
+3156 fboOkDWBPSQh WEOelrI Panama 71 Campylobacteriosis YES 15-1-2014
+7649 hZp bcZZ Qatar 42 Rickettsiosis NO
+873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Poliomyelitis NO 12-5-2010
+3156 fboOkDWBPSQh WEOelrI Panama 71 Poliomyelitis NO
+7521 XrSWrGXKKmrp TMAbhlCPLu Chad 108 Ebola NO
+5351 wUlurbx pkNFwe Chile 50 Tetanus YES 28-3-2018
+872 OwFdlb vgYSNEyAU Niger 56 Poliomyelitis YES 2-6-2011
+1058 XaUhzfGNsjo vioYneCk Portugal 18 Zika NO
+873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Vaginosis YES 13-2-2014
+9530 QSF MZpojV Grenada 66 Acute NO
+1510 KncIiWL MsxTewyJ Kenya 27 Scabies YES 29-6-2015
+7649 hZp bcZZ Qatar 42 Pustular YES 20-7-2011
+689 fAOkxlNqqO UJIZNiwuF Comoros 51 H1N1 YES 24-6-2015
+9276 PRClGYSS NOj ElSalvador 23 HIV NO 7-3-2015
+9620 EzOMCcDbrNiR vBcJAayZhdtV DuchyofParma 8 Chikungunya YES 13-9-2011
+879 obFnFNPaE zLGlRMelD Vanuatu 100 Poliomyelitis NO
+3156 fboOkDWBPSQh WEOelrI Panama 71 Anaplasmosis NO
+4156 QngwYwRq KTeO Niger 72 Covid YES 16-8-2013
+9276 PRClGYSS NOj ElSalvador 23 Campylobacteriosis NO
+5027 jMrnOIaImRJW gca Uzbekistan 83 Tularemia YES 10-4-2019
+879 obFnFNPaE zLGlRMelD Vanuatu 100 Salmonellosis NO
+8377 ThWxpMv GfoKFtsWA Burundi 71 Vaginosis NO
+3400 AEDaD WVGwJ Texas 38 Pustular NO
+6094 eIYHe fJXyB Kiribati 118 Chikungunya NO
+8163 Sbsfj SZOnQhWAa Israel 84 Covid YES 13-7-2012
+2206 jozktnleGNTh rYooOOdcQKWx Azerbaijan 24 Creutzfeldt YES 5-6-2018
+9665 bsFeRdD FYU Tajikistan 91 Cryptosporidiosis YES 25-9-2015
+1102 ePwF oLqKOEr Belize 100 Poliomyelitis YES 27-6-2020
+1024 MopsqhGWK tRUKj Nassau 77 Poliomyelitis YES 3-8-2020
+2325 UmznYuPHQwte iBNERef Belgium 62 Scabies NO
+7558 GNBdClRvZp pqLX Egypt 84 Ricin YES 10-9-2013
+1462 MlcodAiCwzEu UwhwqiJm Serbia 70 Yersenia NO
+8026 XFs SWnewi Czechia 86 Chancroid YES 18-12-2014
+7321 KPWfy HsOuk Bavaria 64 Covid NO
+3824 zaoSola BYsZhmIXe Ireland 34 Varicella YES 18-7-2010
+1684 LumbikPwUbvg motUTTq Denmark 108 Campylobacteriosis NO
+9325 qXgA dArH Sudan 59 H1N1 YES 12-3-2016
+6471 Vgt qjqoHxoK Australia 32 Pthiriasis NO
+7656 CDnVOp iDRntFpB Latvia 10 Scombroid YES 16-4-2020
+4156 QngwYwRq KTeO Niger 72 Anaplasmosis YES 18-7-2018
+4156 QngwYwRq KTeO Niger 72 Pustular YES 16-6-2012
+2013 GCJ mbCukpRTnA Portugal 7 Campylobacteriosis NO
+4383 gIMaTZDkVuUF UcFTue Georgia 80 Pthiriasis NO
+7321 KPWfy HsOuk Bavaria 64 Babesiosis NO 9-4-2018
+5075 qHcxsIRib ojnIlb HolySee 26 Babesiosis NO 9-7-2020
+873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Yersenia NO
+5120 UZqFP Kvux Iceland 104 Cryptosporidiosis YES 1-9-2012
+9685 OgHTYISppe flRx Turkey 36 Chikungunya YES 11-5-2016
+3631 mRvetoFoQD fIUbvOjio Pakistan 82 Brucellosis NO 21-10-2011
+2397 nePvgQDCk MNfyMwAeraz Libya 97 Rubella NO 9-10-2020
+6697 mJbCGtygTbTF wGI Guatemala 64 Varicella YES 14-1-2016
+3244 KxCxirsEQmu OwmHemNe Tajikistan 67 Cryptosporidiosis NO
+872 OwFdlb vgYSNEyAU Niger 56 Pthiriasis NO
+36 GqyZVpvF UhXRScG Gabon 25 Brucellosis NO
+2825 kVDuLysPSapB mGXe Austria 37 Vaginosis YES 19-10-2018
+1885 vFLeNTV BwiJXwxf Ghana 27 Creutzfeldt NO
+9665 bsFeRdD FYU Tajikistan 91 Pustular YES 29-10-2018
+4699 YiWNmjMqSrn utxKPs SierraLeone 68 Trichonosis NO 7-1-2012
+1684 LumbikPwUbvg motUTTq Denmark 108 Rubella NO 11-7-2019
+5149 FmmcLJ rKiXlOHlwQ Portugal 72 Anaplasmosis YES 30-2-2016
+9306 gLmAxlGa ulQxsU Bolivia 95 Poliomyelitis NO
+9051 RcyTT QCmaX Finland 113 Chancroid YES 25-5-2018
+706 MdWy MvHNgDiKXY Grenada 80 Campylobacteriosis NO 1-1-2018
+4498 OVcLrCpQSISZ uNelEuzsDnK Chad 29 Botulism NO
+872 OwFdlb vgYSNEyAU Niger 56 Ebola YES 14-6-2010
+4624 JywfEMmdNaqV DuGwrSKUfr Germany 24 Creutzfeldt YES 27-3-2019
+7061 LRxTHhZH KugNQA Nepal 1 Trichomoniasis YES 25-4-2019
+9166 YjppzmmLNUwL wQgIJhOzchWA Oldenburg 114 Pertussis NO
+3686 KPkQ pbiwCBvoesN Vietnam 111 Psittacosis NO
+3411 meMhpggSBsQC nUA Georgia 46 Cyclosporiasis NO
+7886 SooAuW HHoGekV Laos 15 Acute NO 24-5-2020
+7542 aBvvgexAONE lLYz Lesotho 24 Scabies YES 18-4-2011
+1024 MopsqhGWK tRUKj Nassau 77 Cryptosporidiosis YES 11-6-2015
+3244 KxCxirsEQmu OwmHemNe Tajikistan 67 Trichonosis YES 27-3-2011
+5678 actOGzq SvIm Barbados 57 Pthiriasis NO
+36 GqyZVpvF UhXRScG Gabon 25 Scabies YES 25-2-2010
+3562 lqxcsuodb tFVU Libya 113 Vaginosis NO
+9334 KNLx viGOJujlYqI Uruguay 116 Scombroid NO
+5678 actOGzq SvIm Barbados 57 Yersenia YES 14-6-2020
+5811 ZImDR zFh Colombia 49 Scombroid NO
+718 vbvRtbUX COH Lithuania 33 Vaginosis NO
+5706 wDlRsrfH gfjkof Botswana 60 H1N1 NO
+3686 KPkQ pbiwCBvoesN Vietnam 111 Zika NO
+8719 sJV lCepZ Syria 37 Cryptosporidiosis YES 16-3-2010
+9940 BqxoE ynpKWWJej Netherlands 119 Typhus NO
+4498 OVcLrCpQSISZ uNelEuzsDnK Chad 29 Trichonosis NO
+9515 wwulthG Oapm Canada 10 Anthrax YES 1-2-2018
+8027 bmPehaBeC lrPPnZjhwPz Tanzania 74 Creutzfeldt NO 8-9-2020
+1459 OGtCsNrRq xLMM Niger 44 Anthrax NO
+6377 scbmBaJ CTdrlwcc Spain 35 Pustular NO
+5046 ncX zEVkuZiNr SolomonIslands 118 Chancroid NO
+5027 jMrnOIaImRJW gca Uzbekistan 83 Pthiriasis NO 13-3-2014
+7344 RxnJngj FvyLqODqD Bolivia 93 Powassan NO
+651 ghNj TBMYNJvn Bangladesh 34 Zika YES 4-9-2012
+6050 vdJYc VzzxSAbSRwQs Ghana 25 Brucellosis NO
