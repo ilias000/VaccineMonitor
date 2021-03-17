@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
         // checking if i have already the virus in the list
         LinkedListStringNode *virus = viruses->findNode(wordsOfLine[5]);
-        if (virus == NULL) // the country does not exist in the list so i will insert it
+        if (virus == NULL) // the virus does not exist in the list so i will insert it
         {
             viruses->insertNode(wordsOfLine[5]);
             virus = viruses->findNode(wordsOfLine[5]);
