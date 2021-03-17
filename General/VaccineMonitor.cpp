@@ -50,12 +50,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    ifstream name; // opening the file that contains the citizen Records
-    name.open(fileName);
-
     LinkedListString *countries = new LinkedListString();
     LinkedListString *viruses = new LinkedListString();
     LinkedListCitizen *citizens = new LinkedListCitizen();
+
+    ifstream name; // opening the file that contains the citizen Records
+    name.open(fileName);
 
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {

@@ -21,7 +21,7 @@ LinkedListVaccine::~LinkedListVaccine()
     }
 }
 
-void LinkedListVaccine::insertNode(LinkedListStringNode *virusName, string vaccinated, string date)
+void LinkedListVaccine::insertNode(LinkedListStringNode *virusName, string vaccinated, string date) // inserts a node at the end of the list
 {
     LinkedListVaccineNode *newNode = new LinkedListVaccineNode; // creating a new node
     newNode->virusName = virusName;
