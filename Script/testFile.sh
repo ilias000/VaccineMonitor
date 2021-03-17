@@ -63,7 +63,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
         do
             isUnique=1
             id=$(($RANDOM % 10000)) # choosing a random number [0, 9999] for the id
-            if [ ${citizenIdMap[$id]+_} ]
+            if [ ${citizenIdMap[$id]+_} ] # if exists already i have used this id
             then
                 isUnique=0 # the id is not unique
                 break
