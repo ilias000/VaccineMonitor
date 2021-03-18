@@ -34,10 +34,19 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
     }
     else // the list is not empty
     {
-        // insert the node at the end
-        end->next = newNode;
-        end = end->next;
-    }
+        // insert the node at the right place so the list is sorted
+        LinkedListCitizenNode *current = start; // initialize current
+        while (current->id < newNode->id)
+        {
+            if (current->next != NULL)
+                current = current->next;
+            else
+            {
+                current->next = newNode;
+                return;
+            }
+        }
+        }
 }
 
 LinkedListCitizenNode *LinkedListCitizen::findNode(int id) // if the id exist returns the node else returns NULL
