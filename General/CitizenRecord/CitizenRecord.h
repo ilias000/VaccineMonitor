@@ -23,6 +23,7 @@ public:
     ~CitizenRecord();
     void print();
     int getId() { return id; }
+    LinkedListVaccine *getViruses() { return viruses; }
 };
 
 #endif

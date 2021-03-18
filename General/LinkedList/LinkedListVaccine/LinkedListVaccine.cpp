@@ -72,7 +72,7 @@ void LinkedListVaccine::print()
     LinkedListVaccineNode *tmp = start;
     while (tmp != NULL)
     {
-        cout << tmp->virusName->name << " " << tmp->vaccinated << " " << tmp->date << endl;
+        cout << tmp->virusName->name << " " << tmp->vaccinated << " " << tmp->date << " ";
         tmp = tmp->next;
     }
 }

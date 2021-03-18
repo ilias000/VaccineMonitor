@@ -104,6 +104,8 @@ int main(int argc, char *argv[])
         delete[] wordsOfLine;
     }
 
+    citizens->print();
+
     delete countries;
     delete viruses;
     delete citizens;

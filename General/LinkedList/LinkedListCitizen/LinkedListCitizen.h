@@ -24,6 +24,7 @@ public:
 
     void insertNode(CitizenRecord *);     // inserts a node at the end of the list
     LinkedListCitizenNode *findNode(int); // if the id exist returns the node else returns NULL
+    void print();
 };
 
 #endif

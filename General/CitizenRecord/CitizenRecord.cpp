@@ -20,5 +20,4 @@ void CitizenRecord::print()
 {
     cout << id << " " << firstName << " " << lastName << " " << country->name << " " << age << " ";
     viruses->print();
-    cout << endl;
 }

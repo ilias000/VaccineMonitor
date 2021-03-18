@@ -28,6 +28,7 @@ public:
     LinkedListVaccineNode *findNode(LinkedListStringNode *); // if the LinkedListStringNode exist returns the node else returns NULL
     LinkedListVaccineNode *findNode(string);                 // if the string exist returns the node else returns NULL
     void print();
+    LinkedListVaccineNode *getFirstNode() { return start; }
 };
 
 #endif
