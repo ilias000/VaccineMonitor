@@ -66,6 +66,14 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
         cout << endl;
         return 0;
     }
+    else if ((wordsOfLine[6].compare("YES")) || (wordsOfLine[6].compare("NO")))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
 
     return 1;
 }
