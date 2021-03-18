@@ -28,7 +28,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
 {
     if ((numWords < 7) || (numWords > 8))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (wrong number of words)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -36,7 +36,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((numWords == 7) && (wordsOfLine[6].compare("YES") == 0))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (7 wrong with YES)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -44,7 +44,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((numWords == 8) && (wordsOfLine[6].compare("NO") == 0))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (8 words with NO)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -52,23 +52,23 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((stoi(wordsOfLine[0]) < 0) || (stoi(wordsOfLine[0]) > 9999))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (wrong id)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
         return 0;
     }
-    else if ((stoi(wordsOfLine[4]) < 1) || (stoi(wordsOfLine[0]) > 120))
+    else if ((stoi(wordsOfLine[4]) < 1) || (stoi(wordsOfLine[4]) > 120))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (wrong age)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
         return 0;
     }
-    else if ((wordsOfLine[6].compare("YES")) || (wordsOfLine[6].compare("NO")))
+    else if ((wordsOfLine[6].compare("YES")) && (wordsOfLine[6].compare("NO")))
     {
-        cout << "ERROR IN RECORD";
+        cout << "ERROR IN RECORD (6th word is not YES or NO)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;

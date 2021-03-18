@@ -22,6 +22,7 @@ public:
     CitizenRecord(int, string, string, LinkedListStringNode *, int, LinkedListStringNode *, string, string);
     ~CitizenRecord();
     void print();
+    int getId() { return id; }
 };
 
 #endif

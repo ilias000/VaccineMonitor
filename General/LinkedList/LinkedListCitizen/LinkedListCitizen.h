@@ -9,7 +9,6 @@ using namespace std;
 
 struct LinkedListCitizenNode
 {
-    int id;
     CitizenRecord *citizen;
     LinkedListCitizenNode *next;
 };

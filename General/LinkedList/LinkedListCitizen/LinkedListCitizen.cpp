@@ -37,7 +37,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
         // insert the node at the right place so the list is sorted
         LinkedListCitizenNode *current = start;    // initialize current
         LinkedListCitizenNode *previous = current; // initialize previous
-        while (current->id < newNode->id)
+        while ((current->citizen->getId() < newNode->citizen->getId()) && (current->next != NULL))
         {
             if (current->next != NULL)
             {
@@ -50,8 +50,15 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 return;
             }
         }
-        previous->next = newNode;
-        newNode->next = current;
+        if (previous->citizen->getId() == newNode->citizen->getId()) // we already have the id
+        {
+            cout << "Same id " << previous->citizen->getId() << " " << newNode->citizen->getId() << endl;
+        }
+        else // we dont have already the id
+        {
+            previous->next = newNode;
+            newNode->next = current;
+        }
     }
 }
 
@@ -60,7 +67,7 @@ LinkedListCitizenNode *LinkedListCitizen::findNode(int id) // if the id exist re
     LinkedListCitizenNode *current = start; // initialize current
     while (current != NULL)
     {
-        if (current->id == id)
+        if (current->citizen->getId() == id)
             return current;
         current = current->next;
     }
