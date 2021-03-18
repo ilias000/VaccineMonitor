@@ -67,6 +67,12 @@ int main(int argc, char *argv[])
             return 0;
         }
 
+        if (!errorChecking(numWords, wordsOfLine, citizens))
+        {
+            delete[] wordsOfLine;
+            continue;
+        }
+
         // checking if i have already the country in the list
         LinkedListStringNode *country = countries->findNode(wordsOfLine[3]);
         if (country == NULL) // the country does not exist in the list so i will insert it
@@ -90,11 +96,11 @@ int main(int argc, char *argv[])
         else if (numWords == 7) // if it has 7 it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-                //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
+        //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
         citizens->insertNode(citizen);
 
-        citizen->print();
-        cout << endl;
+        // citizen->print();
+        // cout << endl;
         delete[] wordsOfLine;
     }
 

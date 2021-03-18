@@ -1,9 +1,9 @@
-5811 ZImDR zFh Colombia 49 Rubella YES 6-3-2016
+5811 ZImDR zFh Colombia 49 Rubella YES 6-3-2016 aa
 873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Pertussis NO
-872 OwFdlb vgYSNEyAU Niger 56 Trichomoniasis YES 28-4-2011
+87200 OwFdlb vgYSNEyAU Niger 56 Trichomoniasis YES
 872 OwFdlb vgYSNEyAU Niger 56 Botulism NO
-7649 hZp bcZZ Qatar 42 Powassan NO
-3156 fboOkDWBPSQh WEOelrI Panama 71 Campylobacteriosis YES 15-1-2014
+7649 hZp bcZZ Qatar -2 Powassan NO
+3156 fboOkDWBPSQh WEOelrI Panama 150 Campylobacteriosis YES 15-1-2014
 7649 hZp bcZZ Qatar 42 Rickettsiosis NO
 873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Poliomyelitis NO 12-5-2010
 3156 fboOkDWBPSQh WEOelrI Panama 71 Poliomyelitis NO

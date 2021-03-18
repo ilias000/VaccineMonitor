@@ -23,3 +23,49 @@ string *stringSeperator(string *line, int *numWords)
 
     return wordsOfLine; // returning the array that contains the strings
 }
+
+int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if record is good
+{
+    if ((numWords < 7) || (numWords > 8))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
+    else if ((numWords == 7) && (wordsOfLine[6].compare("YES") == 0))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
+    else if ((numWords == 8) && (wordsOfLine[6].compare("NO") == 0))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
+    else if ((stoi(wordsOfLine[0]) < 0) || (stoi(wordsOfLine[0]) > 9999))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
+    else if ((stoi(wordsOfLine[4]) < 1) || (stoi(wordsOfLine[0]) > 120))
+    {
+        cout << "ERROR IN RECORD";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
+
+    return 1;
+}
