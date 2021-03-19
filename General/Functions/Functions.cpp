@@ -74,6 +74,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
         cout << endl;
         return 0;
     }
+    //TODO bale error gia thn hmerominia
 
     return 1;
 }
