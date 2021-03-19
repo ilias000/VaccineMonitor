@@ -51,7 +51,7 @@ for (( i=0; i<$maxRecordsNumber; i++ )) do # for as many records as the user wan
     lengthcitizensIdsArray=${#citizensIdsArray[@]} # storing the size of the citizensIdsArray array
     duplicate=0
 
-    #VALE AN EXEIS FTIAXEI PANW APO 10.000 OXI DUPLICATE NA FTIAXNEI MONO DUPLICATE TA YPOLOIPA GIATI DEN EXEIS ALLA ID NA DWSEIS
+    #TODO VALE AN EXEIS FTIAXEI PANW APO 10.000 OXI DUPLICATE NA FTIAXNEI MONO DUPLICATE TA YPOLOIPA GIATI DEN EXEIS ALLA ID NA DWSEIS
 
 
     if [[ $duplicatesAllowed -eq 1 ]] && [[ $lengthcitizensIdsArray -ne 0 ]] # if the user wants duplicates and we have at least already one id
