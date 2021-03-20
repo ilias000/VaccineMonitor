@@ -74,7 +74,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
         cout << endl;
         return 0;
     }
-    else if (((wordsOfLine[6].compare("YES") == 0)) && (checkDate(wordsOfLine[7]) == 0))
+    else if ((wordsOfLine[6].compare("YES") == 0) && (checkDate(wordsOfLine[7]) == 0))
     {
         cout << "ERROR IN RECORD (Wrong form of the Date)";
         for (int i = 0; i < numWords; i++)
@@ -86,6 +86,6 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     return 1;
 }
 
-int checkDate(string *date) // takes a string Date and returns 1 if it is in the right form else 0
+int checkDate(string date) // takes a string Date and returns 1 if it is in the right form else 0
 {
 }
