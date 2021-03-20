@@ -39,6 +39,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
 
         if (current->citizen->getId() > newNode->citizen->getId()) // the id of the first node is greater than the id of the new node
         {
+            // we insert the new node before the first node
             newNode->next = current;
             start = newNode;
             return;
