@@ -43,7 +43,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             start = newNode;
             return;
         }
-        else if (current->citizen->getId() == newNode->citizen->getId()) // the id of the first node is equal to the id of the new node
+        else if (current->citizen->getId() == newNode->citizen->getId()) // the id of the first node is equal to the id of the new node so the citizen already exists
         {
             if (current->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
             {
@@ -67,7 +67,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 current->next = newNode;
                 break;
             }
-            else // the id of the next node is equal to the id of the new node
+            else // the id of the next node is equal to the id of the new node so the citizen already exists
             {
                 if (current->next->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
                 {

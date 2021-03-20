@@ -28,7 +28,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
 {
     if ((numWords < 7) || (numWords > 8))
     {
-        cout << "ERROR IN RECORD (wrong number of words)";
+        cout << "ERROR IN RECORD (Wrong number of words)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -52,7 +52,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((stoi(wordsOfLine[0]) < 0) || (stoi(wordsOfLine[0]) > 9999))
     {
-        cout << "ERROR IN RECORD (wrong id)";
+        cout << "ERROR IN RECORD (Wrong id)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -60,7 +60,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((stoi(wordsOfLine[4]) < 1) || (stoi(wordsOfLine[4]) > 120))
     {
-        cout << "ERROR IN RECORD (wrong age)";
+        cout << "ERROR IN RECORD (Wrong age)";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -74,7 +74,18 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
         cout << endl;
         return 0;
     }
-    //TODO bale error gia thn hmerominia
+    else if (((wordsOfLine[6].compare("YES") == 0)) && (checkDate(wordsOfLine[7]) == 0))
+    {
+        cout << "ERROR IN RECORD (Wrong form of the Date)";
+        for (int i = 0; i < numWords; i++)
+            cout << " " << wordsOfLine[i];
+        cout << endl;
+        return 0;
+    }
 
     return 1;
+}
+
+int checkDate(string *date) // takes a string Date and returns 1 if it is in the right form else 0
+{
 }

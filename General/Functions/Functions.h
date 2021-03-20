@@ -9,5 +9,6 @@ using namespace std;
 
 string *stringSeperator(string *, int *);              // takes a string and an int, stores inside the int the size of the array and returns the array that contains every word of the string
 int errorChecking(int, string *, LinkedListCitizen *); // returns 1 if the record is good and 0 if it is not
+int checkDate(string *date);                           // takes a string Date and returns 1 if it is in the right form else 0
 
 #endif
