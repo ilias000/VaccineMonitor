@@ -72,7 +72,7 @@ void LinkedListVaccine::print() // prints all the nodes of the list with the vir
     LinkedListVaccineNode *tmp = start;
     while (tmp != NULL)
     {
-        cout << tmp->virusName->name << " " << tmp->vaccinated << " " << tmp->date << ", ";
+        cout << tmp->virusName->name << " " << tmp->vaccinated << " " << tmp->date << " / ";
         tmp = tmp->next;
     }
 }
