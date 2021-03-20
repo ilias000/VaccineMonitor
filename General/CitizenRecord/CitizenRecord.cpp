@@ -16,8 +16,8 @@ CitizenRecord::~CitizenRecord()
     delete viruses;
 }
 
-void CitizenRecord::print()
+void CitizenRecord::print() // prints the record
 {
-    cout << id << " " << firstName << " " << lastName << " " << country->name << " " << age << " ";
+    cout << id << " " << firstName << " " << lastName << " " << country->name << " " << age << " : ";
     viruses->print();
 }

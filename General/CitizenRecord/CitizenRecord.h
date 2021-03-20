@@ -21,9 +21,11 @@ class CitizenRecord
 public:
     CitizenRecord(int, string, string, LinkedListStringNode *, int, LinkedListStringNode *, string, string);
     ~CitizenRecord();
-    void print();
-    int getId() { return id; }
-    LinkedListVaccine *getViruses() { return viruses; }
+
+    int getId() { return id; }                          // returns the id
+    LinkedListVaccine *getViruses() { return viruses; } // returns the address of the viruses list
+
+    void print(); // prints the record
 };
 
 #endif

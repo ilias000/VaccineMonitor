@@ -24,11 +24,12 @@ public:
     LinkedListVaccine();
     ~LinkedListVaccine();
 
+    LinkedListVaccineNode *getFirstNode() { return start; } // returns the first node of the list
+
     void insertNode(LinkedListStringNode *, string, string); // inserts a node at the end of the list
     LinkedListVaccineNode *findNode(LinkedListStringNode *); // if the LinkedListStringNode exist returns the node else returns NULL
     LinkedListVaccineNode *findNode(string);                 // if the string exist returns the node else returns NULL
-    void print();
-    LinkedListVaccineNode *getFirstNode() { return start; }
+    void print();                                            // prints all the nodes of the list with the viruses
 };
 
 #endif

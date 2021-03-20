@@ -24,7 +24,7 @@ public:
 
     void insertNode(CitizenRecord *);     // inserts a node at the rigth place so the list is sorted with smaller ides first
     LinkedListCitizenNode *findNode(int); // if the id exist returns the node else returns NULL
-    void print();
+    void print();                         // prints every citizen of the list
 };
 
 #endif
