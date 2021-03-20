@@ -20,7 +20,7 @@ LinkedListCitizen::~LinkedListCitizen()
     }
 }
 
-void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the end of the list
+void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the rigth place so the list is sorted
 {
     LinkedListCitizenNode *newNode = new LinkedListCitizenNode; // creating a new node
     newNode->citizen = citizen;
@@ -36,24 +36,30 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
     {
         // insert the node at the right place so the list is sorted
         LinkedListCitizenNode *current = start; // initialize current
-        if (current->next == NULL)
-        {
-            current->next = newNode;
-            return;
-        }
+
         if (current->citizen->getId() > newNode->citizen->getId())
         {
             newNode->next = current;
             start = newNode;
             return;
         }
-        while (current->next != NULL)
+        else if (current->citizen->getId() == newNode->citizen->getId())
         {
-            if (current->next->citizen->getId() < newNode->citizen->getId())
+            if (current->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL)
             {
-                current = current->next;
+                current->citizen->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
             }
-            else if (current->next->citizen->getId() > newNode->citizen->getId())
+            delete citizen;
+            delete newNode;
+            return;
+        }
+        while (current->next != NULL) // while there is another node
+        {
+            if (current->next->citizen->getId() < newNode->citizen->getId()) // if the id of the next node is smaller than the id of the new node
+            {
+                current = current->next; // we go to the next node
+            }
+            else if (current->next->citizen->getId() > newNode->citizen->getId()) // if the id of the next node is greater than the id of the new node
             {
                 newNode->next = current->next;
                 current->next = newNode;
@@ -61,7 +67,6 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             }
             else
             {
-                cout << "Same id " << current->next->citizen->getId() << " " << newNode->citizen->getId() << endl;
                 if (current->next->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL)
                 {
                     current->next->citizen->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
@@ -71,7 +76,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 break;
             }
         }
-        if (current->next == NULL)
+        if (current->next == NULL) // all the nodes are smaller than the new one so we insert the new one at the end
         {
             current->next = newNode;
         }

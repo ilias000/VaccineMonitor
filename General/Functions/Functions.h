@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-string *stringSeperator(string *, int *); // takes a string and an int, stores inside the int the size of the array and returns the array that contains every word of the string
-int errorChecking(int, string *, LinkedListCitizen *);
+string *stringSeperator(string *, int *);              // takes a string and an int, stores inside the int the size of the array and returns the array that contains every word of the string
+int errorChecking(int, string *, LinkedListCitizen *); // returns 1 if the record is good and 0 if it is not
 
 #endif

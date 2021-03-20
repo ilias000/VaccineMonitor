@@ -24,7 +24,7 @@ string *stringSeperator(string *line, int *numWords)
     return wordsOfLine; // returning the array that contains the strings
 }
 
-int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if record is good
+int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if the record is good and 0 if it is not
 {
     if ((numWords < 7) || (numWords > 8))
     {

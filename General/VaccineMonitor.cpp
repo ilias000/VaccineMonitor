@@ -91,9 +91,9 @@ int main(int argc, char *argv[])
 
         CitizenRecord *citizen;
 
-        if (numWords == 8) // if it has 8 it means it has also date
+        if (numWords == 8) // if it has 8 words it means it has also date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], wordsOfLine[7]);
-        else if (numWords == 7) // if it has 7 it has not date
+        else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
         //elegxw an yparxei o citizen kai an sto citizen yparxei o virus petaw ton citizen , an den yparxei prosthetw to virus sth lista tou citizen
