@@ -20,7 +20,7 @@ LinkedListCitizen::~LinkedListCitizen()
     }
 }
 
-void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the rigth place so the list is sorted
+void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first
 {
     LinkedListCitizenNode *newNode = new LinkedListCitizenNode; // creating a new node
     newNode->citizen = citizen;
@@ -37,15 +37,15 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
         // insert the node at the right place so the list is sorted
         LinkedListCitizenNode *current = start; // initialize current
 
-        if (current->citizen->getId() > newNode->citizen->getId())
+        if (current->citizen->getId() > newNode->citizen->getId()) // the id of the first node is greater than the id of the new node
         {
             newNode->next = current;
             start = newNode;
             return;
         }
-        else if (current->citizen->getId() == newNode->citizen->getId())
+        else if (current->citizen->getId() == newNode->citizen->getId()) // the id of the first node is equal to the id of the new node
         {
-            if (current->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL)
+            if (current->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) //if the citizen has not the virus in the list of viruses
             {
                 current->citizen->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
             }
