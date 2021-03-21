@@ -16,12 +16,12 @@
 1510 KncIiWL MsxTewyJ Kenya 27 Scabies YES 29-6-2015
 7649 hZp bcZZ Qatar 42 Pustular YES 20-7-2011
 689 fAOkxlNqqO UJIZNiwuF Comoros 51 H1N1 YES 24-6-2015
-9276 PRClGYSS NOj ElSalvador 23 HIV NO 7-3-2015
+9276 PRClGYSS NOj ElSalvador 23 HIV NO
 9620 EzOMCcDbrNiR vBcJAayZhdtV DuchyofParma 8 Chikungunya YES 13-9-201111
 879 obFnFNPaE zLGlRMelD Vanuatu 100 Poliomyelitis NO
 3156 fboOkDWBPSQh WEOelrI Panama 71 Anaplasmosis NO
 4156 QngwYwRq KTeO Niger 72 Covid YES 16-8-2013
-9276 PRClGYSS NOj ElSalvador 23 Campylobacteriosis NO
+9276 PRClGYSS NOj ElSalvadord 23 Campylobacteriosis NO
 5027 jMrnOIaImRJW gca Uzbekistan 83 Tularemia YES 10-4-2019
 879 obFnFNPaE zLGlRMelD Vanuatu 100 Salmonellosis NO
 8377 ThWxpMv GfoKFtsWA Burundi 71 Vaginosis NO

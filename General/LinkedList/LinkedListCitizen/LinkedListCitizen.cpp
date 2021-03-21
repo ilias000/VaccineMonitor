@@ -49,8 +49,12 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             // checking that while it has the same id it also has the same credentials
             if ((current->citizen->getId() != citizen->getId()) || (current->citizen->getFirstName().compare(citizen->getFirstName()) != 0) || (current->citizen->getLastName().compare(citizen->getLastName()) != 0) || (current->citizen->getCountryName().compare(citizen->getCountryName()) != 0) || (current->citizen->getAge() != citizen->getAge()))
             {
-                cout << "ERROR IN RECORD (Same ID but different credentials)";
+                cout << "ERROR IN RECORD (Same ID but different credentials)" << endl;
+                cout << "New record : ";
                 citizen->print();
+                cout << endl;
+                cout << "Old record : ";
+                current->citizen->print();
                 cout << endl;
                 delete citizen;
                 delete newNode;
@@ -87,10 +91,14 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             else // the id of the next node is equal to the id of the new node so the citizen already exists
             {
                 // checking that while it has the same id it also has the same credentials
-                if ((current->citizen->getId() != citizen->getId()) || (current->citizen->getFirstName().compare(citizen->getFirstName()) != 0) || (current->citizen->getLastName().compare(citizen->getLastName()) != 0) || (current->citizen->getCountryName().compare(citizen->getCountryName()) != 0) || (current->citizen->getAge() != citizen->getAge()))
+                if ((current->next->citizen->getId() != citizen->getId()) || (current->next->citizen->getFirstName().compare(citizen->getFirstName()) != 0) || (current->next->citizen->getLastName().compare(citizen->getLastName()) != 0) || (current->next->citizen->getCountryName().compare(citizen->getCountryName()) != 0) || (current->next->citizen->getAge() != citizen->getAge()))
                 {
-                    cout << "ERROR IN RECORD (Same ID but different credentials)";
+                    cout << "ERROR IN RECORD (Same ID but different credentials)" << endl;
+                    cout << "New record : ";
                     citizen->print();
+                    cout << endl;
+                    cout << "Old record : ";
+                    current->next->citizen->print();
                     cout << endl;
                     delete citizen;
                     delete newNode;
@@ -109,7 +117,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 }
                 delete citizen;
                 delete newNode;
-                break;
+                return;
             }
         }
         if (current->next == NULL) // all the nodes are smaller than the new one so we insert the new one at the end
