@@ -24,7 +24,8 @@ public:
     LinkedListVaccine();
     ~LinkedListVaccine();
 
-    LinkedListVaccineNode *getFirstNode() { return start; } // returns the first node of the list
+    LinkedListVaccineNode *getFirstNode() { return start; }   // returns the first node of the list
+    string getFirstVaccinated() { return start->vaccinated; } // returns the vaccinated of the first node
 
     void insertNode(LinkedListStringNode *, string, string); // inserts a node at the end of the list
     LinkedListVaccineNode *findNode(LinkedListStringNode *); // if the LinkedListStringNode exist returns the node else returns NULL

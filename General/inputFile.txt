@@ -1,5 +1,5 @@
 5811 ZImDR zFh Colombia 49 Rubella YES 6-3-2016 aa
-873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Pertussis NO
+873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Pertussis YES 28-5-1999
 87200 OwFdlb vgYSNEyAU Niger 56 Trichomoniasis YES
 872 OwFdlb vgYSNEyAU Niger 56 Botulism NO
 7649 hZp bcZZ Qatar -2 Powassan NO

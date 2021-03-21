@@ -6,7 +6,7 @@ CFLAGS = -Wall -g
 
 PROGRAM = vaccineMonitor
 
-OBJS = VaccineMonitor.o Functions.o CitizenRecord.o LinkedListCitizen.o LinkedListString.o LinkedListVaccine.o
+OBJS = VaccineMonitor.o Functions.o CitizenRecord.o LinkedListCitizen.o LinkedListString.o LinkedListVaccine.o BloomFilter.o
 
 $(PROGRAM): clean $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
@@ -28,7 +28,10 @@ LinkedListString.o: LinkedList/LinkedListString/LinkedListString.cpp
 	
 LinkedListVaccine.o: LinkedList/LinkedListVaccine/LinkedListVaccine.cpp
 	$(CC) $(CFLAGS) -c $?
-	
+
+BloomFilter.o: BloomFilter/BloomFilter.cpp
+	$(CC) $(CFLAGS) -c $?
+
 clean:
 	rm -f $(PROGRAM) $(OBJS)
 

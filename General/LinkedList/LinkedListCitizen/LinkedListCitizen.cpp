@@ -20,7 +20,7 @@ LinkedListCitizen::~LinkedListCitizen()
     }
 }
 
-void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first
+int LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first (if the citizen inserted returns 1 else returns 0)
 {
     LinkedListCitizenNode *newNode = new LinkedListCitizenNode; // creating a new node
     newNode->citizen = citizen;
@@ -31,6 +31,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
         // insert the node at the start
         start = newNode;
         end = newNode;
+        return 1;
     }
     else // the list is not empty
     {
@@ -42,7 +43,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             // we insert the new node before the first node
             newNode->next = current;
             start = newNode;
-            return;
+            return 1;
         }
         else if (current->citizen->getId() == newNode->citizen->getId()) // the id of the first node is equal to the id of the new node so the citizen already exists
         {
@@ -58,22 +59,25 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 cout << endl;
                 delete citizen;
                 delete newNode;
-                return;
+                return 0;
             }
             if (current->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
             {
                 // we insert the virus in the list with the viruses
                 current->citizen->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
+                delete citizen;
+                delete newNode;
+                return 1;
             }
             else
             {
                 cout << "ERROR (Bad duplicate) : ";
                 citizen->print();
                 cout << endl;
+                delete citizen;
+                delete newNode;
+                return 0;
             }
-            delete citizen;
-            delete newNode;
-            return;
         }
         while (current->next != NULL) // while there is another node
         {
@@ -102,29 +106,34 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                     cout << endl;
                     delete citizen;
                     delete newNode;
-                    return;
+                    return 0;
                 }
                 if (current->next->citizen->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
                 {
                     // we insert the virus in the list with the viruses
                     current->next->citizen->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
+                    delete citizen;
+                    delete newNode;
+                    return 1;
                 }
                 else
                 {
                     cout << "ERROR (Bad duplicate) : ";
                     citizen->print();
                     cout << endl;
+                    delete citizen;
+                    delete newNode;
+                    return 0;
                 }
-                delete citizen;
-                delete newNode;
-                return;
             }
         }
         if (current->next == NULL) // all the nodes are smaller than the new one so we insert the new one at the end
         {
             current->next = newNode;
+            return 1;
         }
     }
+    return 0;
 }
 
 LinkedListCitizenNode *LinkedListCitizen::findNode(int id) // if the id exist returns the node else returns NULL

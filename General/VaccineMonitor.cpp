@@ -2,6 +2,7 @@
 #include "CitizenRecord/CitizenRecord.h"
 #include "LinkedList/LinkedListString/LinkedListString.h"
 #include "LinkedList/LinkedListCitizen/LinkedListCitizen.h"
+#include "BloomFilter/BloomFilter.h"
 
 #include <stdlib.h>
 //#include <string>
@@ -53,6 +54,7 @@ int main(int argc, char *argv[])
     LinkedListString *countries = new LinkedListString();
     LinkedListString *viruses = new LinkedListString();
     LinkedListCitizen *citizens = new LinkedListCitizen();
+    LinkedListBloomFilter *bloomFilter = NULL;
 
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
@@ -87,6 +89,10 @@ int main(int argc, char *argv[])
         {
             viruses->insertNode(wordsOfLine[5]);
             virus = viruses->findNode(wordsOfLine[5]);
+            if (bloomFilter == NULL)
+                bloomFilter = new LinkedListBloomFilter(virus, bloomSize);
+            else
+                bloomFilter->insert(virus, bloomSize);
         }
 
         CitizenRecord *citizen;
@@ -96,16 +102,18 @@ int main(int argc, char *argv[])
         else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        citizens->insertNode(citizen); // inserting the citizen (if the citizen already exists and he has already the virus i delete the record else i insert the virus in the citizens list)
+        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // inserting the citizen (if the citizen already exists and he has already the virus i delete the record else i insert the virus in the citizens list)
+            bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
 
         delete[] wordsOfLine;
     }
 
-    citizens->print();
+    cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(9999) << endl;
 
     delete countries;
     delete viruses;
     delete citizens;
+    delete bloomFilter;
     cout << "                             ---  THE VACCINE MONITOR PROGRAM ENDED  ---                                 " << endl;
 
     return 0;
