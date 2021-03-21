@@ -49,7 +49,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             // checking that while it has the same id it also has the same credentials
             if ((current->citizen->getId() != citizen->getId()) || (current->citizen->getFirstName().compare(citizen->getFirstName()) != 0) || (current->citizen->getLastName().compare(citizen->getLastName()) != 0) || (current->citizen->getCountryName().compare(citizen->getCountryName()) != 0) || (current->citizen->getAge() != citizen->getAge()))
             {
-                cout << "ERROR IN RECORD (Same ID but different credentials)" << endl;
+                cout << "ERROR (Same ID but different credentials) : " << endl;
                 cout << "New record : ";
                 citizen->print();
                 cout << endl;
@@ -67,7 +67,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
             }
             else
             {
-                cout << "ERROR IN RECORD (Bad duplicate)";
+                cout << "ERROR (Bad duplicate) : ";
                 citizen->print();
                 cout << endl;
             }
@@ -93,7 +93,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 // checking that while it has the same id it also has the same credentials
                 if ((current->next->citizen->getId() != citizen->getId()) || (current->next->citizen->getFirstName().compare(citizen->getFirstName()) != 0) || (current->next->citizen->getLastName().compare(citizen->getLastName()) != 0) || (current->next->citizen->getCountryName().compare(citizen->getCountryName()) != 0) || (current->next->citizen->getAge() != citizen->getAge()))
                 {
-                    cout << "ERROR IN RECORD (Same ID but different credentials)" << endl;
+                    cout << "ERROR (Same ID but different credentials) : " << endl;
                     cout << "New record : ";
                     citizen->print();
                     cout << endl;
@@ -111,7 +111,7 @@ void LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at 
                 }
                 else
                 {
-                    cout << "ERROR IN RECORD (Bad duplicate)";
+                    cout << "ERROR (Bad duplicate) : ";
                     citizen->print();
                     cout << endl;
                 }
