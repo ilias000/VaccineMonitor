@@ -97,21 +97,42 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
         return 0;
 
     dash1 = date.substr(1, 1);
-    if (dash1.compare("-") == 0) // the date is d-... and not dd-...
+    if (dash1.compare("-") == 0) // the date is d-...
     {
-        // dash2 = date.substr(3, 1);
-        // if (dash2.compare("-") == 0) // the date is d-m-... and not d-mm-...
-        // {
-        //     // date = stoi(date.substr(0, 1));
-        //     // month = stoi(date.substr(2, 1));
-        //     // year = stoi(date.substr(4, 4));
-        //     cout << "Date  = " << day << dash1 << month << dash2 << year << endl;
-        // }
+        cout << "the date is d-..." << endl;
+        dash2 = date.substr(3, 1);
+        if (dash2.compare("-") == 0) // the date is d-m-...
+        {
+            cout << "the date is d-m-..." << endl;
+            return 1;
+        }
+        dash2 = date.substr(4, 1);
+        if (dash2.compare("-") == 0) // the date is d-mm-...
+        {
+            cout << "the date is d-mm-..." << endl;
+            return 1;
+        }
+        return 0;
     }
-    // dash1 = date.substr(1, 1);
-    // if (dash1.)
-    // {
-    // }
+    dash1 = date.substr(2, 1);
+    if (dash1.compare("-") == 0) // the date is dd-...
+    {
+        cout << "the date is dd-..." << endl;
+        dash2 = date.substr(4, 1);
+        if (dash2.compare("-") == 0) // the date is dd-m-...
+        {
+            cout << "the date is dd-m-..." << endl;
+            return 1;
+        }
+        dash2 = date.substr(5, 1);
+        if (dash2.compare("-") == 0) // the date is dd-mm-...
+        {
+            cout << "the date is dd-mm-..." << endl;
+            return 1;
+        }
+        return 0;
+        return 0;
+    }
 
     // dash1 = date.substr(3, 1);
     // month = stoi(date.substr(5, 2));
@@ -123,5 +144,5 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     // {
 
     // }
-    return 1;
+    return 0;
 }

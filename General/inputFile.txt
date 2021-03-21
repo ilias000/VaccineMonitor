@@ -9,11 +9,11 @@
 3156 fboOkDWBPSQh WEOelrI Panama 71 Poliomyelitis NO
 7521 XrSWrGXKKmrp TMAbhlCPLu Chad 108 Ebola SI
 5351 wUlurbx pkNFwe Chile 50 Tetanus YES 8-3-2018
-872 OwFdlb vgYSNEyAU Niger 56 Poliomyelitis YES 2-6-2011
+872 OwFdlb vgYSNEyAU Niger 56 Poliomyelitis YES 2-10-2011
 1058 XaUhzfGNsjo vioYneCk Portugal 18 Zika NO
 873 UhbPbMXHZad psNgxyOMgiXP Thailand 88 Vaginosis YES 13-2-2014
 9530 QSF MZpojV Grenada 66 Acute NO
-1510 KncIiWL MsxTewyJ Kenya 27 Scabies YES 29-6-2015
+1510 KncIiWL MsxTewyJ Kenya 27 Scabies YES 29-11-2015
 7649 hZp bcZZ Qatar 42 Pustular YES 20-7-2011
 689 fAOkxlNqqO UJIZNiwuF Comoros 51 H1N1 YES 24-6-2015
 9276 PRClGYSS NOj ElSalvador 23 HIV NO
@@ -98,3 +98,8 @@
 7344 RxnJngj FvyLqODqD Bolivia 93 Powassan NO
 651 ghNj TBMYNJvn Bangladesh 34 Zika YES 4-9-2012
 6050 vdJYc VzzxSAbSRwQs Ghana 25 Brucellosis NO
+651 ghNj TBMYNJvn Bangladesh 34 Zikas YES -4-9-2012
+651 ghNj TBMYNJvn Bangladesh 34 Zikaa YES 4-9-2012-
+651 ghNj TBMYNJvn Bangladesh 34 Zikaa YES 49-2012
+651 ghNj TBMYNJvn Bangladesh 34 Zikas YES 4-92012
+651 ghNj TBMYNJvn Bangladesh 34 Zikas YES 492012
