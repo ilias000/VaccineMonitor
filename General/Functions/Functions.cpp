@@ -93,18 +93,25 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     int day, month, year;
     string dash1, dash2;
 
+    if ((date.length() < 8) || (date.length() > 10)) // it can be 8-10 because d-mm-yyyy, d-m-yyyy, dd-mm-yyyy, dd-m-yyyy
+        return 0;
+
     dash1 = date.substr(1, 1);
     if (dash1.compare("-") == 0) // the date is d-... and not dd-...
     {
-        dash2 = date.substr(3, 1);
-        if (dash2.compare("-") == 0) // the date is d-m-... and not d-mm-...
-        {
-            // date = stoi(date.substr(0, 1));
-            // month = stoi(date.substr(2, 1));
-            // year = stoi(date.substr(4, 4));
-            cout << "Date  = " << day << dash1 << month << dash2 << year << endl;
-        }
+        // dash2 = date.substr(3, 1);
+        // if (dash2.compare("-") == 0) // the date is d-m-... and not d-mm-...
+        // {
+        //     // date = stoi(date.substr(0, 1));
+        //     // month = stoi(date.substr(2, 1));
+        //     // year = stoi(date.substr(4, 4));
+        //     cout << "Date  = " << day << dash1 << month << dash2 << year << endl;
+        // }
     }
+    // dash1 = date.substr(1, 1);
+    // if (dash1.)
+    // {
+    // }
 
     // dash1 = date.substr(3, 1);
     // month = stoi(date.substr(5, 2));
@@ -116,4 +123,5 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     // {
 
     // }
+    return 1;
 }

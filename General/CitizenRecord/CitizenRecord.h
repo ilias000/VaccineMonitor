@@ -23,6 +23,10 @@ public:
     ~CitizenRecord();
 
     int getId() { return id; }                          // returns the id
+    string getFirstName() { return firstName; }         // returns the first name
+    string getLastName() { return lastName; }           // returns the last  name
+    int getAge() { return age; }                        // returns the age
+    string getCountryName() { return country->name; }   // returns the name of the country
     LinkedListVaccine *getViruses() { return viruses; } // returns the address of the viruses list
 
     void print(); // prints the record

@@ -17,7 +17,7 @@
 7649 hZp bcZZ Qatar 42 Pustular YES 20-7-2011
 689 fAOkxlNqqO UJIZNiwuF Comoros 51 H1N1 YES 24-6-2015
 9276 PRClGYSS NOj ElSalvador 23 HIV NO 7-3-2015
-9620 EzOMCcDbrNiR vBcJAayZhdtV DuchyofParma 8 Chikungunya YES 13-9-2011
+9620 EzOMCcDbrNiR vBcJAayZhdtV DuchyofParma 8 Chikungunya YES 13-9-201111
 879 obFnFNPaE zLGlRMelD Vanuatu 100 Poliomyelitis NO
 3156 fboOkDWBPSQh WEOelrI Panama 71 Anaplasmosis NO
 4156 QngwYwRq KTeO Niger 72 Covid YES 16-8-2013
