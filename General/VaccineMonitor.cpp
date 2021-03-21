@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
         else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        citizens->insertNode(citizen); // inserting the citizen (if the citizen already exits and he has already the virus i delete the record else i insert the virus in the citizens list)
+        citizens->insertNode(citizen); // inserting the citizen (if the citizen already exists and he has already the virus i delete the record else i insert the virus in the citizens list)
 
         delete[] wordsOfLine;
     }
