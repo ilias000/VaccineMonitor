@@ -27,7 +27,6 @@ string *stringSeperator(string *line, int *numWords)
 
 int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if the record is good and 0 if it is not
 {
-    cout << "ID = " << wordsOfLine[0] << endl;
     if ((numWords < 7) || (numWords > 8))
     {
         cout << "ERROR IN RECORD (Wrong number of words)";
@@ -93,11 +92,9 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     int day, month, year;
     string dash1, dash2;
 
-    std::string::const_iterator it = date.begin(); // checking if the string has only - and numbers
-    while (it != date.end() && (isdigit(*it) || (*it == '-')))
-        ++it;
-    if (!(!date.empty() && it == date.end()))
-        return 0;
+    for (unsigned int i = 0; i < date.length(); i++) // checking if the string contains only digits and -
+        if (((date[i] < '0' || date[i] > '9') && date[i] != '-'))
+            return 0;
 
     char firstChar = date.front();
     char lastChar = date.back();
@@ -113,7 +110,6 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
         dash2 = date.substr(3, 1);
         if (dash2.compare("-") == 0) // the date is d-m-yyyy
         {
-            cout << "the date is d-m-yyyy" << endl;
             day = stoi(date.substr(0, 1));
             month = stoi(date.substr(2, 1));
             year = stoi(date.substr(4));
@@ -121,14 +117,13 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
                 return 0;
             if ((month < 1) || (month > 12))
                 return 0;
-            if ((year < 1900) || (day > 2021))
+            if ((year < 1900) || (year > 2021))
                 return 0;
             return 1;
         }
         dash2 = date.substr(4, 1);
         if (dash2.compare("-") == 0) // the date is d-mm-yyyy
         {
-            cout << "the date is d-mm-yyyy" << endl;
             day = stoi(date.substr(0, 1));
             month = stoi(date.substr(2, 2));
             year = stoi(date.substr(5));
@@ -136,7 +131,7 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
                 return 0;
             if ((month < 1) || (month > 12))
                 return 0;
-            if ((year < 1900) || (day > 2021))
+            if ((year < 1900) || (year > 2021))
                 return 0;
             return 1;
         }
@@ -148,7 +143,6 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
         dash2 = date.substr(4, 1);
         if (dash2.compare("-") == 0) // the date is dd-m-yyyy
         {
-            cout << "the date is dd-m-yyyy" << endl;
             day = stoi(date.substr(0, 2));
             month = stoi(date.substr(3, 1));
             year = stoi(date.substr(5));
@@ -156,14 +150,13 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
                 return 0;
             if ((month < 1) || (month > 12))
                 return 0;
-            if ((year < 1900) || (day > 2021))
+            if ((year < 1900) || (year > 2021))
                 return 0;
             return 1;
         }
         dash2 = date.substr(5, 1);
         if (dash2.compare("-") == 0) // the date is dd-mm-yyyy
         {
-            cout << "the date is dd-mm-yyyy" << endl;
             day = stoi(date.substr(0, 2));
             month = stoi(date.substr(3, 2));
             year = stoi(date.substr(6));
@@ -171,7 +164,7 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
                 return 0;
             if ((month < 1) || (month > 12))
                 return 0;
-            if ((year < 1900) || (day > 2021))
+            if ((year < 1900) || (year > 2021))
                 return 0;
             return 1;
         }
