@@ -26,6 +26,7 @@ string *stringSeperator(string *line, int *numWords)
 
 int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if the record is good and 0 if it is not
 {
+    cout << "ID = " << wordsOfLine[0] << endl;
     if ((numWords < 7) || (numWords > 8))
     {
         cout << "ERROR IN RECORD (Wrong number of words)";
@@ -88,4 +89,31 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
 
 int checkDate(string date) // takes a string Date and returns 1 if it is in the right form else 0
 {
+    istringstream Date(date);
+    int day, month, year;
+    string dash1, dash2;
+
+    dash1 = date.substr(1, 1);
+    if (dash1.compare("-") == 0) // the date is d-... and not dd-...
+    {
+        dash2 = date.substr(3, 1);
+        if (dash2.compare("-") == 0) // the date is d-m-... and not d-mm-...
+        {
+            // date = stoi(date.substr(0, 1));
+            // month = stoi(date.substr(2, 1));
+            // year = stoi(date.substr(4, 4));
+            cout << "Date  = " << day << dash1 << month << dash2 << year << endl;
+        }
+    }
+
+    // dash1 = date.substr(3, 1);
+    // month = stoi(date.substr(5, 2));
+    // dash2 = stoi(date.substr(5, 5));
+    // year = stoi(date.substr(5, 8));
+    // cout << "Date  = " << day << dash1 << month << dash2 << year << endl;
+    // check the lenght
+    // if (Date >> day >> ignore >> month >> ignore >> year)
+    // {
+
+    // }
 }
