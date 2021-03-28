@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
         {
             viruses->insertNode(wordsOfLine[5]);
             virus = viruses->findNode(wordsOfLine[5]);
-            if (bloomFilter == NULL)
+            if (bloomFilter == NULL) // creating a bloom filter for the specific virus
                 bloomFilter = new LinkedListBloomFilter(virus, bloomSize);
             else
                 bloomFilter->insert(virus, bloomSize);
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
         else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // inserting the citizen (if the citizen already exists and he has already the virus i delete the record else i insert the virus in the citizens list)
+        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted corectly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
             bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
 
         delete[] wordsOfLine;

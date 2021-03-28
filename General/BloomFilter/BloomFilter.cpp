@@ -16,14 +16,14 @@ BloomFilter::~BloomFilter()
     delete filter;
 }
 
-void BloomFilter::setBit0(int k)
+void BloomFilter::setBit0(int k) // sets a specific bit 0
 {
     int byte = k / 8;
     int bit = k % 8;
     this->filter[byte] = this->filter[byte] & ~(1 << bit);
 }
 
-void BloomFilter::setBit1(int k)
+void BloomFilter::setBit1(int k) // finds the K bit and sets it to 1
 {
     int byte = k / 8;
     int bit = k % 8;
@@ -39,6 +39,8 @@ int BloomFilter::getBit(int k)
     return 0;
 }
 
+// hash function
+
 unsigned long djb2(unsigned char *str)
 {
     int c;
@@ -49,6 +51,8 @@ unsigned long djb2(unsigned char *str)
 
     return hash;
 }
+
+// hash function
 
 unsigned long sdbm(unsigned char *str)
 {
@@ -61,12 +65,14 @@ unsigned long sdbm(unsigned char *str)
     return hash;
 }
 
+// hash function
+
 unsigned long hash_i(unsigned char *str, unsigned int i)
 {
     return djb2(str) + i * sdbm(str) + i * i;
 }
 
-void BloomFilter::insert(int number)
+void BloomFilter::insert(int number) // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
 {
     unsigned char numberChar = (unsigned char)number;
     int K = 16;

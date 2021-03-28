@@ -16,11 +16,11 @@ public:
     BloomFilter(int);
     ~BloomFilter();
 
-    void setBit0(int);
-    void setBit1(int);
-    int getBit(int);
-    int getSize() { return size * 8; }
-    void insert(int);
+    void setBit0(int);                 // sets a specific bit 0
+    void setBit1(int);                 // sets a specific bit 1
+    int getBit(int);                   // returns the value of the specified bit
+    int getSize() { return size * 8; } // returns the size of the filter in bytes
+    void insert(int);                  // inserts
     bool find(int);
 };
 
