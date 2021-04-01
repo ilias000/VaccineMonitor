@@ -110,6 +110,8 @@ int main(int argc, char *argv[])
 
     cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(9999) << endl;
 
+
+
     delete countries;
     delete viruses;
     delete citizens;
