@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
         else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted corectly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
             bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
 
         delete[] wordsOfLine;
