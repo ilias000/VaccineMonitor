@@ -16,8 +16,8 @@ public:
     BloomFilter(int);
     ~BloomFilter();
 
-    void setBit0(int);                 // sets a specific bit 0
-    void setBit1(int);                 // sets a specific bit 1
+    void setBit0(int);                 // finds the K bit and sets it to 0
+    void setBit1(int);                 // finds the K bit and sets it to 1
     int getBit(int);                   // returns the value of the specified bit
     int getSize() { return size * 8; } // returns the size of the filter in bytes
     void insert(int);                  // inserts

@@ -69,7 +69,7 @@ int LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at t
                 delete newNode;
                 return 1;
             }
-            else
+            else // the citizen has already the virus in the list
             {
                 cout << "ERROR (Bad duplicate) : ";
                 citizen->print();
@@ -116,7 +116,7 @@ int LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at t
                     delete newNode;
                     return 1;
                 }
-                else
+                else // the citizen has already the virus in the list
                 {
                     cout << "ERROR (Bad duplicate) : ";
                     citizen->print();
