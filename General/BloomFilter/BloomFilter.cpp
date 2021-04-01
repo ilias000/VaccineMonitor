@@ -110,7 +110,7 @@ LinkedListBloomFilter::~LinkedListBloomFilter()
         delete this->next;
 }
 
-void LinkedListBloomFilter::insert(LinkedListStringNode *virus, int size)
+void LinkedListBloomFilter::insert(LinkedListStringNode *virus, int size) // creates a linked list bloom filter with filter for the specified virus and inserts it to the list
 {
     LinkedListBloomFilter *tmp = this;
     LinkedListBloomFilter *newNode = new LinkedListBloomFilter(virus, size);
@@ -121,7 +121,7 @@ void LinkedListBloomFilter::insert(LinkedListStringNode *virus, int size)
     tmp->next = newNode;
 }
 
-BloomFilter *LinkedListBloomFilter::getFilter(LinkedListStringNode *virus)
+BloomFilter *LinkedListBloomFilter::getFilter(LinkedListStringNode *virus) // returns the filter of the specified virus
 {
     LinkedListBloomFilter *node = this;
     while (node != NULL)
@@ -133,7 +133,7 @@ BloomFilter *LinkedListBloomFilter::getFilter(LinkedListStringNode *virus)
     return NULL;
 }
 
-LinkedListBloomFilter *LinkedListBloomFilter::getNode(LinkedListStringNode *virus)
+LinkedListBloomFilter *LinkedListBloomFilter::getNode(LinkedListStringNode *virus) // returns the node of the specified virus
 {
     LinkedListBloomFilter *node = this;
     while (node != NULL)
