@@ -16,7 +16,7 @@ BloomFilter::~BloomFilter()
     delete filter;
 }
 
-void BloomFilter::setBit0(int k) // sets a specific bit 0
+void BloomFilter::setBit0(int k) // finds the K bit and sets it to 0
 {
     int byte = k / 8;
     int bit = k % 8;
@@ -30,7 +30,7 @@ void BloomFilter::setBit1(int k) // finds the K bit and sets it to 1
     this->filter[byte] = this->filter[byte] | (1 << bit);
 }
 
-int BloomFilter::getBit(int k)
+int BloomFilter::getBit(int k) // returns the value of the specified bit
 {
     int byte = k / 8;
     int bit = k % 8;
@@ -78,18 +78,18 @@ void BloomFilter::insert(int number) // takes the id of the citizen and makes 16
     int K = 16;
     for (int i = 0; i < K; i++)
     {
-        int bit = hash_i(&numberChar, i) % this->getSize();
+        int bit = hash_i(&numberChar, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
         this->setBit1(bit);
     }
 }
 
-bool BloomFilter::find(int number)
+bool BloomFilter::find(int number) // returns true if an
 {
     unsigned char numberChar = (unsigned char)number;
     int K = 16;
     for (int i = 0; i < K; i++)
     {
-        int bit = hash_i(&numberChar, i) % this->getSize();
+        int bit = hash_i(&numberChar, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
         if (!this->getBit(bit))
             return false;
     }
