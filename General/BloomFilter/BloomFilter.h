@@ -19,19 +19,19 @@ public:
     void setBit0(int);                 // finds the K bit and sets it to 0
     void setBit1(int);                 // finds the K bit and sets it to 1
     int getBit(int);                   // returns the value of the specified bit
-    int getSize() { return size * 8; } // returns the size of the filter in bytes
+    int getSize() { return size * 8; } // returns the size of the filter in bits
     void insert(int);                  // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
-    bool find(int);
+    bool find(int);                    // takes the id and returns true if all of the bits that the hash function will tell are 1
 };
 
 class LinkedListBloomFilter
 {
 
+    LinkedListStringNode *virus;
     BloomFilter *filter;
     LinkedListBloomFilter *next;
 
 public:
-    LinkedListStringNode *virus;
     LinkedListBloomFilter(LinkedListStringNode *, int);
     ~LinkedListBloomFilter();
 

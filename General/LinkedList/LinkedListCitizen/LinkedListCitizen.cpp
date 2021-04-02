@@ -90,7 +90,7 @@ int LinkedListCitizen::insertNode(CitizenRecord *citizen) // inserts a node at t
                 // we insert the new node before the next node and after the current node
                 newNode->next = current->next;
                 current->next = newNode;
-                break;
+                return 1;
             }
             else // the id of the next node is equal to the id of the new node so the citizen already exists
             {

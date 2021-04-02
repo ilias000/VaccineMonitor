@@ -108,9 +108,7 @@ int main(int argc, char *argv[])
         delete[] wordsOfLine;
     }
 
-    cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(9999) << endl;
-
-
+    cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(15) << endl;
 
     delete countries;
     delete viruses;

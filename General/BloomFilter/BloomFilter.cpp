@@ -72,24 +72,32 @@ unsigned long hash_i(unsigned char *str, unsigned int i)
     return djb2(str) + i * sdbm(str) + i * i;
 }
 
-void BloomFilter::insert(int number) // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
+void BloomFilter::insert(int id) // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
 {
-    unsigned char numberChar = (unsigned char)number;
-    int K = 16;
-    for (int i = 0; i < K; i++)
+    char charId[4];                  // wil store the id like a char
+    unsigned char unsignedCharId[4]; // will store the id like a unsigned char
+    sprintf(charId, "%d", id);       // storing the id like a char in the charId array
+    for (int i = 0; i < 4; i++)      // storing the id like an unsinged char in the unsignedCharId array
+        unsignedCharId[i] = charId[i];
+
+    for (int i = 0; i < 16; i++)
     {
-        int bit = hash_i(&numberChar, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
+        int bit = hash_i(unsignedCharId, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
         this->setBit1(bit);
     }
 }
 
-bool BloomFilter::find(int number) // returns true if an
+bool BloomFilter::find(int id) // takes the id and returns true if all of the bits that the hash function will tell are 1
 {
-    unsigned char numberChar = (unsigned char)number;
-    int K = 16;
-    for (int i = 0; i < K; i++)
+    char charId[4];                  // wil store the id like a char
+    unsigned char unsignedCharId[4]; // will store the id like a unsigned char
+    sprintf(charId, "%d", id);       // storing the id like a char in the charId array
+    for (int i = 0; i < 4; i++)      // storing the id like an unsinged char in the unsignedCharId array
+        unsignedCharId[i] = charId[i];
+
+    for (int i = 0; i < 16; i++)
     {
-        int bit = hash_i(&numberChar, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
+        int bit = hash_i(unsignedCharId, i) % this->getSize(); // mod with the size because the hash function may return a value greater than the size of the bloom filter
         if (!this->getBit(bit))
             return false;
     }
