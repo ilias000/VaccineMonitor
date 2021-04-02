@@ -1,43 +1,85 @@
-#ifndef BLOOMFILTER_H
-#define BLOOMFILTER_H
+#ifndef SKIPLIST_H
+#define SKIPLIST_H
 
-#include "../LinkedList/LinkedListVaccine/LinkedListVaccine.h"
+#include "../LinkedList/LinkedListString/LinkedListString.h"
 
 #include <iostream>
 
 using namespace std;
 
-class BloomFilter
+class SkipListNode
 {
-    int size; // bits of bloom filter
-    char *filter;
+    int id; // todo: id to citizen
+    SkipListNode *next;
+    SkipListNode *below;
 
 public:
-    BloomFilter(int);
-    ~BloomFilter();
+    SkipListNode(int, SkipListNode *, SkipListNode *);
+    ~SkipListNode();
 
-    void setBit0(int);                 // finds the K bit and sets it to 0
-    void setBit1(int);                 // finds the K bit and sets it to 1
-    int getBit(int);                   // returns the value of the specified bit
-    int getSize() { return size * 8; } // returns the size of the filter in bits
-    void insert(int);                  // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
-    bool find(int);                    // takes the id and returns true if all of the bits that the hash function will tell are 1
+    int getId() { return id; }
+    SkipListNode *getNext() { return next; }
+    SkipListNode *getBelow() { return below; }
+
+    void setId(int id) { this->id = id; }
+    void setNext(SkipListNode *next) { this->next = next; }
+    void setBelow(SkipListNode *below) { this->below = below; }
+
+    void printAll(); // prints all nodes
 };
 
-class LinkedListBloomFilter
+class SkipListLayer
 {
-
-    LinkedListStringNode *virus;
-    BloomFilter *filter;
-    LinkedListBloomFilter *next;
+    SkipListNode *firstNode;
+    SkipListNode *lastNode;
+    SkipListLayer *belowLayer;
+    int layer;
 
 public:
-    LinkedListBloomFilter(LinkedListStringNode *, int);
-    ~LinkedListBloomFilter();
+    SkipListLayer(SkipListLayer *);
+    ~SkipListLayer();
 
-    void insert(LinkedListStringNode *, int);               // creates a linked list bloom filter with filter for the specified virus and inserts it to the list
-    BloomFilter *getFilter(LinkedListStringNode *);         // returns the filter of the specified virus
-    LinkedListBloomFilter *getNode(LinkedListStringNode *); // returns the node of the specified virus
+    SkipListNode *getFirstNode() { return firstNode; }
+    SkipListNode *getLastNode() { return lastNode; }
+    SkipListLayer *getBelowLayer() { return belowLayer; }
+    int getLayer() { return layer; }
+
+    void setFirstNode(SkipListNode *firstNode) { this->firstNode = firstNode; }
+    void setLastNode(SkipListNode *lastNode) { this->lastNode = lastNode; }
+    void setBelowLayer(SkipListLayer *belowLayer) { this->belowLayer = belowLayer; }
+    void setLayer(int layer) { this->layer = layer; }
+
+    void insertNode(int);
+    void deleteNode(int);
+    SkipListNode *findNode(int);
+};
+
+class SkipList
+{
+    SkipListLayer *vaccinated;
+    SkipListLayer *nonVaccinated;
+    LinkedListStringNode *virus;
+    SkipList *next;
+    int vaccinatedLayers;
+    int nonVaccinatedLayers;
+
+public:
+    SkipList(LinkedListStringNode *);
+    ~SkipList();
+
+    SkipListLayer *getVaccinated() { return vaccinated; }
+    SkipListLayer *getNonVaccinated() { return nonVaccinated; }
+    string getVirusName() { return virus->name; }
+    SkipList *getNext() { return next; }
+    int getVaccinatedLayers() { return vaccinatedLayers; }
+    int getNonVaccinatedLayers() { return nonVaccinatedLayers; }
+
+    void setVaccinated(SkipListLayer *vaccinated) { this->vaccinated = vaccinated; }
+    void setNonVaccinated(SkipListLayer *nonVaccinated) { this->nonVaccinated = nonVaccinated; }
+    void setVirus(LinkedListStringNode *virus) { this->virus = virus; }
+    void setNext(SkipList *next) { this->next = next; }
+    void setVaccinatedLayers(int vaccinatedLayers) { this->vaccinatedLayers = vaccinatedLayers; }
+    void setNonVaccinatedLayers(int nonVaccinatedLayers) { this->nonVaccinatedLayers = nonVaccinatedLayers; }
 };
 
 #endif
