@@ -82,10 +82,14 @@ public:
     SkipList* findVirus(LinkedListStringNode*);
     SkipList* findVirus(string);
 
-    //THES 6, GIA VACCINATED KAI 3 GIA NON VACCINATED
-    void insertNode(int, int);
-    void deleteNode(int, int);
-    SkipListNode* findNode(int, int);
+    void insertNodeVaccinated(int);
+    void insertNodeNonVaccinated(int);
+
+    void deleteNodeVaccinated(int);
+    void deleteNodeNonVaccinated(int);
+
+    SkipListNode* findNodeVaccinated(int);
+    SkipListNode* findNodeNonVaccinated(int);
 };
 
 #endif
