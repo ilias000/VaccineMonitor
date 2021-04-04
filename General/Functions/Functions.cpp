@@ -198,6 +198,42 @@ void commandInterface()
         {
             cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
         }
+        else if ((wordsOfCommand[0].compare("/vaccineStatus") == 0) && numWords == 2)
+        {
+            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << endl;
+        }
+        else if ((wordsOfCommand[0].compare("/populationStatus") == 0) && ((numWords == 4) || (numWords == 5)))
+        {
+            if (numWords == 4)
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
+            else
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+            //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+        }
+        else if ((wordsOfCommand[0].compare("/popStatusByAge") == 0) && ((numWords == 4) || (numWords == 5)))
+        {
+            if (numWords == 4)
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
+            else
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+            //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+        }
+        else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0) && ((numWords == 8) || (numWords == 9)))
+        {
+            if (numWords == 8)
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
+            else
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << " " << wordsOfCommand[8] << endl;
+            //TODO: Μόνο το YES συνοδεύεται από ένα date
+        }
+        else if ((wordsOfCommand[0].compare("/vaccinateNow") == 0) && numWords == 7)
+        {
+            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << endl;
+        }
+        else if ((wordsOfCommand[0].compare("/list-nonVaccinated-Persons") == 0) && numWords == 2)
+        {
+            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << endl;
+        }
         else if ((wordsOfCommand[0].compare("/exit") == 0) && numWords == 1)
         {
             delete[] wordsOfCommand;
