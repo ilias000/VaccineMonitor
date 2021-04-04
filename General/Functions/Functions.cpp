@@ -203,6 +203,8 @@ void commandInterface()
             delete[] wordsOfCommand;
             return;
         }
+        else
+            cout << "ERROR : Wrong form of command !" << endl;
         delete[] wordsOfCommand;
     } while (1);
 }
