@@ -79,6 +79,7 @@ public:
     void setNonVaccinatedLayers(int nonVaccinatedLayers) { this->nonVaccinatedLayers = nonVaccinatedLayers; }
 
     void insertVirus(LinkedListStringNode*);
+
     SkipList* findVirus(LinkedListStringNode*);
     SkipList* findVirus(string);
 

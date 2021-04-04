@@ -70,9 +70,7 @@ void SkipList::insertVirus(LinkedListStringNode* virus) // inserts at the end
 {
     SkipList* tmp = this;
     while (tmp->next != NULL)
-    {
         tmp = tmp->getNext();
-    }
     tmp->setNext(new Skiplist(virus));
 }
 
