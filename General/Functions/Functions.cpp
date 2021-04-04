@@ -179,8 +179,30 @@ void commandInterface()
     {
         string command;
         getline(cin, command);
-        cout << "Your command was : " << command << endl;;
-        if (command.compare("/exit") == 0)
+
+        cout << "Your command was : " << command << endl;
+
+        int numWords;                                            // will store the size of the array that I keep every word of the line
+        string* wordsOfCommand = stringSeperator(&command, &numWords); // wordsOfCommand will point to the array of strings that contains every word of the line
+        if (wordsOfCommand == NULL)
+        {
+            cout << "Error wordsOfLine is NULL !" << endl;
             return;
+        }
+
+        if ((wordsOfCommand[0].compare("/vaccineStatusBloom") == 0) && numWords == 3)
+        {
+            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
+        }
+        else if ((wordsOfCommand[0].compare("/vaccineStatus") == 0) && numWords == 3)
+        {
+            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
+        }
+        else if ((wordsOfCommand[0].compare("/exit") == 0) && numWords == 1)
+        {
+            delete[] wordsOfCommand;
+            return;
+        }
+        delete[] wordsOfCommand;
     } while (1);
 }
