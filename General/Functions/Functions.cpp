@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-string *stringSeperator(string *line, int *numWords)
+string* stringSeperator(string* line, int* numWords)
 {
     if (line == NULL)
         return NULL;
@@ -17,7 +17,7 @@ string *stringSeperator(string *line, int *numWords)
     while (countWords >> word)
         (*numWords)++;
 
-    string *wordsOfLine = new string[*numWords]; // allocating memory for an array of strings that will store every word
+    string* wordsOfLine = new string[*numWords]; // allocating memory for an array of strings that will store every word
     istringstream I_line(*line);
     for (int currentWord = 0; currentWord < *numWords; currentWord++) // inserting every word of the string to the array
         I_line >> wordsOfLine[currentWord];
@@ -25,11 +25,11 @@ string *stringSeperator(string *line, int *numWords)
     return wordsOfLine; // returning the array that contains the strings
 }
 
-int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens) // returns 1 if the record is good and 0 if it is not
+int errorChecking(int numWords, string* wordsOfLine, LinkedListCitizen* citizens) // returns 1 if the record is good and 0 if it is not
 {
     if ((numWords < 7) || (numWords > 8))
     {
-        cout << "ERROR (Wrong number of words) : ";
+        cout << "ERROR (Wrong number of words) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -37,7 +37,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((numWords == 7) && (wordsOfLine[6].compare("YES") == 0))
     {
-        cout << "ERROR (7 words with YES) : ";
+        cout << "ERROR (7 words with YES) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -45,7 +45,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((numWords == 8) && (wordsOfLine[6].compare("NO") == 0))
     {
-        cout << "ERROR (8 words with NO) : ";
+        cout << "ERROR (8 words with NO) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -53,7 +53,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((stoi(wordsOfLine[0]) < 0) || (stoi(wordsOfLine[0]) > 9999))
     {
-        cout << "ERROR (Wrong id) : ";
+        cout << "ERROR (Wrong id) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -61,7 +61,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((stoi(wordsOfLine[4]) < 1) || (stoi(wordsOfLine[4]) > 120))
     {
-        cout << "ERROR (Wrong age) : ";
+        cout << "ERROR (Wrong age) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -69,7 +69,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((wordsOfLine[6].compare("YES")) && (wordsOfLine[6].compare("NO")))
     {
-        cout << "ERROR (6th word is not YES or NO) : ";
+        cout << "ERROR (6th word is not YES or NO) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
@@ -77,7 +77,7 @@ int errorChecking(int numWords, string *wordsOfLine, LinkedListCitizen *citizens
     }
     else if ((wordsOfLine[6].compare("YES") == 0) && (checkDate(wordsOfLine[7]) == 0))
     {
-        cout << "ERROR (Wrong form of the Date) : ";
+        cout << "ERROR (Wrong form of the Date) IN RECORD : ";
         for (int i = 0; i < numWords; i++)
             cout << " " << wordsOfLine[i];
         cout << endl;
