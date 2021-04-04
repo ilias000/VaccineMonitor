@@ -13,7 +13,7 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     cout << "                             --- THE VACCINE MONITOR PROGRAM STARTED ---                                 " << endl;
     string extensionOfFileName = (".txt");
@@ -45,16 +45,16 @@ int main(int argc, char *argv[])
 
     fileName.append(extensionOfFileName); // adding extension to the filename
 
-    if (!fstream{fileName}) // checking if the file exist
+    if (!fstream{ fileName }) // checking if the file exist
     {
         cout << "The file : " << fileName << " does not exist!" << endl;
         return 0;
     }
 
-    LinkedListString *countries = new LinkedListString();
-    LinkedListString *viruses = new LinkedListString();
-    LinkedListCitizen *citizens = new LinkedListCitizen();
-    LinkedListBloomFilter *bloomFilter = NULL;
+    LinkedListString* countries = new LinkedListString();
+    LinkedListString* viruses = new LinkedListString();
+    LinkedListCitizen* citizens = new LinkedListCitizen();
+    LinkedListBloomFilter* bloomFilter = NULL;
 
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     while (getline(name, line)) // while we have lines in the file, get the line and store it in the variable line
     {
         int numWords;                                            // will store the size of the array that I keep every word of the line
-        string *wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
+        string* wordsOfLine = stringSeperator(&line, &numWords); // wordsOfLine will point to the array of strings that contains every word of the line
         if (wordsOfLine == NULL)
         {
             cout << "Error wordsOfLine is NULL !" << endl;
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
         }
 
         // checking if i have already the country in the list
-        LinkedListStringNode *country = countries->findNode(wordsOfLine[3]);
+        LinkedListStringNode* country = countries->findNode(wordsOfLine[3]);
         if (country == NULL) // the country does not exist in the list so i will insert it
         {
             countries->insertNode(wordsOfLine[3]);
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
         }
 
         // checking if i have already the virus in the list
-        LinkedListStringNode *virus = viruses->findNode(wordsOfLine[5]);
+        LinkedListStringNode* virus = viruses->findNode(wordsOfLine[5]);
         if (virus == NULL) // the virus does not exist in the list so i will insert it
         {
             viruses->insertNode(wordsOfLine[5]);
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
                 bloomFilter->insert(virus, bloomSize);
         }
 
-        CitizenRecord *citizen;
+        CitizenRecord* citizen;
 
         if (numWords == 8) // if it has 8 words it means it has also date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], wordsOfLine[7]);
@@ -109,6 +109,8 @@ int main(int argc, char *argv[])
     }
 
     cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(15) << endl;
+
+    commandInterface();
 
     delete countries;
     delete viruses;

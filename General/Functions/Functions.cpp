@@ -172,3 +172,15 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     }
     return 0;
 }
+
+void commandInterface()
+{
+    do
+    {
+        string command;
+        getline(cin, command);
+        cout << "Your command was : " << command << endl;;
+        if (command.compare("/exit") == 0)
+            return;
+    } while (1);
+}
