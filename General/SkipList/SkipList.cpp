@@ -117,12 +117,9 @@ void SkipList::insertNodeVaccinated(int id)
     }
 
     if (layerOfNewNode > currentLayer) // checking if i have to create a new layer
-    {
         SkipListLayer* newLayer = new SkipListLayer(this);
 
-    }
-
-    while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
+    while (1) // until i find the node or i rich the bottom layer (layer 0 and i have not found the id)
     {
         if (nextNode->getId() < id) // if the next node id is smaller than the id
         {
