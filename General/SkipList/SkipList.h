@@ -25,7 +25,7 @@ public:
     void setNext(SkipListNode* next) { this->next = next; }
     void setBelow(SkipListNode* below) { this->below = below; }
 
-    void printAll(); // prints all nodes
+    void printNode(); // prints a node
 };
 
 class SkipListLayer
@@ -49,6 +49,7 @@ public:
     void setBelowLayer(SkipListLayer* belowLayer) { this->belowLayer = belowLayer; }
     void setLayer(int layer) { this->layer = layer; }
 
+    void printLayer();
 };
 
 class SkipList
@@ -57,8 +58,6 @@ class SkipList
     SkipListLayer* nonVaccinated;
     LinkedListStringNode* virus;
     SkipList* next;
-    int vaccinatedLayers;
-    int nonVaccinatedLayers;
 
 public:
     SkipList(LinkedListStringNode*);
@@ -68,15 +67,14 @@ public:
     SkipListLayer* getNonVaccinated() { return nonVaccinated; }
     string getVirusName() { return virus->name; }
     SkipList* getNext() { return next; }
-    int getVaccinatedLayers() { return vaccinatedLayers; }
-    int getNonVaccinatedLayers() { return nonVaccinatedLayers; }
 
     void setVaccinated(SkipListLayer* vaccinated) { this->vaccinated = vaccinated; }
     void setNonVaccinated(SkipListLayer* nonVaccinated) { this->nonVaccinated = nonVaccinated; }
     void setVirus(LinkedListStringNode* virus) { this->virus = virus; }
     void setNext(SkipList* next) { this->next = next; }
-    void setVaccinatedLayers(int vaccinatedLayers) { this->vaccinatedLayers = vaccinatedLayers; }
-    void setNonVaccinatedLayers(int nonVaccinatedLayers) { this->nonVaccinatedLayers = nonVaccinatedLayers; }
+
+    void printNonVaccinated();
+    void printVaccinated();
 
     void insertVirus(LinkedListStringNode*);
 

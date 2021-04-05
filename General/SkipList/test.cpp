@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "../LinkedList/LinkedListString/LinkedListString.h"
 #include "SkipList.h"
 
 using namespace std;
@@ -8,20 +9,24 @@ int main(int argc, char* argv[])
 {
     LinkedListString* viruses = new LinkedListString();
     viruses->insertNode("ilias");
+    viruses->insertNode("nikola");
     SkipList* skiplist = new SkipList(viruses->findNode("ilias"));
-    SkipList* vac = skiplist->getVaccinated(viruses->findNode("ilias"));
-    SkipList* nvac = skiplist->getNonVaccinated(viruses->findNode("ilias"));
+    skiplist->insertVirus(viruses->findNode("nikola"));
 
-    vac->add(0);
-    nvac->add(1);
-    vac2->add(3);
-    nvac2->add(4);
-    vac->print();
-    nvac->print();
-    vac2->print();
-    nvac2->print();
-    cout << endl;
+
+    skiplist->findVirus("ilias")->insertNodeVaccinated(5);
+
+    skiplist->findVirus("ilias")->insertNodeVaccinated(6);
+
+    skiplist->findVirus("nikola")->insertNodeVaccinated(7);
+
+    skiplist->findVirus("nikola")->insertNodeVaccinated(8);
+
+
+    skiplist->findVirus("nikola")->printVaccinated();
+    skiplist->findVirus("ilias")->printVaccinated();
+
     delete skiplist;
-    delete viruses
-        return 0;
+    delete viruses;
+    return 0;
 }
