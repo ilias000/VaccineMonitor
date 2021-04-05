@@ -180,8 +180,6 @@ void commandInterface()
         string command;
         getline(cin, command);
 
-        cout << "Your command was : " << command << endl;
-
         int numWords;                                            // will store the size of the array that I keep every word of the line
         string* wordsOfCommand = stringSeperator(&command, &numWords); // wordsOfCommand will point to the array of strings that contains every word of the line
         if (wordsOfCommand == NULL)
@@ -209,6 +207,7 @@ void commandInterface()
             else
                 cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
             //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+            // TODO: Να ελεγχει αν το date1 < date2
         }
         else if ((wordsOfCommand[0].compare("/popStatusByAge") == 0) && ((numWords == 4) || (numWords == 5)))
         {
@@ -217,6 +216,7 @@ void commandInterface()
             else
                 cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
             //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+             // TODO: Να ελεγχει αν το date1 < date2
         }
         else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0) && ((numWords == 8) || (numWords == 9)))
         {

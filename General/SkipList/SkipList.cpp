@@ -143,9 +143,9 @@ void SkipList::insertNodeVaccinated(int id)
 
 void SkipList::insertNodeNonVaccinated(int id)
 {
-    SkipListNode* currentNode = this->firstNode;
+    SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
-    int currentLayer = this->getLayer();
+    int currentLayer = this->getNonVaccinated()->getLayer();
 
     struct timeval time;
     gettimeofday(&time, NULL);
@@ -161,10 +161,11 @@ void SkipList::insertNodeNonVaccinated(int id)
 
     if (layerOfNewNode > currentLayer) // checking if i have to create a new layer
     {
-        SkipListLayer* newLayer = new SkipListLayer(this);
-
+        SkipListLayer* newLayer = new SkipListLayer(this->nonVaccinated);
+        this->nonVaccinated = newLayer;
     }
 
+    SkipListNode* tmp = NULL;
     while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
     {
         if (nextNode->getId() < id) // if the next node id is smaller than the id
@@ -174,10 +175,22 @@ void SkipList::insertNodeNonVaccinated(int id)
         }
         else if (nextNode->getId() > id) // if the next node id is greater than the id
         {
+            if (layerOfNewNode <= currentLayer)
+            {
+                SkipListNode* newNode = new SkipListNode(id);
+                currentNode->setNext(newNode);
+                newNode->setNext(nextNode);
+                if (tmp != NULL)
+                {
+                    tmp->setBelow(newNode);
+                }
+                tmp = newNode;
+            }
             if (currentNode->getBelow() != NULL) // checking if i have another level below, if i have go below
             {
                 currentNode = currentNode->getBelow();
                 nextNode = currentNode->getNext();
+                currentLayer--;
             }
             else // i have not another level below
                 return NULL;
@@ -276,7 +289,7 @@ void SkipList::deleteNodeNonVaccinated(int)
 
 SkipListNode* SkipList::findNodeVaccinated(int id) // finds the node with the id and returns it else returns NULL
 {
-    SkipListNode* currentNode = this->firstNode;
+    SkipListNode* currentNode = this->getVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
 
     while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
@@ -303,7 +316,7 @@ SkipListNode* SkipList::findNodeVaccinated(int id) // finds the node with the id
 
 SkipListNode* SkipList::findNodeNonVaccinated(int id) // finds the node with the id and returns it else returns NULL
 {
-    SkipListNode* currentNode = this->firstNode;
+    SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
 
     while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
