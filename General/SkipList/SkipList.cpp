@@ -268,12 +268,28 @@ void SkipList::deleteNodeVaccinated(int id)
                 nextNode = currentNode->getNext();
             }
             else // i have not another level below
-                return NULL;
+                return;
         }
         else // the next node id is equal to the id
         {
-            SkipListNode* nodeToDelete = nextNode;
-
+            SkipListNode* belowNodeToDelete = nextNode->getBelow();
+            currentNode->setNext(nextNode->getNext());
+            delete nextNode;
+            while (belowNodeToDelete != NULL)
+            {
+                currentNode = currentNode->getBelow();
+                while (1)
+                {
+                    if (currentNode->getNext() == belowNodeToDelete)
+                        break;
+                    currentNode = currentNode->getNext();
+                }
+                currentNode->setNext(belowNodeToDelete->getNext());
+                SkipListNode* tmp = belowNodeToDelete->getBelow();
+                delete belowNodeToDelete;
+                belowNodeToDelete = tmp;
+            }
+            return;
         }
     }
 }
