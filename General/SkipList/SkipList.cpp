@@ -5,7 +5,7 @@ using namespace std;
 
 // SKIP_LIST_NODE
 
-SkipListNode::SkipListNode(int id, SkipListNode* below, SkipListNode* next) : id(id), next(next), below(below)
+SkipListNode::SkipListNode(LinkedListCitizenNode* citizen, SkipListNode* below, SkipListNode* next) : citizen(citizen), next(next), below(below)
 {
 }
 
@@ -15,7 +15,7 @@ SkipListNode::~SkipListNode()
 
 void SkipListNode::printNode() // prints a node
 {
-    cout << "[" << id << "," << this << "," << this->getBelow() << "]";
+    cout << "[" << this->getId() << "," << this << "," << this->getBelow() << "]";
 }
 
 // SKIP_LIST_LAYER
@@ -26,19 +26,27 @@ SkipListLayer::SkipListLayer(SkipListLayer* belowLayer)
     {
         this->layer = 0;
         this->belowLayer = NULL;
-        this->lastNode = new SkipListNode(10000, NULL, NULL);         // 10000 because the ids are [0,9999]
-        this->firstNode = new SkipListNode(-1, NULL, this->lastNode); // -1 because the ids are [0,9999]
+        this->lastNode = new SkipListNode(NULL, NULL, NULL);         // 10000 because the ids are [0,9999]
+        this->firstNode = new SkipListNode(NULL, NULL, this->lastNode); // -1 because the ids are [0,9999]
     }
     else
     {
         this->layer = belowLayer->getLayer() + 1;
         this->belowLayer = belowLayer;
-        this->lastNode = new SkipListNode(10000, belowLayer->lastNode, NULL);         // 10000 because the ids are [0,9999]
-        this->firstNode = new SkipListNode(-1, belowLayer->firstNode, this->lastNode); // -1 because the ids are [0,9999]
+        this->lastNode = new SkipListNode(NULL, belowLayer->lastNode, NULL);         // 10000 because the ids are [0,9999]
+        this->firstNode = new SkipListNode(NULL, belowLayer->firstNode, this->lastNode); // -1 because the ids are [0,9999]
     }
 }
 SkipListLayer ::~SkipListLayer()
 {
+    SkipListNode* tmp = this->firstNode;
+    SkipListNode* next = NULL;
+    while (tmp != NULL)
+    {
+        next = tmp->getNext();
+        delete tmp;
+        tmp = next;
+    }
 }
 
 void SkipListLayer::printLayer()
@@ -48,6 +56,18 @@ void SkipListLayer::printLayer()
     {
         tmp->printNode();
         tmp = tmp->getNext();
+    }
+}
+
+void SkipListLayer::deleteAllLayers()
+{
+    SkipListLayer* tmp = this;
+    SkipListLayer* below = NULL;
+    while (tmp != NULL)
+    {
+        below = tmp->getBelowLayer();
+        delete tmp;
+        tmp = below;
     }
 }
 
@@ -62,6 +82,10 @@ SkipList::SkipList(LinkedListStringNode* virus) : virus(virus)
 
 SkipList::~SkipList()
 {
+    this->vaccinated->deleteAllLayers();
+    this->nonVaccinated->deleteAllLayers();
+    if (this->next != NULL)
+        delete this->next;
 }
 
 void SkipList::printNonVaccinated()
@@ -93,7 +117,8 @@ void SkipList::insertVirus(LinkedListStringNode* virus) // inserts at the end
     SkipList* tmp = this;
     while (tmp->next != NULL)
         tmp = tmp->getNext();
-    tmp->setNext(new SkipList(virus));
+    SkipList* newVirus = new SkipList(virus);
+    tmp->setNext(newVirus);
 }
 
 SkipList* SkipList::findVirus(LinkedListStringNode* virus)
@@ -120,7 +145,7 @@ SkipList* SkipList::findVirus(string virusName)
     return NULL;
 }
 
-void SkipList::insertNodeVaccinated(int id)
+void SkipList::insertNodeVaccinated(LinkedListCitizenNode* citizen)
 {
     SkipListNode* currentNode = this->getVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
@@ -152,16 +177,16 @@ void SkipList::insertNodeVaccinated(int id)
     SkipListNode* tmp = NULL;
     while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
     {
-        if (nextNode->getId() < id) // if the next node id is smaller than the id
+        if (nextNode->getId() < citizen->getId()) // if the next node id is smaller than the id
         {
             currentNode = nextNode;
             nextNode = currentNode->getNext();
         }
-        else if (nextNode->getId() > id) // if the next node id is greater than the id
+        else if (nextNode->getId() > citizen->getId()) // if the next node id is greater than the id
         {
             if (layerOfNewNode >= currentLayer)
             {
-                SkipListNode* newNode = new SkipListNode(id, NULL, NULL);
+                SkipListNode* newNode = new SkipListNode(citizen, NULL, NULL);
                 currentNode->setNext(newNode);
                 newNode->setNext(nextNode);
                 if (tmp != NULL)
@@ -184,7 +209,7 @@ void SkipList::insertNodeVaccinated(int id)
     }
 }
 
-void SkipList::insertNodeNonVaccinated(int id)
+void SkipList::insertNodeNonVaccinated(LinkedListCitizenNode* citizen)
 {
     SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
@@ -216,16 +241,16 @@ void SkipList::insertNodeNonVaccinated(int id)
     SkipListNode* tmp = NULL;
     while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
     {
-        if (nextNode->getId() < id) // if the next node id is smaller than the id
+        if (nextNode->getId() < citizen->getId()) // if the next node id is smaller than the id
         {
             currentNode = nextNode;
             nextNode = currentNode->getNext();
         }
-        else if (nextNode->getId() > id) // if the next node id is greater than the id
+        else if (nextNode->getId() > citizen->getId()) // if the next node id is greater than the id
         {
             if (layerOfNewNode >= currentLayer)
             {
-                SkipListNode* newNode = new SkipListNode(id, NULL, NULL);
+                SkipListNode* newNode = new SkipListNode(citizen, NULL, NULL);
                 currentNode->setNext(newNode);
                 newNode->setNext(nextNode);
                 if (tmp != NULL)
@@ -275,6 +300,12 @@ void SkipList::deleteNodeVaccinated(int id)
             SkipListNode* belowNodeToDelete = nextNode->getBelow();
             currentNode->setNext(nextNode->getNext());
             delete nextNode;
+            if (this->getVaccinated()->getFirstNode()->getNext() == this->getVaccinated()->getLastNode())
+            {
+                SkipListLayer* tmp = this->getVaccinated()->getBelowLayer();
+                delete this->vaccinated;
+                this->vaccinated = tmp;
+            }
             while (belowNodeToDelete != NULL)
             {
                 currentNode = currentNode->getBelow();
@@ -294,8 +325,56 @@ void SkipList::deleteNodeVaccinated(int id)
     }
 }
 
-void SkipList::deleteNodeNonVaccinated(int)
+void SkipList::deleteNodeNonVaccinated(int id)
 {
+    SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
+    SkipListNode* nextNode = currentNode->getNext();
+
+    while (1) // until i find the node or i rich bottom layer (layer 0 and i have not found the id)
+    {
+        if (nextNode->getId() < id) // if the next node id is smaller than the id
+        {
+            currentNode = nextNode;
+            nextNode = currentNode->getNext();
+        }
+        else if (nextNode->getId() > id) // if the next node id is greater than the id
+        {
+            if (currentNode->getBelow() != NULL) // checking if i have another level below, if i have go below
+            {
+                currentNode = currentNode->getBelow();
+                nextNode = currentNode->getNext();
+            }
+            else // i have not another level below
+                return;
+        }
+        else // the next node id is equal to the id
+        {
+            SkipListNode* belowNodeToDelete = nextNode->getBelow();
+            currentNode->setNext(nextNode->getNext());
+            delete nextNode;
+            if (this->getNonVaccinated()->getFirstNode()->getNext() == this->getNonVaccinated()->getLastNode())
+            {
+                SkipListLayer* tmp = this->getNonVaccinated()->getBelowLayer();
+                delete this->nonVaccinated;
+                this->vaccinated = tmp;
+            }
+            while (belowNodeToDelete != NULL)
+            {
+                currentNode = currentNode->getBelow();
+                while (1)
+                {
+                    if (currentNode->getNext() == belowNodeToDelete)
+                        break;
+                    currentNode = currentNode->getNext();
+                }
+                currentNode->setNext(belowNodeToDelete->getNext());
+                SkipListNode* tmp = belowNodeToDelete->getBelow();
+                delete belowNodeToDelete;
+                belowNodeToDelete = tmp;
+            }
+            return;
+        }
+    }
 }
 
 SkipListNode* SkipList::findNodeVaccinated(int id) // finds the node with the id and returns it else returns NULL

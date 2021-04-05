@@ -2,6 +2,7 @@
 #define SKIPLIST_H
 
 #include "../LinkedList/LinkedListString/LinkedListString.h"
+#include "../LinkedList/LinkedListCitizen/LinkedListCitizen.h"
 
 #include <iostream>
 
@@ -9,19 +10,30 @@ using namespace std;
 
 class SkipListNode
 {
-    int id; // todo: id to citizen
+    LinkedListCitizenNode* citizen;// todo: id to citizen
     SkipListNode* next;
     SkipListNode* below;
 
 public:
-    SkipListNode(int, SkipListNode*, SkipListNode*);
+    SkipListNode(LinkedListCitizenNode*, SkipListNode*, SkipListNode*);
     ~SkipListNode();
 
-    int getId() { return id; }
+    int getId()
+    {
+        if (citizen == NULL)
+        {
+            if (next == NULL)
+                return 10000;
+            else
+                return -1;
+        }
+        else
+            return citizen->getId();
+    }
     SkipListNode* getNext() { return next; }
     SkipListNode* getBelow() { return below; }
 
-    void setId(int id) { this->id = id; }
+    void setCitizen(LinkedListCitizenNode* citizen) { this->citizen = citizen; }
     void setNext(SkipListNode* next) { this->next = next; }
     void setBelow(SkipListNode* below) { this->below = below; }
 
@@ -50,6 +62,7 @@ public:
     void setLayer(int layer) { this->layer = layer; }
 
     void printLayer();
+    void deleteAllLayers();
 };
 
 class SkipList
@@ -81,8 +94,8 @@ public:
     SkipList* findVirus(LinkedListStringNode*);
     SkipList* findVirus(string);
 
-    void insertNodeVaccinated(int);
-    void insertNodeNonVaccinated(int);
+    void insertNodeVaccinated(LinkedListCitizenNode*);
+    void insertNodeNonVaccinated(LinkedListCitizenNode*);
 
     void deleteNodeVaccinated(int);
     void deleteNodeNonVaccinated(int);

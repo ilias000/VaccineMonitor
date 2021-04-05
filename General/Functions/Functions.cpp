@@ -191,6 +191,7 @@ void commandInterface()
         if ((wordsOfCommand[0].compare("/vaccineStatusBloom") == 0) && numWords == 3)
         {
             cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
+            cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(15) << endl;
         }
         else if ((wordsOfCommand[0].compare("/vaccineStatus") == 0) && numWords == 3)
         {
