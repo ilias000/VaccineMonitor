@@ -11,8 +11,8 @@ LinkedListString::LinkedListString() : start(NULL), end(NULL)
 
 LinkedListString::~LinkedListString()
 {
-    LinkedListStringNode *tmpNode = start;
-    LinkedListStringNode *tmpNodeNext;
+    LinkedListStringNode* tmpNode = start;
+    LinkedListStringNode* tmpNodeNext;
     while (tmpNode != NULL)
     {
         tmpNodeNext = tmpNode->next;
@@ -23,7 +23,7 @@ LinkedListString::~LinkedListString()
 
 void LinkedListString::insertNode(string name) // inserts a node at the end of the list
 {
-    LinkedListStringNode *newNode = new LinkedListStringNode; // creating a new node
+    LinkedListStringNode* newNode = new LinkedListStringNode; // creating a new node
     newNode->name = name;
     newNode->next = NULL;
 
@@ -41,9 +41,9 @@ void LinkedListString::insertNode(string name) // inserts a node at the end of t
     }
 }
 
-LinkedListStringNode *LinkedListString::findNode(string name) // if the name exist returns the node else returns NULL
+LinkedListStringNode* LinkedListString::findNode(string name) // if the name exist returns the node else returns NULL
 {
-    LinkedListStringNode *current = start; // initialize current
+    LinkedListStringNode* current = start; // initialize current
     while (current != NULL)
     {
         if (current->name.compare(name) == 0)
@@ -51,4 +51,15 @@ LinkedListStringNode *LinkedListString::findNode(string name) // if the name exi
         current = current->next;
     }
     return NULL;
+}
+
+void LinkedListString::print()
+{
+    LinkedListStringNode* current = start; // initialize current
+    while (current != NULL)
+    {
+        cout << current->name << ",";
+        current = current->next;
+    }
+    cout << endl;
 }

@@ -49,12 +49,16 @@ SkipListLayer ::~SkipListLayer()
     }
 }
 
-void SkipListLayer::printLayer()
+void SkipListLayer::printLayer(int& count)
 {
     SkipListNode* tmp = this->firstNode;
     while (tmp != NULL)
     {
-        tmp->printNode();
+        if (tmp->getCitizen() != NULL)
+        {
+            tmp->getCitizen()->printInfo();
+            count++;
+        }
         tmp = tmp->getNext();
     }
 }
@@ -88,28 +92,14 @@ SkipList::~SkipList()
         delete this->next;
 }
 
-void SkipList::printNonVaccinated()
+void SkipList::printNonVaccinatedLastLayer(int& count)
 {
-    SkipListLayer* tmp = this->nonVaccinated;
-    while (tmp != NULL)
+    SkipListLayer* lastLayer = nonVaccinated;
+    while (lastLayer->getBelowLayer() != NULL)
     {
-        tmp->printLayer();
-        cout << endl;
-        tmp = tmp->getBelowLayer();
+        lastLayer = lastLayer->getBelowLayer();
     }
-    cout << endl;
-}
-
-void SkipList::printVaccinated()
-{
-    SkipListLayer* tmp = this->vaccinated;
-    while (tmp != NULL)
-    {
-        tmp->printLayer();
-        cout << endl;
-        tmp = tmp->getBelowLayer();
-    }
-    cout << endl;
+    lastLayer->printLayer(count);
 }
 
 void SkipList::insertVirus(LinkedListStringNode* virus) // inserts at the end
@@ -399,7 +389,7 @@ SkipListNode* SkipList::findNodeVaccinated(int id) // finds the node with the id
             else // i have not another level below
                 return NULL;
         }
-        else // the next node id is equal to the id
+        else if (nextNode->getId() == id)// the next node id is equal to the id
             return nextNode;
     }
 }
@@ -426,7 +416,18 @@ SkipListNode* SkipList::findNodeNonVaccinated(int id) // finds the node with the
             else // i have not another level below
                 return NULL;
         }
-        else // the next node id is equal to the id
+        else if (nextNode->getId() == id)// the next node id is equal to the id
             return nextNode;
     }
+}
+
+void SkipList::print()
+{
+    SkipList* current = this; // initialize current
+    while (current != NULL)
+    {
+        cout << current->virus->name << ",";
+        current = current->next;
+    }
+    cout << endl;
 }

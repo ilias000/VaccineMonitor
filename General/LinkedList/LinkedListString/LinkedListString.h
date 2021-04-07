@@ -10,20 +10,23 @@ using namespace std;
 struct LinkedListStringNode
 {
     string name;
-    LinkedListStringNode *next;
+    LinkedListStringNode* next;
 };
 
 class LinkedListString
 {
-    LinkedListStringNode *start;
-    LinkedListStringNode *end;
+    LinkedListStringNode* start;
+    LinkedListStringNode* end;
 
 public:
     LinkedListString();
     ~LinkedListString();
 
+    LinkedListStringNode* getStart() { return start; }
+
     void insertNode(string);                // inserts a node at the end of the list
-    LinkedListStringNode *findNode(string); // if the name exist returns the node else returns NULL
+    LinkedListStringNode* findNode(string); // if the name exist returns the node else returns NULL
+    void print();
 };
 
 #endif

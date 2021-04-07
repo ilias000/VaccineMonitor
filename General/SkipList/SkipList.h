@@ -32,6 +32,7 @@ public:
     }
     SkipListNode* getNext() { return next; }
     SkipListNode* getBelow() { return below; }
+    CitizenRecord* getCitizen() { return citizen; }
 
     void setCitizen(CitizenRecord* citizen) { this->citizen = citizen; }
     void setNext(SkipListNode* next) { this->next = next; }
@@ -61,7 +62,7 @@ public:
     void setBelowLayer(SkipListLayer* belowLayer) { this->belowLayer = belowLayer; }
     void setLayer(int layer) { this->layer = layer; }
 
-    void printLayer();
+    void printLayer(int&);
     void deleteAllLayers();
 };
 
@@ -86,8 +87,7 @@ public:
     void setVirus(LinkedListStringNode* virus) { this->virus = virus; }
     void setNext(SkipList* next) { this->next = next; }
 
-    void printNonVaccinated();
-    void printVaccinated();
+    void printNonVaccinatedLastLayer(int&);
 
     void insertVirus(LinkedListStringNode*);
 
@@ -102,6 +102,8 @@ public:
 
     SkipListNode* findNodeVaccinated(int);
     SkipListNode* findNodeNonVaccinated(int);
+
+    void print(); // prints all viruses on skiplist
 };
 
 #endif

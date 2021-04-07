@@ -28,10 +28,10 @@ LinkedListCitizen::~LinkedListCitizen()
     }
 }
 
-int LinkedListCitizen::insertNode(CitizenRecord* citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first (if the citizen inserted returns 1 else returns 0)
+int LinkedListCitizen::insertNode(CitizenRecord** citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first (if the citizen inserted returns 1 else returns 0)
 {
     LinkedListCitizenNode* newNode = new LinkedListCitizenNode; // creating a new node
-    newNode->setCitizen(citizen);
+    newNode->setCitizen(*citizen);
     newNode->setNext(NULL);
 
     if (start == NULL) // the list is empty
@@ -56,33 +56,36 @@ int LinkedListCitizen::insertNode(CitizenRecord* citizen) // inserts a node at t
         else if (current->getCitizen()->getId() == newNode->getCitizen()->getId()) // the id of the first node is equal to the id of the new node so the citizen already exists
         {
             // checking that while it has the same id it also has the same credentials
-            if ((current->getCitizen()->getId() != citizen->getId()) || (current->getCitizen()->getFirstName().compare(citizen->getFirstName()) != 0) || (current->getCitizen()->getLastName().compare(citizen->getLastName()) != 0) || (current->getCitizen()->getCountryName().compare(citizen->getCountryName()) != 0) || (current->getCitizen()->getAge() != citizen->getAge()))
+            if ((current->getCitizen()->getId() != (*citizen)->getId()) || (current->getCitizen()->getFirstName().compare((*citizen)->getFirstName()) != 0) || (current->getCitizen()->getLastName().compare((*citizen)->getLastName()) != 0) || (current->getCitizen()->getCountryName().compare((*citizen)->getCountryName()) != 0) || (current->getCitizen()->getAge() != (*citizen)->getAge()))
             {
                 cout << "ERROR (Same ID but different credentials) : " << endl;
                 cout << "New record : ";
-                citizen->print();
+                (*citizen)->print();
                 cout << endl;
                 cout << "Old record : ";
                 current->getCitizen()->print();
                 cout << endl;
-                delete citizen;
+                delete* citizen;
+                *citizen = current->getNext()->getCitizen();
                 delete newNode;
                 return 0;
             }
-            if (current->getCitizen()->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
+            if (current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
             {
                 // we insert the virus in the list with the viruses
-                current->getCitizen()->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
-                delete citizen;
+                current->getCitizen()->getViruses()->insertNode((*citizen)->getViruses()->getFirstNode()->virusName, (*citizen)->getViruses()->getFirstNode()->vaccinated, (*citizen)->getViruses()->getFirstNode()->date);
+                delete* citizen;
+                *citizen = current->getNext()->getCitizen();
                 delete newNode;
                 return 1;
             }
             else // the citizen has already the virus in the list
             {
                 cout << "ERROR (Bad duplicate) : ";
-                citizen->print();
+                (*citizen)->print();
                 cout << endl;
-                delete citizen;
+                delete* citizen;
+                *citizen = current->getNext()->getCitizen();
                 delete newNode;
                 return 0;
             }
@@ -103,33 +106,36 @@ int LinkedListCitizen::insertNode(CitizenRecord* citizen) // inserts a node at t
             else // the id of the next node is equal to the id of the new node so the citizen already exists
             {
                 // checking that while it has the same id it also has the same credentials
-                if ((current->getNext()->getCitizen()->getId() != citizen->getId()) || (current->getNext()->getCitizen()->getFirstName().compare(citizen->getFirstName()) != 0) || (current->getNext()->getCitizen()->getLastName().compare(citizen->getLastName()) != 0) || (current->getNext()->getCitizen()->getCountryName().compare(citizen->getCountryName()) != 0) || (current->getNext()->getCitizen()->getAge() != citizen->getAge()))
+                if ((current->getNext()->getCitizen()->getId() != (*citizen)->getId()) || (current->getNext()->getCitizen()->getFirstName().compare((*citizen)->getFirstName()) != 0) || (current->getNext()->getCitizen()->getLastName().compare((*citizen)->getLastName()) != 0) || (current->getNext()->getCitizen()->getCountryName().compare((*citizen)->getCountryName()) != 0) || (current->getNext()->getCitizen()->getAge() != (*citizen)->getAge()))
                 {
                     cout << "ERROR (Same ID but different credentials) : " << endl;
                     cout << "New record : ";
-                    citizen->print();
+                    (*citizen)->print();
                     cout << endl;
                     cout << "Old record : ";
                     current->getNext()->getCitizen()->print();
                     cout << endl;
-                    delete citizen;
+                    delete* citizen;
+                    *citizen = current->getNext()->getCitizen();
                     delete newNode;
                     return 0;
                 }
-                if (current->getNext()->getCitizen()->getViruses()->findNode(citizen->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
+                if (current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName) == NULL) // if the citizen has not the virus in the list of viruses
                 {
                     // we insert the virus in the list with the viruses
-                    current->getNext()->getCitizen()->getViruses()->insertNode(citizen->getViruses()->getFirstNode()->virusName, citizen->getViruses()->getFirstNode()->vaccinated, citizen->getViruses()->getFirstNode()->date);
-                    delete citizen;
+                    current->getNext()->getCitizen()->getViruses()->insertNode((*citizen)->getViruses()->getFirstNode()->virusName, (*citizen)->getViruses()->getFirstNode()->vaccinated, (*citizen)->getViruses()->getFirstNode()->date);
+                    delete* citizen;
+                    *citizen = current->getNext()->getCitizen();
                     delete newNode;
                     return 1;
                 }
                 else // the citizen has already the virus in the list
                 {
                     cout << "ERROR (Bad duplicate) : ";
-                    citizen->print();
+                    (*citizen)->print();
                     cout << endl;
-                    delete citizen;
+                    delete* citizen;
+                    *citizen = current->getNext()->getCitizen();
                     delete newNode;
                     return 0;
                 }

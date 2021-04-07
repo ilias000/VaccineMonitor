@@ -188,60 +188,126 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
             return;
         }
 
-        if ((wordsOfCommand[0].compare("/vaccineStatusBloom") == 0) && numWords == 3)
+        if (numWords >= 1)
         {
-            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
-            cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(15) << endl;
-        }
-        else if ((wordsOfCommand[0].compare("/vaccineStatus") == 0) && numWords == 3)
-        {
-            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << endl;
-        }
-        else if ((wordsOfCommand[0].compare("/vaccineStatus") == 0) && numWords == 2)
-        {
-            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << endl;
-        }
-        else if ((wordsOfCommand[0].compare("/populationStatus") == 0) && ((numWords == 4) || (numWords == 5)))
-        {
-            if (numWords == 4)
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
+            if (wordsOfCommand[0].compare("/vaccineStatusBloom") == 0)
+            {
+                cout << " Command : /vaccineStatusBloom" << endl;
+                if (numWords == 3)
+                {
+                    if (viruses->findNode(wordsOfCommand[2]) != NULL) // if the virus exists
+                    {
+                        if (bloomFilter->getFilter(viruses->findNode(wordsOfCommand[2]))->find(stoi(wordsOfCommand[1])))
+                            cout << "MAYBE" << endl;
+                        else
+                            cout << "NOT VACCINATED" << endl;
+                    }
+                    else
+                        cout << "NOT VACCINATED" << endl;
+                }
+                else
+                    cout << "ERROR: citizenId virusName not found !" << endl;
+            }
+            else if (wordsOfCommand[0].compare("/vaccineStatus") == 0)
+            {
+                cout << " Command : /vaccineStatus" << endl;
+                if (numWords == 3)
+                {
+                    if (skipList->findVirus(wordsOfCommand[2]) != NULL)
+                    {
+                        SkipListNode* node = skipList->findVirus(wordsOfCommand[2])->findNodeVaccinated(stoi(wordsOfCommand[1]));
+                        if (node != NULL)
+                        {
+                            cout << "VACCINATED ON " << node->getCitizen()->getViruses()->findNode(wordsOfCommand[2])->date << endl;
+                        }
+                        else
+                            cout << "NOT VACCINATED" << endl;
+
+                    }
+                    else
+                        cout << "NOT VACCINATED" << endl;
+                }
+                else if (numWords == 2)
+                {
+                    LinkedListStringNode* currentVirus = viruses->getStart();
+                    while (currentVirus != NULL)
+                    {
+                        cout << currentVirus->name;
+                        SkipListNode* node = skipList->findVirus(currentVirus->name)->findNodeVaccinated(stoi(wordsOfCommand[1]));
+                        if (node != NULL)
+                        {
+                            if (node->getCitizen()->getViruses()->findNode(currentVirus->name)->vaccinated.compare("YES") == 0)
+                                cout << " YES " << node->getCitizen()->getViruses()->findNode(currentVirus->name)->date << endl;
+                            else
+                                cout << " NO" << endl;
+                        }
+                        else
+                            cout << " NO" << endl;
+                        currentVirus = currentVirus->next;
+                    }
+                }
+                else
+                    cout << "ERROR: Give citizenId OR citizenId and virusName !" << endl;
+            }
+            else if ((wordsOfCommand[0].compare("/populationStatus") == 0) && ((numWords == 4) || (numWords == 5)))
+            {
+                if (numWords == 4)
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
+                else
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+                //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+                // TODO: Να ελεγχει αν το date1 < date2
+            }
+            else if ((wordsOfCommand[0].compare("/popStatusByAge") == 0) && ((numWords == 4) || (numWords == 5)))
+            {
+                if (numWords == 4)
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
+                else
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+                //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
+                // TODO: Να ελεγχει αν το date1 < date2
+            }
+            else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0) && ((numWords == 8) || (numWords == 9)))
+            {
+                if (numWords == 8)
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
+                else
+                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << " " << wordsOfCommand[8] << endl;
+                //TODO: Μόνο το YES συνοδεύεται από ένα date
+            }
+            else if ((wordsOfCommand[0].compare("/vaccinateNow") == 0) && numWords == 7)
+            {
+                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << endl;
+            }
+            else if (wordsOfCommand[0].compare("/list-nonVaccinated-Persons") == 0)
+            {
+                cout << " Command : /list-nonVaccinated-Persons" << endl;
+                if (numWords == 2)
+                {
+                    if (skipList->findVirus(wordsOfCommand[1]) != NULL)
+                    {
+                        int count = 0;
+                        skipList->findVirus(wordsOfCommand[1])->printNonVaccinatedLastLayer(count);
+                        if (count == 0)
+                            cout << "Everyone has been vaccinated! " << endl;
+                    }
+                    else
+                        cout << "The virus does not exist!" << endl;
+                }
+                else
+                    cout << "ERROR: Give virusName! " << endl;
+            }
+            else if ((wordsOfCommand[0].compare("/exit") == 0) && numWords == 1)
+            {
+                delete[] wordsOfCommand;
+                return;
+            }
             else
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
-            //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
-            // TODO: Να ελεγχει αν το date1 < date2
+                cout << "ERROR : Wrong form of command !" << endl;
         }
-        else if ((wordsOfCommand[0].compare("/popStatusByAge") == 0) && ((numWords == 4) || (numWords == 5)))
-        {
-            if (numWords == 4)
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
-            else
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
-            //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
-             // TODO: Να ελεγχει αν το date1 < date2
-        }
-        else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0) && ((numWords == 8) || (numWords == 9)))
-        {
-            if (numWords == 8)
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
-            else
-                cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << " " << wordsOfCommand[8] << endl;
-            //TODO: Μόνο το YES συνοδεύεται από ένα date
-        }
-        else if ((wordsOfCommand[0].compare("/vaccinateNow") == 0) && numWords == 7)
-        {
-            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << endl;
-        }
-        else if ((wordsOfCommand[0].compare("/list-nonVaccinated-Persons") == 0) && numWords == 2)
-        {
-            cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << endl;
-        }
-        else if ((wordsOfCommand[0].compare("/exit") == 0) && numWords == 1)
-        {
+        else 
+            cout << "ERROR: NO COMMAND GIVEN!" << endl;
+        if(wordsOfCommand != NULL)
             delete[] wordsOfCommand;
-            return;
-        }
-        else
-            cout << "ERROR : Wrong form of command !" << endl;
-        delete[] wordsOfCommand;
     } while (1);
 }

@@ -40,3 +40,5 @@ clean:
 
 val:
 	valgrind ./$(PROGRAM) $(FILE) $(BLOOMSIZE)
+run:
+	./$(PROGRAM) $(FILE) $(BLOOMSIZE)
