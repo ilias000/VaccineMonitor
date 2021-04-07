@@ -173,7 +173,7 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     return 0;
 }
 
-void commandInterface()
+void commandInterface(LinkedListString* countries, LinkedListString* viruses, LinkedListCitizen* citizens, LinkedListBloomFilter* bloomFilter, SkipList* skipList)
 {
     do
     {

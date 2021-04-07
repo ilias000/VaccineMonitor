@@ -10,12 +10,12 @@ using namespace std;
 
 class SkipListNode
 {
-    LinkedListCitizenNode* citizen;// todo: id to citizen
+    CitizenRecord* citizen;// todo: id to citizen
     SkipListNode* next;
     SkipListNode* below;
 
 public:
-    SkipListNode(LinkedListCitizenNode*, SkipListNode*, SkipListNode*);
+    SkipListNode(CitizenRecord*, SkipListNode*, SkipListNode*);
     ~SkipListNode();
 
     int getId()
@@ -33,7 +33,7 @@ public:
     SkipListNode* getNext() { return next; }
     SkipListNode* getBelow() { return below; }
 
-    void setCitizen(LinkedListCitizenNode* citizen) { this->citizen = citizen; }
+    void setCitizen(CitizenRecord* citizen) { this->citizen = citizen; }
     void setNext(SkipListNode* next) { this->next = next; }
     void setBelow(SkipListNode* below) { this->below = below; }
 
@@ -94,8 +94,8 @@ public:
     SkipList* findVirus(LinkedListStringNode*);
     SkipList* findVirus(string);
 
-    void insertNodeVaccinated(LinkedListCitizenNode*);
-    void insertNodeNonVaccinated(LinkedListCitizenNode*);
+    void insertNodeVaccinated(CitizenRecord*);
+    void insertNodeNonVaccinated(CitizenRecord*);
 
     void deleteNodeVaccinated(int);
     void deleteNodeNonVaccinated(int);

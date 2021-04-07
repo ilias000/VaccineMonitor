@@ -5,7 +5,7 @@ using namespace std;
 
 // SKIP_LIST_NODE
 
-SkipListNode::SkipListNode(LinkedListCitizenNode* citizen, SkipListNode* below, SkipListNode* next) : citizen(citizen), next(next), below(below)
+SkipListNode::SkipListNode(CitizenRecord* citizen, SkipListNode* below, SkipListNode* next) : citizen(citizen), next(next), below(below)
 {
 }
 
@@ -145,7 +145,7 @@ SkipList* SkipList::findVirus(string virusName)
     return NULL;
 }
 
-void SkipList::insertNodeVaccinated(LinkedListCitizenNode* citizen)
+void SkipList::insertNodeVaccinated(CitizenRecord* citizen)
 {
     SkipListNode* currentNode = this->getVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
@@ -209,7 +209,7 @@ void SkipList::insertNodeVaccinated(LinkedListCitizenNode* citizen)
     }
 }
 
-void SkipList::insertNodeNonVaccinated(LinkedListCitizenNode* citizen)
+void SkipList::insertNodeNonVaccinated(CitizenRecord* citizen)
 {
     SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();

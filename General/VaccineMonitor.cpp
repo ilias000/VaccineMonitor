@@ -3,6 +3,7 @@
 #include "LinkedList/LinkedListString/LinkedListString.h"
 #include "LinkedList/LinkedListCitizen/LinkedListCitizen.h"
 #include "BloomFilter/BloomFilter.h"
+#include "SkipList/SkipList.h"
 
 #include <stdlib.h>
 //#include <string>
@@ -55,6 +56,8 @@ int main(int argc, char* argv[])
     LinkedListString* viruses = new LinkedListString();
     LinkedListCitizen* citizens = new LinkedListCitizen();
     LinkedListBloomFilter* bloomFilter = NULL;
+    SkipList* skipList = NULL;
+
 
     ifstream name; // opening the file that contains the citizen Records
     name.open(fileName);
@@ -93,6 +96,10 @@ int main(int argc, char* argv[])
                 bloomFilter = new LinkedListBloomFilter(virus, bloomSize);
             else
                 bloomFilter->insert(virus, bloomSize);
+            if (skipList == NULL) // creating a skip list for the specific virus
+                skipList = new SkipList(virus);
+            else
+                skipList->insertVirus(virus);
         }
 
         CitizenRecord* citizen;
@@ -102,20 +109,25 @@ int main(int argc, char* argv[])
         else if (numWords == 7) // if it has 7 words it means it has not date
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
-        if ((citizens->insertNode(citizen)) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+        int success = citizens->insertNode(citizen);
+        if ((success) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+        {
             bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
+            skipList->findVirus(virus)->insertNodeVaccinated(citizen);
+        }
+        else if ((success) && (wordsOfLine[6].compare("NO") == 0))
+            skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
 
         delete[] wordsOfLine;
     }
 
-    cout << bloomFilter->getFilter(viruses->findNode("Pertussis"))->find(15) << endl;
-
-    commandInterface();
+    commandInterface(countries, viruses, citizens, bloomFilter, skipList);
 
     delete countries;
     delete viruses;
     delete citizens;
     delete bloomFilter;
+    delete skipList;
     cout << "                             ---  THE VACCINE MONITOR PROGRAM ENDED  ---                                 " << endl;
 
     return 0;
