@@ -267,13 +267,34 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                 //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
                 // TODO: Να ελεγχει αν το date1 < date2
             }
-            else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0) && ((numWords == 8) || (numWords == 9)))
+            else if ((wordsOfCommand[0].compare("/insertCitizenRecord") == 0))
             {
+                cout << " Command : /insertCitizenRecord" << endl;
                 if (numWords == 8)
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
+                {
+                    string* wordsOfRecord = new string[numWords - 1];
+                    for (int i = 0; i < numWords - 1; i++)
+                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
+
+                    cout << "AAAAAAAAAA " << endl;
+                    if (wordsOfCommand[7].compare("NO") == 0)
+                    {
+                        errorChecking(numWords - 1, wordsOfRecord, citizens);
+                    }
+                    else
+                        cout << "ERROR: The record has 7 words but it is YES !" << endl;
+                }
+                else if (numWords == 9)
+                {
+                    if (wordsOfCommand[7].compare("YES") == 0)
+                    {
+
+                    }
+                    else
+                        cout << "ERROR: The record has 8 words but it is NO !" << endl;
+                }
                 else
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << " " << wordsOfCommand[8] << endl;
-                //TODO: Μόνο το YES συνοδεύεται από ένα date
+                    cout << "ERROR: Give a right form for the record! " << endl;
             }
             else if ((wordsOfCommand[0].compare("/vaccinateNow") == 0) && numWords == 7)
             {
