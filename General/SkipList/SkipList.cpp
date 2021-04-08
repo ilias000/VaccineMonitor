@@ -102,6 +102,16 @@ void SkipList::printNonVaccinatedLastLayer(int& count)
     lastLayer->printLayer(count);
 }
 
+void SkipList::printVaccinatedLastLayer(int& count)
+{
+    SkipListLayer* lastLayer = vaccinated;
+    while (lastLayer->getBelowLayer() != NULL)
+    {
+        lastLayer = lastLayer->getBelowLayer();
+    }
+    lastLayer->printLayer(count);
+}
+
 void SkipList::insertVirus(LinkedListStringNode* virus) // inserts at the end
 {
     SkipList* tmp = this;
@@ -346,7 +356,7 @@ void SkipList::deleteNodeNonVaccinated(int id)
             {
                 SkipListLayer* tmp = this->getNonVaccinated()->getBelowLayer();
                 delete this->nonVaccinated;
-                this->vaccinated = tmp;
+                this->nonVaccinated = tmp;
             }
             while (belowNodeToDelete != NULL)
             {

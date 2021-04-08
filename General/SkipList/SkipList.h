@@ -88,6 +88,7 @@ public:
     void setNext(SkipList* next) { this->next = next; }
 
     void printNonVaccinatedLastLayer(int&);
+    void printVaccinatedLastLayer(int&);
 
     void insertVirus(LinkedListStringNode*);
 
