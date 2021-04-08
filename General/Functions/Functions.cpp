@@ -173,7 +173,7 @@ int checkDate(string date) // takes a string Date and returns 1 if it is in the 
     return 0;
 }
 
-void commandInterface(LinkedListString* countries, LinkedListString* viruses, LinkedListCitizen* citizens, LinkedListBloomFilter* bloomFilter, SkipList* skipList)
+void commandInterface(LinkedListString* countries, LinkedListString* viruses, LinkedListCitizen* citizens, LinkedListBloomFilter* bloomFilter, SkipList* skipList, int bloomSize)
 {
     do
     {
@@ -275,22 +275,115 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                     string* wordsOfRecord = new string[numWords - 1];
                     for (int i = 0; i < numWords - 1; i++)
                         wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
-
-                    cout << "AAAAAAAAAA " << endl;
-                    cout << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
-                    cout << wordsOfRecord[0] << " " << wordsOfRecord[1] << " " << wordsOfRecord[2] << " " << wordsOfRecord[3] << " " << wordsOfRecord[4] << " " << wordsOfRecord[5] << " " << wordsOfRecord[6] << " " << endl;
                     if (wordsOfCommand[7].compare("NO") == 0)
                     {
-                        errorChecking(numWords - 1, wordsOfRecord, citizens);
+                        if (!errorChecking(numWords - 1, wordsOfRecord, citizens))
+                        {
+                            delete[] wordsOfCommand;
+                            delete[] wordsOfRecord;
+                            continue;
+                        }
+
+                        // checking if i have already the country in the list
+                        LinkedListStringNode* country = countries->findNode(wordsOfRecord[3]);
+                        if (country == NULL) // the country does not exist in the list so i will insert it
+                        {
+                            countries->insertNode(wordsOfRecord[3]);
+                            country = countries->findNode(wordsOfRecord[3]);
+                        }
+
+                        // checking if i have already the virus in the list
+                        LinkedListStringNode* virus = viruses->findNode(wordsOfRecord[5]);
+                        if (virus == NULL) // the virus does not exist in the list so i will insert it
+                        {
+                            viruses->insertNode(wordsOfRecord[5]);
+                            virus = viruses->findNode(wordsOfRecord[5]);
+                            if (bloomFilter == NULL) // creating a bloom filter for the specific virus
+                                bloomFilter = new LinkedListBloomFilter(virus, bloomSize);
+                            else
+                                bloomFilter->insert(virus, bloomSize);
+                            if (skipList == NULL) // creating a skip list for the specific virus
+                                skipList = new SkipList(virus);
+                            else
+                                skipList->insertVirus(virus);
+                        }
+
+                        CitizenRecord* citizen;
+
+                        if (numWords - 1 == 8) // if it has 8 words it means it has also date
+                            citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], wordsOfRecord[7]);
+                        else if (numWords - 1 == 7) // if it has 7 words it means it has not date
+                            citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], "");
+
+                        int success = citizens->insertNode(&citizen);
+                        if ((success) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+                        {
+                            bloomFilter->getFilter(virus)->insert(stoi(wordsOfRecord[0]));
+                            skipList->findVirus(virus)->insertNodeVaccinated(citizen);
+                        }
+                        else if ((success) && (wordsOfRecord[6].compare("NO") == 0))
+                            skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
+
+                        delete[] wordsOfRecord;
                     }
                     else
                         cout << "ERROR: The record has 7 words but it is YES !" << endl;
                 }
                 else if (numWords == 9)
                 {
+                    string* wordsOfRecord = new string[numWords - 1];
+                    for (int i = 0; i < numWords - 1; i++)
+                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
                     if (wordsOfCommand[7].compare("YES") == 0)
                     {
+                            if (!errorChecking(numWords - 1, wordsOfRecord, citizens))
+                            {
+                                delete[] wordsOfCommand;
+                                delete[] wordsOfRecord;
+                                continue;
+                            }
 
+                            // checking if i have already the country in the list
+                            LinkedListStringNode* country = countries->findNode(wordsOfRecord[3]);
+                            if (country == NULL) // the country does not exist in the list so i will insert it
+                            {
+                                countries->insertNode(wordsOfRecord[3]);
+                                country = countries->findNode(wordsOfRecord[3]);
+                            }
+
+                            // checking if i have already the virus in the list
+                            LinkedListStringNode* virus = viruses->findNode(wordsOfRecord[5]);
+                            if (virus == NULL) // the virus does not exist in the list so i will insert it
+                            {
+                                viruses->insertNode(wordsOfRecord[5]);
+                                virus = viruses->findNode(wordsOfRecord[5]);
+                                if (bloomFilter == NULL) // creating a bloom filter for the specific virus
+                                    bloomFilter = new LinkedListBloomFilter(virus, bloomSize);
+                                else
+                                    bloomFilter->insert(virus, bloomSize);
+                                if (skipList == NULL) // creating a skip list for the specific virus
+                                    skipList = new SkipList(virus);
+                                else
+                                    skipList->insertVirus(virus);
+                            }
+
+                            CitizenRecord* citizen;
+
+                            if (numWords - 1 == 8) // if it has 8 words it means it has also date
+                                citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], wordsOfRecord[7]);
+                            else if (numWords - 1 == 7) // if it has 7 words it means it has not date
+                                citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], "");
+
+                            int success = citizens->insertNode(&citizen);
+                            if ((success) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+                            {
+                                bloomFilter->getFilter(virus)->insert(stoi(wordsOfRecord[0]));
+                                skipList->findVirus(virus)->insertNodeVaccinated(citizen);
+                            }
+                            else if ((success) && (wordsOfRecord[6].compare("NO") == 0))
+                                skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
+
+                            delete[] wordsOfRecord;
                     }
                     else
                         cout << "ERROR: The record has 8 words but it is NO !" << endl;

@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
 
         delete[] wordsOfLine;
     }
-    commandInterface(countries, viruses, citizens, bloomFilter, skipList);
+    commandInterface(countries, viruses, citizens, bloomFilter, skipList, bloomSize);
 
     delete countries;
     delete viruses;
