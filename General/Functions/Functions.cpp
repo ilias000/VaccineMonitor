@@ -277,6 +277,8 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                         wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
 
                     cout << "AAAAAAAAAA " << endl;
+                    cout << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << " " << wordsOfCommand[5] << " " << wordsOfCommand[6] << " " << wordsOfCommand[7] << endl;
+                    cout << wordsOfRecord[0] << " " << wordsOfRecord[1] << " " << wordsOfRecord[2] << " " << wordsOfRecord[3] << " " << wordsOfRecord[4] << " " << wordsOfRecord[5] << " " << wordsOfRecord[6] << " " << endl;
                     if (wordsOfCommand[7].compare("NO") == 0)
                     {
                         errorChecking(numWords - 1, wordsOfRecord, citizens);
