@@ -76,7 +76,7 @@ void SkipListLayer::printLayer(int& count) // prints all the nodes of the specif
     }
 }
 
-void SkipListLayer::deleteAllLayers()
+void SkipListLayer::deleteAllLayers() // deletes all Layers
 {
     SkipListLayer* tmp = this;
     SkipListLayer* below = NULL;
@@ -192,7 +192,7 @@ void SkipList::insertNodeVaccinated(CitizenRecord* citizen) // inserts a citizen
         }
         else if (nextNode->getId() > citizen->getId()) // if the next node id is greater than the id
         {
-            if (layerOfNewNode >= currentLayer)
+            if (layerOfNewNode >= currentLayer) // checking if i have to create the node in this Layer or not
             {
                 SkipListNode* newNode = new SkipListNode(citizen, NULL, NULL);
                 currentNode->setNext(newNode);
@@ -255,7 +255,7 @@ void SkipList::insertNodeNonVaccinated(CitizenRecord* citizen) // inserts a citi
         }
         else if (nextNode->getId() > citizen->getId()) // if the next node id is greater than the id
         {
-            if (layerOfNewNode >= currentLayer)
+            if (layerOfNewNode >= currentLayer) // checking if i have to create the node in this Layer or not
             {
                 SkipListNode* newNode = new SkipListNode(citizen, NULL, NULL);
                 currentNode->setNext(newNode);
@@ -280,7 +280,7 @@ void SkipList::insertNodeNonVaccinated(CitizenRecord* citizen) // inserts a citi
     }
 }
 
-void SkipList::deleteNodeVaccinated(int id)
+void SkipList::deleteNodeVaccinated(int id) // deletes the Node with specific id from the Vaccinated skipList
 {
     SkipListNode* currentNode = this->getVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
@@ -304,9 +304,9 @@ void SkipList::deleteNodeVaccinated(int id)
         }
         else // the next node id is equal to the id
         {
-            SkipListNode* belowNodeToDelete = nextNode->getBelow();
-            currentNode->setNext(nextNode->getNext());
-            delete nextNode;
+            SkipListNode* belowNodeToDelete = nextNode->getBelow(); // taking the node below of the one that i will delete 
+            currentNode->setNext(nextNode->getNext()); // making the node before the one i will delete point to the next node of the one that i will delte
+            delete nextNode; // deleting the node
             if (this->getVaccinated()->getFirstNode()->getNext() == this->getVaccinated()->getLastNode()) // if the layer is empty i delete the layer
             {
                 SkipListLayer* tmp = this->getVaccinated()->getBelowLayer();
@@ -315,13 +315,14 @@ void SkipList::deleteNodeVaccinated(int id)
             }
             while (belowNodeToDelete != NULL) // for every layer
             {
-                currentNode = currentNode->getBelow(); // curent will show to the below layer
-                while (1)
+                currentNode = currentNode->getBelow(); // current (is the previous node of the one i deleted) will show to the same node on the below layer
+                while (1) // finding the previous node of the below node that i deleted so i can delete also this one  
                 {
                     if (currentNode->getNext() == belowNodeToDelete)
                         break;
                     currentNode = currentNode->getNext();
                 }
+                // making the previous node of the one i will delete point to the next one of the node i will delete
                 currentNode->setNext(belowNodeToDelete->getNext());
                 SkipListNode* tmp = belowNodeToDelete->getBelow();
                 delete belowNodeToDelete;
@@ -332,7 +333,7 @@ void SkipList::deleteNodeVaccinated(int id)
     }
 }
 
-void SkipList::deleteNodeNonVaccinated(int id)
+void SkipList::deleteNodeNonVaccinated(int id) // deletes the Node with specific id from the nonVaccinated skipList
 {
     SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
@@ -356,24 +357,25 @@ void SkipList::deleteNodeNonVaccinated(int id)
         }
         else // the next node id is equal to the id
         {
-            SkipListNode* belowNodeToDelete = nextNode->getBelow();
-            currentNode->setNext(nextNode->getNext());
-            delete nextNode;
-            if (this->getNonVaccinated()->getFirstNode()->getNext() == this->getNonVaccinated()->getLastNode())
+            SkipListNode* belowNodeToDelete = nextNode->getBelow(); // taking the node below of the one that i will delete 
+            currentNode->setNext(nextNode->getNext()); // making the node before the one i will delete point to the next node of the one that i will delte
+            delete nextNode;// deleting the node
+            if (this->getNonVaccinated()->getFirstNode()->getNext() == this->getNonVaccinated()->getLastNode())  // if the layer is empty i delete the layer
             {
                 SkipListLayer* tmp = this->getNonVaccinated()->getBelowLayer();
                 delete this->nonVaccinated;
                 this->nonVaccinated = tmp;
             }
-            while (belowNodeToDelete != NULL)// before i delete the node i have to make the node before this node to point to the node after the node i will delete
+            while (belowNodeToDelete != NULL) // for every layer
             {
-                currentNode = currentNode->getBelow();
-                while (1)
+                currentNode = currentNode->getBelow(); // current (is the previous node of the one i deleted) will show to the same node on the below layer
+                while (1) // finding the previous node of the below node that i deleted so i can delete also this one  
                 {
                     if (currentNode->getNext() == belowNodeToDelete)
                         break;
                     currentNode = currentNode->getNext();
                 }
+                // making the previous node of the one i will delete point to the next one of the node i will delete
                 currentNode->setNext(belowNodeToDelete->getNext());
                 SkipListNode* tmp = belowNodeToDelete->getBelow();
                 delete belowNodeToDelete;

@@ -52,7 +52,7 @@ public:
     void setLayer(int layer) { this->layer = layer; }
 
     void printLayer(int&); // prints all the nodes of the specific layer
-    void deleteAllLayers();
+    void deleteAllLayers(); // deletes all Layers
 };
 
 class SkipList
@@ -71,7 +71,7 @@ public:
     string getVirusName() { return virus->name; } // returns the name of the specific virus
     SkipList* getNext() { return next; } // returns the node for the next virus
 
-    void setVaccinated(SkipListLayer* vaccinated) { this->vaccinated = vaccinated; } // to update the vaccinated when i create a new layer
+    void setVaccinated(SkipListLayer* vaccinated) { this->vaccinated = vaccinated; }
     void setNonVaccinated(SkipListLayer* nonVaccinated) { this->nonVaccinated = nonVaccinated; }
     void setVirus(LinkedListStringNode* virus) { this->virus = virus; }
     void setNext(SkipList* next) { this->next = next; }
@@ -87,11 +87,11 @@ public:
     void insertNodeVaccinated(CitizenRecord*); // inserts a citizen to the vaccinated skipList of the specific virus
     void insertNodeNonVaccinated(CitizenRecord*); // inserts a citizen to the nonVaccinated skipList of the specific virus
 
-    void deleteNodeVaccinated(int);
-    void deleteNodeNonVaccinated(int);
+    void deleteNodeVaccinated(int); // deletes the Node with specific id from the Vaccinated skipList
+    void deleteNodeNonVaccinated(int); // deletes the Node with specific id from the nonVaccinated skipList
 
-    SkipListNode* findNodeVaccinated(int);
-    SkipListNode* findNodeNonVaccinated(int);
+    SkipListNode* findNodeVaccinated(int); // finds the node with the id and returns it else returns NULL
+    SkipListNode* findNodeNonVaccinated(int); // finds the node with the id and returns it else returns NULL
 
     void print(); // prints all viruses on skiplist
 };
