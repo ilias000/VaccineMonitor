@@ -71,7 +71,7 @@ public:
     string getVirusName() { return virus->name; } // returns the name of the specific virus
     SkipList* getNext() { return next; } // returns the node for the next virus
 
-    void setVaccinated(SkipListLayer* vaccinated) { this->vaccinated = vaccinated; }
+    void setVaccinated(SkipListLayer* vaccinated) { this->vaccinated = vaccinated; } // to update the vaccinated when i create a new layer
     void setNonVaccinated(SkipListLayer* nonVaccinated) { this->nonVaccinated = nonVaccinated; }
     void setVirus(LinkedListStringNode* virus) { this->virus = virus; }
     void setNext(SkipList* next) { this->next = next; }

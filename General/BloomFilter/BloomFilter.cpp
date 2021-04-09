@@ -76,7 +76,7 @@ unsigned long hash_i(unsigned char* str, unsigned int i)
 
 void BloomFilter::insert(int id) // takes the id of the citizen and makes 16 bits of the filter that the hash function will tell 1
 {
-    char charId[4];                  // wil store the id like a char
+    char charId[4];                  // will store the id like a char
     unsigned char unsignedCharId[4]; // will store the id like a unsigned char
     sprintf(charId, "%d", id);       // storing the id like a char in the charId array
     for (int i = 0; i < 4; i++)      // storing the id like an unsinged char in the unsignedCharId array

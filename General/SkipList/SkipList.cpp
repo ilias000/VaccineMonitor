@@ -166,7 +166,7 @@ void SkipList::insertNodeVaccinated(CitizenRecord* citizen) // inserts a citizen
     srand((time.tv_nsec * 1000) + (time.tv_sec * 1000));
 
     int layerOfNewNode = 0;
-    while ((rand() % 2) && (currentLayer >= layerOfNewNode)) // deciding how many layers the new node will have
+    while ((rand() % 2) && (currentLayer >= layerOfNewNode)) // deciding how many layers the new node will have (it can have max currentLayer + 1)
     {
         layerOfNewNode++;
         if (layerOfNewNode == 8) // 9 layers is the max we want
@@ -307,15 +307,15 @@ void SkipList::deleteNodeVaccinated(int id)
             SkipListNode* belowNodeToDelete = nextNode->getBelow();
             currentNode->setNext(nextNode->getNext());
             delete nextNode;
-            if (this->getVaccinated()->getFirstNode()->getNext() == this->getVaccinated()->getLastNode())
+            if (this->getVaccinated()->getFirstNode()->getNext() == this->getVaccinated()->getLastNode()) // if the layer is empty i delete the layer
             {
                 SkipListLayer* tmp = this->getVaccinated()->getBelowLayer();
                 delete this->vaccinated;
                 this->vaccinated = tmp;
             }
-            while (belowNodeToDelete != NULL)
+            while (belowNodeToDelete != NULL) // for every layer
             {
-                currentNode = currentNode->getBelow();
+                currentNode = currentNode->getBelow(); // curent will show to the below layer
                 while (1)
                 {
                     if (currentNode->getNext() == belowNodeToDelete)
@@ -365,7 +365,7 @@ void SkipList::deleteNodeNonVaccinated(int id)
                 delete this->nonVaccinated;
                 this->nonVaccinated = tmp;
             }
-            while (belowNodeToDelete != NULL)
+            while (belowNodeToDelete != NULL)// before i delete the node i have to make the node before this node to point to the node after the node i will delete
             {
                 currentNode = currentNode->getBelow();
                 while (1)
