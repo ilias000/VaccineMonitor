@@ -22,7 +22,7 @@ void CitizenRecord::print() // prints the record
     viruses->print();
 }
 
-void CitizenRecord::printInfo() // prints the record
+void CitizenRecord::printInfo() // prints the information of the citizen (not the viruses)
 {
     cout << id << " " << firstName << " " << lastName << " " << country->name << " " << age << " : ";
 }

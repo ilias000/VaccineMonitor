@@ -204,24 +204,24 @@ int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a n
             }
             else // the citizen has already the virus in the list
             {
-                if (current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated.compare("YES") == 0)
+                if (current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated.compare("YES") == 0) // the vaccinated of the old record is YES
                 {
-                    if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0)
+                    if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0) // the vaccinated of the new record is YES
                     {
                         cout << "ERROR: CITIZEN " << (*citizen)->getId() << " ALREADY VACCINATED ON " << current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date << endl;
                         delete newNode;
                         return 2;
                     }
-                    else
+                    else // the vaccinated of the new record is NO
                     {
                         cout << "ERROR: CITIZEN " << (*citizen)->getId() << " ALREADY VACCINATED ON " << current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date << endl;
                         delete newNode;
                         return 3;
                     }
                 }
-                else
+                else // the vaccinated of the old record is NO
                 {
-                    if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0)
+                    if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0) // the vaccinated of the new record is YES
                     {
                         current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated = "YES";
                         current->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date = (*citizen)->getViruses()->getFirstNode()->date;
@@ -230,7 +230,7 @@ int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a n
                         delete newNode;
                         return 4;
                     }
-                    else
+                    else // the vaccinated of the new record is NO
                     {
                         cout << "ERROR: CITIZEN " << (*citizen)->getId() << " IS ALREADY NO !" << endl;
                         delete newNode;
@@ -280,24 +280,24 @@ int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a n
                 }
                 else // the citizen has already the virus in the list
                 {
-                    if (current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated.compare("YES") == 0)
+                    if (current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated.compare("YES") == 0) // the vaccinated of the old record is YES
                     {
-                        if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0)
+                        if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0) // the vaccinated of the new record is YES
                         {
                             cout << "ERROR: CITIZEN " << (*citizen)->getId() << " ALREADY VACCINATED ON " << current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date << endl;
                             delete newNode;
                             return 2;
                         }
-                        else
+                        else // the vaccinated of the new record is NO
                         {
                             cout << "ERROR: CITIZEN " << (*citizen)->getId() << " ALREADY VACCINATED ON " << current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date << endl;
                             delete newNode;
                             return 3;
                         }
                     }
-                    else
+                    else // the vaccinated of the old record is NO
                     {
-                        if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0)
+                        if ((*citizen)->getViruses()->getFirstNode()->vaccinated.compare("YES") == 0) // the vaccinated of the new record is YES
                         {
                             current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->vaccinated = "YES";
                             current->getNext()->getCitizen()->getViruses()->findNode((*citizen)->getViruses()->getFirstNode()->virusName)->date = (*citizen)->getViruses()->getFirstNode()->date;
@@ -306,7 +306,7 @@ int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a n
                             delete newNode;
                             return 4;
                         }
-                        else
+                        else // the vaccinated of the new record is NO
                         {
                             cout << "ERROR: CITIZEN " << (*citizen)->getId() << " IS ALREADY NO !" << endl;
                             delete newNode;
