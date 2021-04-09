@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
             bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
         }
-        else if ((success) && (wordsOfLine[6].compare("NO") == 0)) // we insert the citizen to the non vaccinated skipList of the specific virus
+        else if ((success) && (wordsOfLine[6].compare("NO") == 0)) // if the citizen inserted correctly and has not done the vaccine we insert the citizen to the non vaccinated skipList of the specific virus
             skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
 
         delete[] wordsOfLine;
