@@ -207,14 +207,14 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                         cout << "NOT VACCINATED" << endl;
                 }
                 else
-                    cout << "ERROR: citizenId virusName not found !" << endl;
+                    cout << "ERROR: citizenId virusName arguments not found !" << endl;
             }
             else if (wordsOfCommand[0].compare("/vaccineStatus") == 0)
             {
                 cout << " Command : /vaccineStatus" << endl;
-                if (numWords == 3)
+                if (numWords == 3) // /vaccineStatus citizenID virusName
                 {
-                    if (skipList->findVirus(wordsOfCommand[2]) != NULL)
+                    if (skipList->findVirus(wordsOfCommand[2]) != NULL) // if the virus exists
                     {
                         SkipListNode* node = skipList->findVirus(wordsOfCommand[2])->findNodeVaccinated(stoi(wordsOfCommand[1]));
                         if (node != NULL)
@@ -223,15 +223,14 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                         }
                         else
                             cout << "NOT VACCINATED" << endl;
-
                     }
                     else
                         cout << "NOT VACCINATED" << endl;
                 }
-                else if (numWords == 2)
+                else if (numWords == 2) // / vaccineStatus citizenID
                 {
-                    LinkedListStringNode* currentVirus = viruses->getStart();
-                    while (currentVirus != NULL)
+                    LinkedListStringNode* currentVirus = viruses->getStart(); // starting from the first virus of the list with all the viruses
+                    while (currentVirus != NULL) // for all the viruses
                     {
                         cout << currentVirus->name;
                         SkipListNode* node = skipList->findVirus(currentVirus->name)->findNodeVaccinated(stoi(wordsOfCommand[1]));
@@ -252,19 +251,13 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
             }
             else if ((wordsOfCommand[0].compare("/populationStatus") == 0) && ((numWords == 4) || (numWords == 5)))
             {
-                if (numWords == 4)
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
-                else
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+                cout << "Δεν προλαβα να κανω αυτην την εντολη !" << endl;
                 //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
                 // TODO: Να ελεγχει αν το date1 < date2
             }
             else if ((wordsOfCommand[0].compare("/popStatusByAge") == 0) && ((numWords == 4) || (numWords == 5)))
             {
-                if (numWords == 4)
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << endl;
-                else
-                    cout << "The command is : " << wordsOfCommand[0] << " " << wordsOfCommand[1] << " " << wordsOfCommand[2] << " " << wordsOfCommand[3] << " " << wordsOfCommand[4] << endl;
+                cout << "Δεν προλαβα να κανω αυτην την εντολη !" << endl;
                 //TODO: Εάν υπάρχει ο ορισμός για date1 θα πρέπει να υπάρχει και ορισμός για date2, αλλιώς, θα τυπώνεται το μήνυμα λάθους ERROR στον χρήστη.
                 // TODO: Να ελεγχει αν το date1 < date2
             }
@@ -273,12 +266,12 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                 cout << " Command : /insertCitizenRecord" << endl;
                 if (numWords == 8)
                 {
-                    string* wordsOfRecord = new string[numWords - 1];
+                    string* wordsOfRecord = new string[numWords - 1]; // will store the record that the user wants to insert
                     for (int i = 0; i < numWords - 1; i++)
-                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
+                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record from the command
                     if (wordsOfCommand[7].compare("NO") == 0)
                     {
-                        if (!errorChecking(numWords - 1, wordsOfRecord, citizens))
+                        if (!errorChecking(numWords - 1, wordsOfRecord, citizens)) // checking the record for errors
                         {
                             delete[] wordsOfCommand;
                             delete[] wordsOfRecord;
@@ -318,16 +311,16 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
 
                         int success = citizens->insertNodeCommand(&citizen);
 
-                        if ((success == 1) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+                        if ((success == 1) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter and vaccine skipList of the specific virus
                         {
                             bloomFilter->getFilter(virus)->insert(stoi(wordsOfRecord[0]));
                             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
                         }
-                        else if ((success == 1) && (wordsOfRecord[6].compare("NO") == 0))
+                        else if ((success == 1) && (wordsOfRecord[6].compare("NO") == 0)) // if the citizen inserted correctly and has not done the vaccine we insert the citizen to the non vaccinated skipList of the specific virus
                             skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
-                        else if ((success == 2) || (success == 3) || (success == 5))
+                        else if ((success == 2) || (success == 3) || (success == 5)) // the citizen is already vaccinated or is already not vaccinated
                             delete citizen;
-                        else if (success == 4)
+                        else if (success == 4) // the citizen was not vaccinated before but now will be vaccinated
                         {
                             skipList->findVirus(virus)->deleteNodeNonVaccinated(citizen->getId());
                             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
@@ -341,12 +334,12 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                 }
                 else if (numWords == 9)
                 {
-                    string* wordsOfRecord = new string[numWords - 1];
+                    string* wordsOfRecord = new string[numWords - 1]; // will store the record that the user wants to insert
                     for (int i = 0; i < numWords - 1; i++)
-                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
+                        wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record from the command
                     if (wordsOfCommand[7].compare("YES") == 0)
                     {
-                        if (!errorChecking(numWords - 1, wordsOfRecord, citizens))
+                        if (!errorChecking(numWords - 1, wordsOfRecord, citizens)) // checking the record for errors
                         {
                             delete[] wordsOfCommand;
                             delete[] wordsOfRecord;
@@ -385,16 +378,17 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                             citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], "");
 
                         int success = citizens->insertNodeCommand(&citizen);
-                        if ((success == 1) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+                        
+                        if ((success == 1) && (wordsOfRecord[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter and vaccine skipList of the specific virus
                         {
                             bloomFilter->getFilter(virus)->insert(stoi(wordsOfRecord[0]));
                             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
                         }
-                        else if ((success == 1) && (wordsOfRecord[6].compare("NO") == 0))
+                        else if ((success == 1) && (wordsOfRecord[6].compare("NO") == 0)) // if the citizen inserted correctly and has not done the vaccine we insert the citizen to the non vaccinated skipList of the specific virus
                             skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
-                        else if ((success == 2) || (success == 3) || (success == 5))
+                        else if ((success == 2) || (success == 3) || (success == 5)) // the citizen is already vaccinated or is already not vaccinated
                             delete citizen;
-                        else if (success == 4)
+                        else if (success == 4) // the citizen was not vaccinated before but now will be vaccinated
                         {   
                             skipList->findVirus(virus)->deleteNodeNonVaccinated(citizen->getId());
                             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
@@ -413,11 +407,11 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
             {
                 if (numWords == 7)
                 {
-                    string* wordsOfRecord = new string[8];
+                    string* wordsOfRecord = new string[8]; // will store the record of the command plus the YES and todays date
                     for (int i = 0; i < numWords - 1; i++)
                         wordsOfRecord[i] = wordsOfCommand[i + 1]; // taking the record
 
-                    wordsOfRecord[6] = "YES";
+                    wordsOfRecord[6] = "YES"; // adding the YES to the record
 
                     time_t now = time(0); // Number of sec since January 1,1970
 
@@ -425,9 +419,9 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                     string day = to_string(ltm->tm_mday);
                     string month = to_string(1 + ltm->tm_mon);
                     string year = to_string(1900 + ltm->tm_year);
-                    wordsOfRecord[7] = day + "-" + month + "-" + year;
+                    wordsOfRecord[7] = day + "-" + month + "-" + year; // adding todays date to the record
 
-                    if (!errorChecking(8, wordsOfRecord, citizens))
+                    if (!errorChecking(8, wordsOfRecord, citizens)) // checking the record for errors
                     {
                         delete[] wordsOfCommand;
                         delete[] wordsOfRecord;
@@ -463,14 +457,14 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                     citizen = new CitizenRecord(stoi(wordsOfRecord[0]), wordsOfRecord[1], wordsOfRecord[2], country, stoi(wordsOfRecord[4]), virus, wordsOfRecord[6], wordsOfRecord[7]);
 
                     int success = citizens->insertNodeCommand(&citizen);
-                    if (success == 1) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+                    if (success == 1) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter and vaccine skipList of the specific virus
                     {
                         bloomFilter->getFilter(virus)->insert(stoi(wordsOfRecord[0]));
                         skipList->findVirus(virus)->insertNodeVaccinated(citizen);
                     }
-                    else if ((success == 2) || (success == 3) || (success == 5))
+                    else if ((success == 2) || (success == 3) || (success == 5)) // the citizen is already vaccinated or is already not vaccinated
                         delete citizen;
-                    else if (success == 4)
+                    else if (success == 4) // the citizen was not vaccinated before but now will be vaccinated
                     {
                         skipList->findVirus(virus)->deleteNodeNonVaccinated(citizen->getId());
                         skipList->findVirus(virus)->insertNodeVaccinated(citizen);
@@ -487,7 +481,7 @@ void commandInterface(LinkedListString* countries, LinkedListString* viruses, Li
                 cout << " Command : /list-nonVaccinated-Persons" << endl;
                 if (numWords == 2)
                 {
-                    if (skipList->findVirus(wordsOfCommand[1]) != NULL)
+                    if (skipList->findVirus(wordsOfCommand[1]) != NULL) // if the virus exists
                     {
                         int count = 0;
                         skipList->findVirus(wordsOfCommand[1])->printNonVaccinatedLastLayer(count);

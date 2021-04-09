@@ -105,7 +105,7 @@ SkipList::~SkipList()
         delete this->next;
 }
 
-void SkipList::printNonVaccinatedLastLayer(int& count) // prints the last Layer of the nonVaccinated skipList
+void SkipList::printNonVaccinatedLastLayer(int& count) // prints the last Layer of the nonVaccinated skipList (i use the count for the command /list-nonVaccinated-Persons because if it 0 it means that all the citizens have done the vaccine)
 {
     SkipListLayer* lastLayer = nonVaccinated;
     while (lastLayer->getBelowLayer() != NULL) // finding the last layer because it has all the citizens

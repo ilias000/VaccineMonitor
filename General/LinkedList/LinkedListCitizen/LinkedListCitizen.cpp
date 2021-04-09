@@ -150,7 +150,7 @@ int LinkedListCitizen::insertNode(CitizenRecord** citizen) // inserts a node at 
     return 0;
 }
 
-int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first (if the citizen inserted returns 1 else returns 0)
+int LinkedListCitizen::insertNodeCommand(CitizenRecord** citizen) // inserts a node at the rigth place so the list is sorted with smaller ides first (returns a specific number so i know what happend at the CommandInterface function where i call this functions)
 {
     LinkedListCitizenNode* newNode = new LinkedListCitizenNode; // creating a new node
     newNode->setCitizen(*citizen);
