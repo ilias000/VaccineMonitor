@@ -60,5 +60,57 @@ General Informations
 - If for the specific record the citizen has not done the vaccine i found a random number from 0 to 5 and if it is 1 then the record will also have a date so it will be inconsistent.
 - If i have to create more than 10.000 records and i have already used 10.000 different id regardless if the user wants duplicate or not, the other records will be duplicate because i dont have other id to use.
 
-~VaccineMonitor.cpp~
+~VaccineMonitor~
+
+General Informations
+
+- I have separate my code in folders so it is easier to read use and maintain.
+- I have complete all the parts of the Project corectly except from the commands :
+ /populationStatus [country] virusName date1 date2 
+ and
+ /popStatusByAge [country] virusName date1 date2
+ because i did not had enough time.
+
+
+ VaccineMonitor.cpp
+
+  - I have two LinkedListString one for the countries and one for the viruses so if the same country or virus comes I don't have to allocate different memory.
+  - I have another list LinkedListCitizen where I keep for every citizen the id, firstName, lastName, age ,country (it's a pointer to the LinkedListString of the specific country) and another list with all the viruses that I have information for the specific citizen.
+  - I made a function StringSeparetor that I use to separate the record to words.
+  - I use a function ErrorsChecking to check that the record has not errors.
+  - After I have inisialize the data structures for every record I call the function CommandInterface that is responsible for the commands that the user will give.
+
+
+ BloomFilter
+
+ This folder has all the files for the bloomFilter.
+
+
+
+ CitizenRecord
+
+ This folde
+ 
+ 
+ Functions
+
+
+
+
+ LinkedList
+
+
+
+
+ SkipList
+
+ - The layers will be at most 9.
+- At the LinkedListCitizen at InsertNodeCommand function returns :
+
+0. if the id has different credentials
+1. if the insertion is done right
+2. if the citizen has already the virus at his/her list with YES and the vaccinated of the new record is YES
+3. if the citizen has already the virus at his/her list with YES and the vaccinated of the new record is NO
+4. if the citizen has already the virus at his/her list with NO and the vaccinated of the new record is YES
+5. if the citizen has already the virus at his/her list with NO and the vaccinated of the new record is NO
 
