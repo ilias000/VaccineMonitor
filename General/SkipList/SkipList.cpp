@@ -13,6 +13,19 @@ SkipListNode::~SkipListNode()
 {
 }
 
+int SkipListNode::getId() // returns the id of the citizen if it is not one of the limit nodes
+{
+    if (citizen == NULL) // it is one of the limit nodes (-1 or 10000)
+    {
+        if (next == NULL) // it is the 10000 node
+            return 10000;
+        else // it is the -1 node
+            return -1;
+    }
+    else
+        return citizen->getId();
+}
+
 void SkipListNode::printNode() // prints a node
 {
     cout << "[" << this->getId() << "," << this << "," << this->getBelow() << "]";
@@ -22,14 +35,14 @@ void SkipListNode::printNode() // prints a node
 
 SkipListLayer::SkipListLayer(SkipListLayer* belowLayer)
 {
-    if (belowLayer == NULL)
+    if (belowLayer == NULL) // this is the first layer
     {
         this->layer = 0;
         this->belowLayer = NULL;
         this->lastNode = new SkipListNode(NULL, NULL, NULL);         // 10000 because the ids are [0,9999]
         this->firstNode = new SkipListNode(NULL, NULL, this->lastNode); // -1 because the ids are [0,9999]
     }
-    else
+    else // it has already layers 
     {
         this->layer = belowLayer->getLayer() + 1;
         this->belowLayer = belowLayer;
@@ -49,7 +62,7 @@ SkipListLayer ::~SkipListLayer()
     }
 }
 
-void SkipListLayer::printLayer(int& count)
+void SkipListLayer::printLayer(int& count) // prints all the nodes of the specific layer
 {
     SkipListNode* tmp = this->firstNode;
     while (tmp != NULL)
@@ -92,36 +105,32 @@ SkipList::~SkipList()
         delete this->next;
 }
 
-void SkipList::printNonVaccinatedLastLayer(int& count)
+void SkipList::printNonVaccinatedLastLayer(int& count) // prints the last Layer of the nonVaccinated skipList
 {
     SkipListLayer* lastLayer = nonVaccinated;
-    while (lastLayer->getBelowLayer() != NULL)
-    {
+    while (lastLayer->getBelowLayer() != NULL) // finding the last layer because it has all the citizens
         lastLayer = lastLayer->getBelowLayer();
-    }
     lastLayer->printLayer(count);
 }
 
-void SkipList::printVaccinatedLastLayer(int& count)
+void SkipList::printVaccinatedLastLayer(int& count) // prints the last Layer of the vaccinated skipList
 {
     SkipListLayer* lastLayer = vaccinated;
-    while (lastLayer->getBelowLayer() != NULL)
-    {
+    while (lastLayer->getBelowLayer() != NULL) // finding the last layer because it has all the citizens
         lastLayer = lastLayer->getBelowLayer();
-    }
     lastLayer->printLayer(count);
 }
 
-void SkipList::insertVirus(LinkedListStringNode* virus) // inserts at the end
+void SkipList::insertVirus(LinkedListStringNode* virus) // inserts a virus at the end of the list
 {
     SkipList* tmp = this;
-    while (tmp->next != NULL)
+    while (tmp->next != NULL) // finding the end of the list
         tmp = tmp->getNext();
-    SkipList* newVirus = new SkipList(virus);
-    tmp->setNext(newVirus);
+    SkipList* newVirus = new SkipList(virus); // creating the skipList for the virus
+    tmp->setNext(newVirus); // inserting the skipList for the virus at the end 
 }
 
-SkipList* SkipList::findVirus(LinkedListStringNode* virus)
+SkipList* SkipList::findVirus(LinkedListStringNode* virus) // returns the skipList of the specific virus
 {
     SkipList* tmp = this;
     while (tmp != NULL)
@@ -133,7 +142,7 @@ SkipList* SkipList::findVirus(LinkedListStringNode* virus)
     return NULL;
 }
 
-SkipList* SkipList::findVirus(string virusName)
+SkipList* SkipList::findVirus(string virusName) // returns the skipList of the specific virus
 {
     SkipList* tmp = this;
     while (tmp != NULL)
@@ -145,20 +154,19 @@ SkipList* SkipList::findVirus(string virusName)
     return NULL;
 }
 
-void SkipList::insertNodeVaccinated(CitizenRecord* citizen)
+void SkipList::insertNodeVaccinated(CitizenRecord* citizen) // inserts a citizen to the vaccinated skipList of the specific virus
 {
     SkipListNode* currentNode = this->getVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
     int currentLayer = this->getVaccinated()->getLayer();
 
-    // struct timeval time;
-    // gettimeofday(&time, NULL);
+    //flip coin
     struct timespec time;
     clock_gettime(CLOCK_MONOTONIC, &time);
     srand((time.tv_nsec * 1000) + (time.tv_sec * 1000));
 
     int layerOfNewNode = 0;
-    while ((rand() % 2) && (currentLayer >= layerOfNewNode))
+    while ((rand() % 2) && (currentLayer >= layerOfNewNode)) // deciding how many layers the new node will have
     {
         layerOfNewNode++;
         if (layerOfNewNode == 8) // 9 layers is the max we want
@@ -209,20 +217,19 @@ void SkipList::insertNodeVaccinated(CitizenRecord* citizen)
     }
 }
 
-void SkipList::insertNodeNonVaccinated(CitizenRecord* citizen)
+void SkipList::insertNodeNonVaccinated(CitizenRecord* citizen) // inserts a citizen to the nonVaccinated skipList of the specific virus
 {
     SkipListNode* currentNode = this->getNonVaccinated()->getFirstNode();
     SkipListNode* nextNode = currentNode->getNext();
     int currentLayer = this->getNonVaccinated()->getLayer();
 
-    // struct timeval time;
-    // gettimeofday(&time, NULL);
+    //flip coin
     struct timespec time;
     clock_gettime(CLOCK_MONOTONIC, &time);
     srand((time.tv_nsec * 1000) + (time.tv_sec * 1000));
 
     int layerOfNewNode = 0;
-    while ((rand() % 2) && (currentLayer >= layerOfNewNode))
+    while ((rand() % 2) && (currentLayer >= layerOfNewNode)) // deciding how many layers the new node will have
     {
         layerOfNewNode++;
         if (layerOfNewNode == 8) // 9 layers is the max we want

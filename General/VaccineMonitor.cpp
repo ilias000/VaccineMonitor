@@ -6,7 +6,6 @@
 #include "SkipList/SkipList.h"
 
 #include <stdlib.h>
-//#include <string>
 #include <fstream>
 #include <cstring>
 #include <sys/stat.h>
@@ -52,11 +51,11 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    LinkedListString* countries = new LinkedListString();
-    LinkedListString* viruses = new LinkedListString();
-    LinkedListCitizen* citizens = new LinkedListCitizen();
-    LinkedListBloomFilter* bloomFilter = NULL;
-    SkipList* skipList = NULL;
+    LinkedListString* countries = new LinkedListString(); // the list of all the countries
+    LinkedListString* viruses = new LinkedListString(); // the list of all the viruses
+    LinkedListCitizen* citizens = new LinkedListCitizen(); // the list of all the citizens
+    LinkedListBloomFilter* bloomFilter = NULL; // the list of all the bloomFilters for every virus
+    SkipList* skipList = NULL; // the list of all the skipLists for every virus
 
 
     ifstream name; // opening the file that contains the citizen Records
@@ -72,7 +71,7 @@ int main(int argc, char* argv[])
             return 0;
         }
 
-        if (!errorChecking(numWords, wordsOfLine, citizens))
+        if (!errorChecking(numWords, wordsOfLine, citizens)) // checking that the record has not any errors
         {
             delete[] wordsOfLine;
             continue;
@@ -110,17 +109,17 @@ int main(int argc, char* argv[])
             citizen = new CitizenRecord(stoi(wordsOfLine[0]), wordsOfLine[1], wordsOfLine[2], country, stoi(wordsOfLine[4]), virus, wordsOfLine[6], "");
 
         int success = citizens->insertNode(&citizen);
-        if ((success) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter of the specific virus
+        if ((success) && (wordsOfLine[6].compare("YES") == 0)) // if the citizen inserted correctly and has done the vaccine we insert the citizen to the bloom filter and vaccine skipList of the specific virus
         {
             bloomFilter->getFilter(virus)->insert(stoi(wordsOfLine[0]));
             skipList->findVirus(virus)->insertNodeVaccinated(citizen);
         }
-        else if ((success) && (wordsOfLine[6].compare("NO") == 0))
+        else if ((success) && (wordsOfLine[6].compare("NO") == 0)) // we insert the citizen to the non vaccinated skipList of the specific virus
             skipList->findVirus(virus)->insertNodeNonVaccinated(citizen);
 
         delete[] wordsOfLine;
     }
-    commandInterface(countries, viruses, citizens, bloomFilter, skipList, bloomSize);
+    commandInterface(countries, viruses, citizens, bloomFilter, skipList, bloomSize); // The interface for the commands that the user can give
 
     delete countries;
     delete viruses;
